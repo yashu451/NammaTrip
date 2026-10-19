@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/heroShowcase.css';
@@ -13,109 +13,17 @@ import {
   ArrowRight,
   Award,
   ChevronRight,
-  ChevronLeft,
   Heart
 } from 'lucide-react';
 import { GandaberundaEmblem, StoneChariotIcon, HeritageDivider } from '../components/HeritageMotifs.jsx';
 import DestinationCard from '../components/DestinationCard.jsx';
 import DestinationModal from '../components/DestinationModal.jsx';
 
-const HERO_SHOWCASE_DESTINATIONS = [
-  {
-    id: 'hampi',
-    name: 'Hampi',
-    nameKn: 'ಹಂಪಿ',
-    tagline: 'UNESCO Heritage',
-    taglineKn: 'ವಿಶ್ವ ಪರಂಪರೆ',
-    image: '/images/destinations/hampi.jpg'
-  },
-  {
-    id: 'mysuru',
-    name: 'Mysuru',
-    nameKn: 'ಮೈಸೂರು',
-    tagline: 'City of Palaces',
-    taglineKn: 'ಅರಮನೆಗಳ ನಗರಿ',
-    image: '/images/destinations/mysuru.jpg'
-  },
-  {
-    id: 'coorg',
-    name: 'Coorg',
-    nameKn: 'ಕೊಡಗು',
-    tagline: 'Misty Coffee Hills',
-    taglineKn: 'ಮಂಜಿನ ನಗರಿ',
-    image: '/images/destinations/coorg.jpg'
-  },
-  {
-    id: 'gokarna',
-    name: 'Gokarna',
-    nameKn: 'ಗೋಕರ್ಣ',
-    tagline: 'Sacred Coast',
-    taglineKn: 'ಪವಿತ್ರ ಕಡಲತೀರ',
-    image: '/images/destinations/gokarna.jpg'
-  },
-  {
-    id: 'badami',
-    name: 'Badami',
-    nameKn: 'ಬಾದಾಮಿ',
-    tagline: 'Cave Temples',
-    taglineKn: 'ಗುಹಾ ದೇವಾಲಯ',
-    image: '/images/destinations/badami.jpg'
-  },
-  {
-    id: 'belur',
-    name: 'Belur & Halebidu',
-    nameKn: 'ಬೇಲೂರು & ಹಳೇಬೀಡು',
-    tagline: 'Hoysala Wonders',
-    taglineKn: 'ಹೊಯ್ಸಳ ಶಿಲ್ಪಕಲೆ',
-    image: '/images/destinations/belur.jpg'
-  },
-  {
-    id: 'udupi',
-    name: 'Udupi',
-    nameKn: 'ಉಡುಪಿ',
-    tagline: 'Temples & Shores',
-    taglineKn: 'ಕೃಷ್ಣ ಮಠ & ಕಡಲು',
-    image: '/images/destinations/udupi.jpg'
-  },
-  {
-    id: 'chitradurga',
-    name: 'Chitradurga',
-    nameKn: 'ಚಿತ್ರದುರ್ಗ',
-    tagline: 'Stone Fortress',
-    taglineKn: 'ಏಳು ಸುತ್ತಿನ ಕೋಟೆ',
-    image: '/images/destinations/chitradurga.jpg'
-  },
-  {
-    id: 'pattadakal',
-    name: 'Pattadakal',
-    nameKn: 'ಪಟ್ಟದಕಲ್ಲು',
-    tagline: 'Temple Architecture',
-    taglineKn: 'ದೇಗುಲ ಶಿಲ್ಪಕಲೆ',
-    image: '/images/destinations/pattadakal.jpg'
-  },
-  {
-    id: 'vijayapura',
-    name: 'Vijayapura',
-    nameKn: 'ವಿಜಯಪುರ',
-    tagline: 'Gol Gumbaz',
-    taglineKn: 'ಗೋಲ್ ಗುಂಬಜ್',
-    image: '/images/destinations/vijayapura.jpg'
-  }
-];
-
 export default function LandingPage() {
   const { language, t } = useLanguage();
   const navigate = useNavigate();
-  const carouselRef = useRef(null);
   const [featuredDestinations, setFeaturedDestinations] = useState([]);
   const [selectedDestination, setSelectedDestination] = useState(null);
-
-  const scrollCarousel = (direction) => {
-    if (carouselRef.current) {
-      const scrollOffset = direction === 'left' ? -220 : 220;
-      carouselRef.current.scrollBy({ left: scrollOffset, behavior: 'smooth' });
-    }
-  };
 
   useEffect(() => {
     fetch('/api/destinations')
@@ -130,169 +38,89 @@ export default function LandingPage() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '64px', paddingBottom: '64px' }}>
-      {/* Hero Section with Cinematic Karnataka Landscape & Destination Showcase */}
+      {/* Hero Section with Cinematic Karnataka Landscape */}
       <section className="hero-section-cinematic">
         <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            alignItems: 'center',
-            gap: '40px'
-          }}>
-            {/* Left Column: Headline & CTAs */}
-            <div style={{ maxWidth: '620px' }}>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 14px',
-                borderRadius: '24px',
-                backgroundColor: 'rgba(217, 119, 6, 0.25)',
-                border: '1px solid rgba(217, 119, 6, 0.45)',
-                color: '#FDE68A',
-                fontSize: '0.85rem',
-                fontWeight: 700,
-                marginBottom: '20px',
-                backdropFilter: 'blur(6px)'
-              }}>
-                <Sparkles size={16} color="#FDE68A" />
-                <span>{t('heroBadge')}</span>
-              </div>
-
-              <h1 style={{
-                fontSize: 'clamp(2rem, 4vw, 3.2rem)',
-                fontFamily: language === 'kn' ? 'var(--font-kannada)' : 'var(--font-serif)',
-                fontWeight: 800,
-                lineHeight: language === 'kn' ? 1.35 : 1.15,
-                color: '#FFFFFF',
-                marginBottom: '20px',
-                wordBreak: 'normal',
-                overflowWrap: 'break-word',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.6)'
-              }}>
-                {t('heroTitle')}
-              </h1>
-
-              <p style={{
-                fontSize: '1.1rem',
-                color: '#D8F3DC',
-                lineHeight: 1.65,
-                marginBottom: '32px',
-                maxWidth: '560px',
-                textShadow: '0 1px 4px rgba(0, 0, 0, 0.6)'
-              }}>
-                {t('heroDescription')}
-              </p>
-
-              {/* CTAs */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
-                <Link to="/planner" className="btn btn-gold btn-lg">
-                  <Sparkles size={18} />
-                  <span>{t('heroStartPlanning')}</span>
-                </Link>
-                <Link to="/explore" className="btn btn-secondary btn-lg" style={{ backgroundColor: 'rgba(255,255,255,0.14)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)', backdropFilter: 'blur(6px)' }}>
-                  <Compass size={18} />
-                  <span>{t('heroExploreHeritage')}</span>
-                </Link>
-              </div>
-
-              {/* Trust Badges */}
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignItems: 'center',
-                gap: '20px',
-                marginTop: '40px',
-                paddingTop: '24px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.16)',
-                fontSize: '0.82rem',
-                color: '#B7E4C7',
-                textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <ShieldCheck size={16} color="#D97706" />
-                  <span>{t('heroFeatureBudget')}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Award size={16} color="#D97706" />
-                  <span>{t('heroFeatureHeritage')}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Heart size={16} color="#D97706" />
-                  <span>{t('heroFeatureBilingual')}</span>
-                </div>
-              </div>
+          <div style={{ maxWidth: '640px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 14px',
+              borderRadius: '24px',
+              backgroundColor: 'rgba(217, 119, 6, 0.25)',
+              border: '1px solid rgba(217, 119, 6, 0.45)',
+              color: '#FDE68A',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              marginBottom: '20px',
+              backdropFilter: 'blur(6px)'
+            }}>
+              <Sparkles size={16} color="#FDE68A" />
+              <span>{t('heroBadge')}</span>
             </div>
 
-            {/* Right Column: Open Vista with Translucent Blue-Green Destination Showcase in Lower-Right */}
+            <h1 style={{
+              fontSize: 'clamp(2rem, 4vw, 3.2rem)',
+              fontFamily: language === 'kn' ? 'var(--font-kannada)' : 'var(--font-serif)',
+              fontWeight: 800,
+              lineHeight: language === 'kn' ? 1.35 : 1.15,
+              color: '#FFFFFF',
+              marginBottom: '20px',
+              wordBreak: 'normal',
+              overflowWrap: 'break-word',
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.6)'
+            }}>
+              {t('heroTitle')}
+            </h1>
+
+            <p style={{
+              fontSize: '1.1rem',
+              color: '#D8F3DC',
+              lineHeight: 1.65,
+              marginBottom: '32px',
+              maxWidth: '560px',
+              textShadow: '0 1px 4px rgba(0, 0, 0, 0.6)'
+            }}>
+              {t('heroDescription')}
+            </p>
+
+            {/* CTAs */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
+              <Link to="/planner" className="btn btn-gold btn-lg">
+                <Sparkles size={18} />
+                <span>{t('heroStartPlanning')}</span>
+              </Link>
+              <Link to="/explore" className="btn btn-secondary btn-lg" style={{ backgroundColor: 'rgba(255,255,255,0.14)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)', backdropFilter: 'blur(6px)' }}>
+                <Compass size={18} />
+                <span>{t('heroExploreHeritage')}</span>
+              </Link>
+            </div>
+
+            {/* Trust Badges */}
             <div style={{
               display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              alignItems: 'flex-end',
-              minHeight: '440px',
-              width: '100%'
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              gap: '20px',
+              marginTop: '40px',
+              paddingTop: '24px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.16)',
+              fontSize: '0.82rem',
+              color: '#B7E4C7',
+              textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
             }}>
-              {/* Natural open space letting the landscape temples, chariot & palace shine */}
-              <div style={{ flex: 1, minHeight: '120px' }} />
-
-              {/* Translucent Blue-Green Destination Showcase Bar */}
-              <div className="hero-showcase-bar">
-                <div className="hero-showcase-header">
-                  <div className="hero-showcase-title">
-                    <Compass size={16} color="#FDE68A" />
-                    <span>{language === 'kn' ? 'ಪ್ರಮುಖ ಕರ್ನಾಟಕ ಪ್ರವಾಸ ತಾಣಗಳು' : 'Featured Karnataka Destinations'}</span>
-                  </div>
-                  <div className="hero-showcase-nav-group">
-                    <button
-                      type="button"
-                      onClick={() => scrollCarousel('left')}
-                      className="hero-showcase-nav-btn"
-                      aria-label="Previous Destinations"
-                      title="Previous"
-                    >
-                      <ChevronLeft size={16} />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => scrollCarousel('right')}
-                      className="hero-showcase-nav-btn"
-                      aria-label="Next Destinations"
-                      title="Next"
-                    >
-                      <ChevronRight size={16} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Horizontal Carousel Track */}
-                <div ref={carouselRef} className="hero-showcase-track">
-                  {HERO_SHOWCASE_DESTINATIONS.map((dest) => (
-                    <Link
-                      key={dest.id}
-                      to={`/explore?search=${encodeURIComponent(dest.name)}`}
-                      className="hero-destination-item"
-                      title={language === 'kn' ? `${dest.nameKn} (${dest.name})` : dest.name}
-                    >
-                      <div className="hero-destination-avatar">
-                        <img
-                          src={dest.image}
-                          alt={dest.name}
-                          onError={(e) => {
-                            e.currentTarget.onerror = null;
-                            e.currentTarget.src = '/images/destinations/fallback.jpg';
-                          }}
-                        />
-                      </div>
-                      <div className="hero-destination-label">
-                        {language === 'kn' ? dest.nameKn : dest.name}
-                      </div>
-                      <div className="hero-destination-tagline">
-                        {language === 'kn' ? dest.taglineKn : dest.tagline}
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <ShieldCheck size={16} color="#D97706" />
+                <span>{t('heroFeatureBudget')}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Award size={16} color="#D97706" />
+                <span>{t('heroFeatureHeritage')}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Heart size={16} color="#D97706" />
+                <span>{t('heroFeatureBilingual')}</span>
               </div>
             </div>
           </div>
