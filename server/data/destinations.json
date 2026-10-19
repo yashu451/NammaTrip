@@ -1,0 +1,651 @@
+[
+  {
+    "id": "hampi",
+    "name": "Hampi",
+    "nameKn": "ಹಂಪಿ",
+    "tagline": "The City of Victory & UNESCO World Heritage Gem",
+    "taglineKn": "ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯದ ವೈಭವ ಮತ್ತು ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆ ತಾಣ",
+    "region": "Kalyana Karnataka (Vijayanagara District)",
+    "regionKn": "ಕಲ್ಯಾಣ ಕರ್ನಾಟಕ (ವಿಜಯನಗರ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/hampi.jpg",
+    "gallery": [
+      "/images/destinations/hampi.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Capital of the magnificent 14th-century Vijayanagara Empire, Hampi sprawls across 4,100 hectares of surreal boulder-strewn landscapes along the sacred Tungabhadra River. Featuring over 1,600 surviving monuments, musical stone pillars, grand bazaar streets, and royal palaces.",
+    "descriptionKn": "೧೪ನೇ ಶತಮಾನದ ಭವ್ಯ ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯದ ರಾಜಧಾನಿ ಹಂಪಿ. ತುಂಗಭದ್ರಾ ನದಿಯ ತೀರದಲ್ಲಿ ೪,೧೦೦ ಹೆಕ್ಟೇರ್ ಪ್ರದೇಶದಲ್ಲಿ ಬಂಡೆಗಲ್ಲುಗಳ ನಡುವೆ ಹರಡಿರುವ ಈ ತಾಣದಲ್ಲಿ ಸಂಗೀತ ಸ್ತಂಭಗಳುಳ್ಳ ವಿಠ್ಠಲ ದೇಗುಲ, ವಿರೂಪಾಕ್ಷ ಸ್ವಾಮಿ ಸನ್ನಿಧಿ ಮತ್ತು ಪ್ರಾಚೀನ ವೈಭವದ ೧,೬೦೦ಕ್ಕೂ ಹೆಚ್ಚು ಸ್ಮಾರಕಗಳಿವೆ.",
+    "significance": "UNESCO World Heritage Site since 1986. Commemorates the zenith of South Indian Dravidian art, architecture, and civic engineering under Emperor Krishnadevaraya.",
+    "significanceKn": "೧೯೮೬ ರಿಂದ ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆಯ ತಾಣ. ಶ್ರೀಕೃಷ್ಣದೇವರಾಯರ ಕಾಲದಲ್ಲಿ ದ್ರಾವಿಡ ವಾಸ್ತುಶಿಲ್ಪ, ಕಲೆ ಮತ್ತು ನಾಗರಿಕ ನಿರ್ಮಾಣದ ಉತ್ತುಂಗವನ್ನು ಪ್ರತಿಬಿಂಬಿಸುತ್ತದೆ.",
+    "heritageStory": "Legend tells that Pampa (the ancient name of Tungabhadra) did penance on Hemakuta Hill to win the hand of Lord Shiva, manifesting as Virupaksha. Centuries later, in 1336 CE, the sage Vidyaranya inspired the brothers Hakka and Bukka to establish the Vijayanagara Empire after witnessing a hare chasing hounds on this holy ground—a sign of fearless resilience.",
+    "heritageStoryKn": "ಹೇಮಕೂಟ ಬೆಟ್ಟದಲ್ಲಿ ಪಂಪಾದೇವಿಯು ಶಿವನನ್ನು ವರಿಸಲು ತಪಸ್ಸು ಮಾಡಿದ ಪವಿತ್ರ ಭೂಮಿ ಇದು. ಕ್ರಿ.ಶ. ೧೩೩೬ರಲ್ಲಿ ವಿದ್ಯಾರಣ್ಯ ಸ್ವಾಮಿಗಳ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ ಹಕ್ಕ-ಬುಕ್ಕರು ಈ ನೆಲದಲ್ಲಿ ಮೊಲವೊಂದು ಬೇಟೆ ನಾಯಿಗಳನ್ನು ಎದುರಿಸಿ ಹಿಮ್ಮೆಟ್ಟಿಸಿದ್ದನ್ನು ಕಂಡು, ಇದು ಶೌರ್ಯದ ಪುಣ್ಯಕ್ಷೇತ್ರವೆಂದು ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯವನ್ನು ಸ್ಥಾಪಿಸಿದರು.",
+    "traditionsAndCrafts": "Banana fiber weaving, stone masonry, Lambani embroidered textiles, and the annual Hampi Utsava cultural festival celebrating classical dance and Kannada music.",
+    "traditionsAndCraftsKn": "ಬಾಳೆ ನಾರಿನ ಕರಕುಶಲ ವಸ್ತುಗಳು, ಕಲ್ಲಿನ ಶಿಲ್ಪಕಲೆ, ಲಂಬಾಣಿ ಕಸೂತಿ ವಸ್ತ್ರಗಳು ಮತ್ತು ಪ್ರಸಿದ್ಧ ಹಂಪಿ ಉತ್ಸವದ ಶಾಸ್ತ್ರೀಯ ಸಂಗೀತ-ನೃತ್ಯ ಪರಂಪರೆ.",
+    "localFood": "Authentic North Karnataka Jowar Roti (ಜೋಳದ ರೊಟ್ಟಿ) meals, Yennegai (stuffed brinjal), Shenga Chutney powder, and fresh tender coconut water by the riverbanks.",
+    "localFoodKn": "ಉತ್ತರ ಕರ್ನಾಟಕದ ಸಾಂಪ್ರದಾಯಿಕ ಜೋಳದ ರೊಟ್ಟಿ ಊಟ, ಎಣ್ಣೆಗಾಯಿ ಬದನೆಕಾಯಿ ಪಲ್ಯ, ಶೇಂಗಾ ಚಟ್ನಿ ಪುಡಿ ಹಾಗೂ ತುಂಗಭದ್ರಾ ತೀರದ ಎಳನೀರು.",
+    "historicalSources": "Archaeological Survey of India (ASI); Robert Sewell's 'A Forgotten Empire'; UNESCO World Heritage Centre Listing No. 241.",
+    "historicalSourcesKn": "ಭಾರತೀಯ ಪುರಾತತ್ವ ಸರ್ವೇಕ್ಷಣಾ ಇಲಾಖೆ (ASI); ರಾಬರ್ಟ್ ಸಿವೆಲ್ ಅವರ 'ಎ ಫರ್ಗೆಟನ್ ಎಂಪೈರ್'; ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆ ಪಟ್ಟಿ ಸಂ. ೨೪೧.",
+    "bestTimeToVisit": "October to March (pleasant winter climate)",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1800,
+    "nearestTransit": "Hosapete Junction Railway Station (13 km); Hubballi Airport (145 km)",
+    "nearestTransitKn": "ಹೊಸಪೇಟೆ ರೈಲ್ವೆ ನಿಲ್ದಾಣ (೧೩ ಕಿ.ಮೀ); ಹುಬ್ಬಳ್ಳಿ ವಿಮಾನ ನಿಲ್ದಾಣ (೧೪೫ ಕಿ.ಮೀ)",
+    "nearbyDestinations": [
+      "badami",
+      "pattadakal"
+    ],
+    "keyHighlights": [
+      "Stone Chariot at Vijaya Vittala Temple",
+      "Virupaksha Temple & Sacred Hemakuta Hill",
+      "Queen's Bath & Lotus Mahal",
+      "Sunset view over boulders from Matanga Hill",
+      "Coracle ride across the sacred Tungabhadra"
+    ],
+    "keyHighlightsKn": [
+      "ವಿಜಯ ವಿಠ್ಠಲ ದೇಗುಲದ ಕಲ್ಲಿನ ರಥ",
+      "ವಿರೂಪಾಕ್ಷ ದೇವಾಲಯ ಮತ್ತು ಹೇಮಕೂಟ ಬೆಟ್ಟ",
+      "ರಾಣಿಯ ಸ್ನಾನಗೃಹ ಮತ್ತು ಕಮಲ ಮಹಲ್",
+      "ಮಾತಂಗ ಬೆಟ್ಟದಿಂದ ಸೂರ್ಯಾಸ್ತದ ರಮಣೀಯ ನೋಟ",
+      "ತುಂಗಭದ್ರಾ ನದಿಯಲ್ಲಿ ಬುಟ್ಟಿ ದೋಣಿ (ತೆಪ್ಪ) ಸವಾರಿ"
+    ]
+  },
+  {
+    "id": "mysuru",
+    "name": "Mysuru (Mysore)",
+    "nameKn": "ಮೈಸೂರು",
+    "tagline": "City of Palaces, Royal Heritage & Fragrant Sandalwood",
+    "taglineKn": "ಅರಮನೆಗಳ ನಗರಿ, ರಾಜಪರಂಪರೆ ಮತ್ತು ಗಂಧದ ಬೀಡು",
+    "region": "South Karnataka (Mysuru District)",
+    "regionKn": "ದಕ್ಷಿಣ ಕರ್ನಾಟಕ (ಮೈಸೂರು ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture",
+      "Food"
+    ],
+    "heroImage": "/images/destinations/mysuru.jpg",
+    "gallery": [
+      "/images/destinations/mysuru.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "The cultural capital of Karnataka, celebrated for its Indo-Saracenic Ambavilas Palace, century-old Devaraja Market, fragrant jasmine flowers (Mysore Mallige), pure mulberry silk, and the centuries-old world-famous Dasara festivities.",
+    "descriptionKn": "ಕರ್ನಾಟಕದ ಸಾಂಸ್ಕೃತಿಕ ರಾಜಧಾನಿ ಮೈಸೂರು. ಜಗತ್ಪ್ರಸಿದ್ಧ ಅಂಬಾವಿಲಾಸ ಅರಮನೆ, ನೂರು ವರ್ಷಗಳ ಇತಿಹಾಸವಿರುವ ದೇವರಾಜ ಮಾರುಕಟ್ಟೆ, ಮೈಸೂರು ಮಲ್ಲಿಗೆ, ಶುದ್ಧ ಮೈಸೂರು ರೇಷ್ಮೆ ಮತ್ತು ನಾಡಹಬ್ಬ ದಸರಾಗೆ ಹೆಸರುವಾಸಿ.",
+    "significance": "Seat of the benevolent Wadiyar Dynasty who pioneered educational institutions, irrigation reservoirs (KRS dam), arts patronship, and industrialization across Karnataka.",
+    "significanceKn": "ಶಿಕ್ಷಣ, ನೀರಾವರಿ (ಕೆ.ಆರ್.ಎಸ್ ಅಣೆಕಟ್ಟು) ಮತ್ತು ಕಲೆ-ಸಾಹಿತ್ಯಕ್ಕೆ ಅಪಾರ ಕೊಡುಗೆ ನೀಡಿದ ಒಡೆಯರ್ ರಾಜವಂಶದ ರಾಜಧಾನಿ.",
+    "heritageStory": "Mysuru derives its name from 'Mahishuru', the city of demon Mahishasura slain by Goddess Chamundeshwari atop Chamundi Hills. Under Raja Wadiyar in 1610 CE, the Royal Dasara was inaugurated at Srirangapatna and later transferred to Mysuru, becoming Karnataka's state festival (Naada Habba).",
+    "heritageStoryKn": "ಚಾಮುಂಡಿ ಬೆಟ್ಟದಲ್ಲಿ ತಾಯಿ ಚಾಮುಂಡೇಶ್ವರಿಯು ಮಹಿಷಾಸುರನನ್ನು ಸಂಹರಿಸಿದ ಪುರಾಣದಿಂದ 'ಮಹಿಷೂರು' ಕಾಲಕ್ರಮೇಣ 'ಮೈಸೂರು' ಆಯಿತು. ಕ್ರಿ.ಶ. ೧೬೧೦ರಲ್ಲಿ ರಾಜ ಒಡೆಯರ್‌ರಿಂದ ಆರಂಭವಾದ ದಸರಾ ಉತ್ಸವ ಇಂದಿಗೂ ನಾಡಹಬ್ಬವಾಗಿ ವಿಜೃಂಭಣೆಯಿಂದ ಆಚರಿಸಲ್ಪಡುತ್ತದೆ.",
+    "traditionsAndCrafts": "Mysore Silk Sarees with gold zari, Mysore Painting with gesso gold foil, rosewood inlay work, and sandalwood carving.",
+    "traditionsAndCraftsKn": "ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆಗಳು, ಬಂಗಾರದ ರೇಕು ಹೊಂದಿರುವ ಮೈಸೂರು ಸಾಂಪ್ರದಾಯಿಕ ವರ್ಣಚಿತ್ರ ಕಲೆ, ಬೀಟೆ ಮರದ ಕೆತ್ತನೆ ಹಾಗೂ ಶ್ರೀಗಂಧದ ಕರಕುಶಲ ವಸ್ತುಗಳು.",
+    "localFood": "Original melt-in-mouth Mysore Pak, Mylari crispy butter masala dose, Mysore Rasam, and fresh Filter Kaapi.",
+    "localFoodKn": "ಬಾಯಲ್ಲಿ ಕರಗುವ ಅಸಲಿ ಮೈಸೂರು ಪಾಕ್, ಮೈಲಾರಿ ಬೆಣ್ಣೆ ಮಸಾಲೆ ದೋಸೆ, ಮೈಸೂರು ರಸಂ ಹಾಗೂ ಘಮಘಮಿಸುವ ಫಿಲ್ಟರ್ ಕಾಫಿ.",
+    "historicalSources": "Karnataka State Gazetteer (Mysore District); Royal Palace Archives; Dr. B. Lewis Rice, 'Epigraphia Carnatica'.",
+    "historicalSourcesKn": "ಕರ್ನಾಟಕ ರಾಜ್ಯ ಗೆಜೆಟಿಯರ್; ಮೈಸೂರು ಅರಮನೆ ದಾಖಲೆಗಳು; ಬಿ. ಲೂಯಿಸ್ ರೈಸ್ ಅವರ 'ಎಪಿಗ್ರಾಫಿಯಾ ಕರ್ನಾಟಿಕಾ'.",
+    "bestTimeToVisit": "September to March (especially during Dasara in Oct/Nov)",
+    "bestTimeToVisitKn": "ಸೆಪ್ಟೆಂಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ (ದಸರಾ ಸಮಯದಲ್ಲಿ ಅತ್ಯಂತ ಸುಂದರ)",
+    "avgDailyBudgetINR": 2000,
+    "nearestTransit": "Mysuru Junction Railway Station (in-city); Mysore Airport (MYQ) / Bengaluru Kempegowda (BLR - 170 km)",
+    "nearestTransitKn": "ಮೈಸೂರು ಜಂಕ್ಷನ್ ರೈಲು ನಿಲ್ದಾಣ; ಮೈಸೂರು ವಿಮಾನ ನಿಲ್ದಾಣ (MYQ) / ಬೆಂಗಳೂರು ವಿಮಾನ ನಿಲ್ದಾಣ",
+    "nearbyDestinations": [
+      "coorg",
+      "belur",
+      "halebidu"
+    ],
+    "keyHighlights": [
+      "Illuminated Mysore Palace (Sunday 7 PM spectacle)",
+      "Chamundeshwari Temple & Nandi Monolith",
+      "Vibrant Devaraja Market walk (flowers, incense, oils)",
+      "St. Philomena's Neo-Gothic Cathedral",
+      "KRS Dam & Brindavan Musical Gardens"
+    ],
+    "keyHighlightsKn": [
+      "ಲಕ್ಷ ದೀಪಗಳಿಂದ ಕಂಗೊಳಿಸುವ ಮೈಸೂರು ಅರಮನೆ (ಭಾನುವಾರ ಸಂಜೆ ೭ ಗಂಟೆಗೆ)",
+      "ಚಾಮುಂಡೇಶ್ವರಿ ದೇವಸ್ಥಾನ ಮತ್ತು ಬೃಹತ್ ನಂದಿ ವಿಗ್ರಹ",
+      "ದೇವರಾಜ ಮಾರುಕಟ್ಟೆಯ ಗಂಧ ಮತ್ತು ಮಲ್ಲಿಗೆಯ ಸುಗಂಧ",
+      "ಸೇಂಟ್ ಫಿಲೋಮಿನಾ ಚರ್ಚ್‌ನ ಭವ್ಯ ಗೋಪುರಗಳು",
+      "ಕೆ.ಆರ್.ಎಸ್ ಅಣೆಕಟ್ಟು ಮತ್ತು ಬೃಂದಾವನ ಉದ್ಯಾನವನ"
+    ]
+  },
+  {
+    "id": "coorg",
+    "name": "Coorg (Kodagu)",
+    "nameKn": "ಕೂರ್ಗ್ (ಕೊಡಗು)",
+    "tagline": "The Scotland of India — Misty Hills, Coffee & Kodava Valour",
+    "taglineKn": "ಭಾರತದ ಸ್ಕಾಟ್‌ಲ್ಯಾಂಡ್ — ಮಂಜಿನ ನಗರಿ, ಕಾಫಿ ತೋಟಗಳು ಮತ್ತು ಕೊಡವ ಸಂಸ್ಕೃತಿ",
+    "region": "Western Ghats / Malenadu (Kodagu District)",
+    "regionKn": "ಮಲೆನಾಡು / ಪಶ್ಚಿಮ ಘಟ್ಟಗಳು (ಕೊಡಗು ಜಿಲ್ಲೆ)",
+    "category": [
+      "Nature",
+      "Culture",
+      "Food"
+    ],
+    "heroImage": "/images/destinations/coorg.jpg",
+    "gallery": [
+      "/images/destinations/coorg.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Perched on the eastern slopes of the Western Ghats, Kodagu is a biodiverse paradise carpeted with arabica coffee plantations, pepper vines, cardamom groves, cascading waterfalls, and home to the proud martial Kodava community.",
+    "descriptionKn": "ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಮಡಿಲಿನಲ್ಲಿರುವ ಕೊಡಗು, ಹಸಿರು ಕಾಫಿ ತೋಟಗಳು, ಕಾಳುಮೆಣಸಿನ ಬಳ್ಳಿಗಳು, ಏಲಕ್ಕಿ ವನಗಳು, ಹಾಲೊರೆಯುವ ಜಲಪಾತಗಳು ಮತ್ತು ಶೌರ್ಯಕ್ಕೆ ಹೆಸರಾದ ಕೊಡವ ಸಮುದಾಯದ ತವರೂರಾಗಿದೆ.",
+    "significance": "Origin of the sacred Cauvery River at Talakaveri, lifeline of southern Karnataka and Tamil Nadu; globally recognized Western Ghats biodiversity hotspot.",
+    "significanceKn": "ಕರ್ನಾಟಕದ ಜೀವನಾಡಿ ಕಾವೇರಿ ನದಿಯ ಉಗಮ ಸ್ಥಾನ (ತಲಕಾವೇರಿ); ಜಾಗತಿಕ ಜೀವವೈವಿಧ್ಯತೆಯ ಪ್ರಮುಖ ತಾಣ.",
+    "heritageStory": "Agastya Rishi held the holy waters in his kamandala. When Lord Ganesha took the form of a crow and tipped the vessel at Brahmagiri Hills, River Cauvery sprang forth to bless the land. The martial Kodava culture features unique traditions like the Puthari harvest festival and holy weapon worship (Keil Poldh).",
+    "heritageStoryKn": "ಅಗಸ್ತ್ಯ ಮುನಿಗಳ ಕಮಂಡಲದಲ್ಲಿದ್ದ ಪುಣ್ಯಜಲವನ್ನು ಗಣೇಶನು ಕಾಗೆಯ ರೂಪದಲ್ಲಿ ಬಂದು ಬ್ರಹ್ಮಗಿರಿಯಲ್ಲಿ ಮಗುಚಿದಾಗ ಜೀವನದಿ ಕಾವೇರಿ ಉದ್ಭವಿಸಿದಳೆಂಬ ನಂಬಿಕೆ. ಕೊಡವರ ಕತ್ತಿ-ಬಂದೂಕು ಪೂಜೆಯ 'ಕೈಲ್ ಮುಹೂರ್ತ' ಮತ್ತು 'ಪುತ್ತರಿ' ಸುಗ್ಗಿ ಹಬ್ಬಗಳು ಇಲ್ಲಿನ ಸಾಂಸ್ಕೃತಿಕ ಗರಿಮೆ.",
+    "traditionsAndCrafts": "Kodava traditional Kupya-Chele attire, Kodagu pure wild forest honey, organic spices, and home-stay eco-tourism.",
+    "traditionsAndCraftsKn": "ಕೊಡವರ ಸಾಂಪ್ರದಾಯಿಕ ಕುಪ್ಯ-ಚೇಲೆ ವಸ್ತ್ರಧಾರಣೆ, ಶುದ್ಧ ಜೇನುತುಪ್ಪ, ನೈಸರ್ಗಿಕ ಸಂಬಾರ ಪದಾರ್ಥಗಳು ಮತ್ತು ಕಾಫಿ ಎಸ್ಟೇಟ್ ಹೋಮ್‌ಸ್ಟೇಗಳು.",
+    "localFood": "Famous Kadambuttu (steamed rice dumplings), Akki Roti, authentic bamboo shoot curry (Baimbale), and estate-roasted filter coffee.",
+    "localFoodKn": "ಘಮಘಮಿಸುವ ಕದಂಬುಟ್ಟು (ಅಕ್ಕಿ ಉಂಡೆ), ಅಕ್ಕಿ ರೊಟ್ಟಿ, ಬಿದಿರು ಚಿಗುರಿನ ಸಾರು (ಬೈಂಬಳೆ ಪಲ್ಯ) ಮತ್ತು ತಾಜಾ ಕಾಫಿ.",
+    "historicalSources": "Rev. G. Richter, 'Manual of Coorg' (1870); Karnataka Forest Department Western Ghats Heritage Registry.",
+    "historicalSourcesKn": "ರೆವರೆಂಡ್ ಜಿ. ರಿಕ್ಟರ್ ಅವರ 'ಮ್ಯಾನುಯಲ್ ಆಫ್ ಕೂರ್ಗ್' (೧೮೭೦); ಕರ್ನಾಟಕ ಅರಣ್ಯ ಇಲಾಖೆ ದಾಸ್ತಾನು.",
+    "bestTimeToVisit": "October to April (monsoons for lush waterfalls from July-September)",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಏಪ್ರಿಲ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 2400,
+    "nearestTransit": "Mysuru Railway Station (120 km); Kannur Airport (CNN - 90 km) / Mangaluru Airport (140 km)",
+    "nearestTransitKn": "ಮೈಸೂರು ರೈಲ್ವೆ ನಿಲ್ದಾಣ (೧೨೦ ಕಿ.ಮೀ); ಕಣ್ಣೂರು / ಮಂಗಳೂರು ವಿಮಾನ ನಿಲ್ದಾಣ",
+    "nearbyDestinations": [
+      "mysuru",
+      "chikmagalur"
+    ],
+    "keyHighlights": [
+      "Talakaveri & scenic Brahmagiri Hills trek",
+      "Abbey Falls & Raja's Seat sunset point in Madikeri",
+      "Namdroling Golden Temple Tibetan settlement at Bylakuppe",
+      "Coffee plantation walk & spice estate trails",
+      "Dubare Elephant Camp by the Cauvery River"
+    ],
+    "keyHighlightsKn": [
+      "ತಲಕಾವೇರಿ ಕ್ಷೇತ್ರ ಮತ್ತು ಬ್ರಹ್ಮಗಿರಿ ಪರ್ವತ ಶ್ರೇಣಿ",
+      "ಮಡಿಕೇರಿಯ ಅಬ್ಬಿ ಜಲಪಾತ ಮತ್ತು ರಾಜಾಸೀಟ್ ಸೂರ್ಯಾಸ್ತ",
+      "ಬೈಲುಕುಪ್ಪೆಯ ಸುವರ್ಣ ದೇವಾಲಯ (ಟಿಬೆಟಿಯನ್ ಕ್ಯಾಂಪ್)",
+      "ಕಾಫಿ ಎಸ್ಟೇಟ್ ವಾಕ್ ಮತ್ತು ನೈಸರ್ಗಿಕ ಸಂಬಾರ ತೋಟಗಳು",
+      "ದುಬಾರೆ ಆನೆ ಶಿಬಿರ (ಕಾವೇರಿ ತೀರ)"
+    ]
+  },
+  {
+    "id": "badami",
+    "name": "Badami (Vatapi)",
+    "nameKn": "ಬಾದಾಮಿ (ವಾತಾಪಿ)",
+    "tagline": "Cradle of Indian Rock-Cut Architecture & Red Sandstone Cliffs",
+    "taglineKn": "ಭಾರತೀಯ ಕಲ್ಲಿನ ಗುಹಾ ವಾಸ್ತುಶಿಲ್ಪದ ತೊಟ್ಟಿಲು ಮತ್ತು ಕೆಂಪು ಮರಳುಗಲ್ಲಿನ ವೈಭವ",
+    "region": "Kittur Karnataka (Bagalkote District)",
+    "regionKn": "ಕಿತ್ತೂರು ಕರ್ನಾಟಕ (ಬಾಗಲಕೋಟೆ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/badami.jpg",
+    "gallery": [
+      "/images/destinations/badami.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Ancient capital of the Early Chalukya dynasty (6th-8th centuries CE), famous for four magnificent rock-cut cave temples carved out of towering red sandstone cliffs overlooking the serene, emerald waters of Agastya Lake.",
+    "descriptionKn": "ಕ್ರಿ.ಶ. ೬ ರಿಂದ ೮ನೇ ಶತಮಾನದ ಆರಂಭಿಕ ಚಾಲುಕ್ಯರ ರಾಜಧಾನಿ ವಾತಾಪಿ (ಬಾದಾಮಿ). ಅಗಸ್ತ್ಯ ತೀರ್ಥ ಸರೋವರದ ತೀರದಲ್ಲಿರುವ ಕೆಂಪು ಮರಳುಗಲ್ಲಿನ ಬಂಡೆಗಳನ್ನು ಕೊರೆದು ನಿರ್ಮಿಸಲಾದ ನಾಲ್ಕು ಅದ್ಭುತ ಗುಹಾ ದೇವಾಲಯಗಳಿಗೆ ಇದು ಜಗತ್ಪ್ರಸಿದ್ಧ.",
+    "significance": "Pioneering architectural laboratory where Nagara and Dravidian temple styles were fused into the celebrated 'Vesara' style of South Asian temple building.",
+    "significanceKn": "ದ್ರಾವಿಡ ಮತ್ತು ನಾಗರ ಶೈಲಿಗಳನ್ನು ಸಮ್ಮಿಶ್ರಗೊಳಿಸಿ 'ವೇಸರ' ವಾಸ್ತುಶಿಲ್ಪ ಶೈಲಿಯನ್ನು ರೂಪಿಸಿದ ಭಾರತೀಯ ವಾಸ್ತುಶಿಲ್ಪದ ಪ್ರಯೋಗಾಲಯ.",
+    "heritageStory": "According to legend, the demon brothers Vatapi and Ilvala tricked travelers until Sage Agastya vanquished Vatapi and created the sacred lake. King Pulakeshin I fortified Badami in 540 CE, and his sons carved these monumental temples dedicated to Shiva (Nataraja with 81 dancing postures), Vishnu, and Jain Tirthankaras.",
+    "heritageStoryKn": "ವಾತಾಪಿ ಮತ್ತು ಇಲ್ವಲನೆಂಬ ರಾಕ್ಷಸರನ್ನು ಅಗಸ್ತ್ಯ ಮಹರ್ಷಿಗಳು ಸಂಹರಿಸಿ ಪವಿತ್ರ ಸರೋವರ ಸೃಷ್ಟಿಸಿದರೆಂಬ ಪ್ರತೀತಿ. ಕ್ರಿ.ಶ. ೫೪೦ರಲ್ಲಿ ಒಂದನೇ ಪುಲಕೇಶಿಯು ರಾಜಧಾನಿ ಸ್ಥಾಪಿಸಿದನು. ೮೧ ನೃತ್ಯ ಭಂಗಿಗಳ ನಟರಾಜ ಹಾಗೂ ವರಾಹ ರೂಪದ ಅದ್ಭುತ ಶಿಲ್ಪಗಳು ಇಲ್ಲಿವೆ.",
+    "traditionsAndCrafts": "Ilkal saree weaving with traditional 'Tope Teni' pallu in nearby Ilkal village, stone carving, and Guledgudda Khana blouse fabric weaving.",
+    "traditionsAndCraftsKn": "ಇಳಕಲ್ ಸೀರೆಗಳ ನೇಯ್ಗೆ (ಟೋಪ ತೆನೆ ಪಲ್ಲು), ಗುಳೇದಗುಡ್ಡದ ಖಣದ ಬಟ್ಟೆ ಹಾಗೂ ಪ್ರಾಚೀನ ಶಿಲ್ಪಕಲೆ.",
+    "localFood": "Authentic North Karnataka Shenga Holige, spicy Sajje Rotti (pearl millet), Badanekayi Yennegai, and freshly churned butter.",
+    "localFoodKn": "ಬಿಸಿಬಿಸಿ ಸಜ್ಜೆ ರೊಟ್ಟಿ, ಉತ್ತರ ಕರ್ನಾಟಕದ ಶೇಂಗಾ ಹೋಳಿಗೆ, ಎಣ್ಣೆಗಾಯಿ ಬದನೆಕಾಯಿ ಮತ್ತು ಗಟ್ಟಿ ಮೊಸರು.",
+    "historicalSources": "ASI Badami Monograph; Prof. George Michell, 'Badami, Aihole, Pattadakal' (2014); Epigraphia Indica Vol. VII.",
+    "historicalSourcesKn": "ಭಾರತೀಯ ಪುರಾತತ್ವ ಇಲಾಖೆ (ASI); ಪ್ರೊ. ಜಾರ್ಜ್ ಮಿಚೆಲ್ ಅವರ ಕೃತಿ; ಎಪಿಗ್ರಾಫಿಯಾ ಇಂಡಿಕಾ ಸಂಪುಟ ೭.",
+    "bestTimeToVisit": "October to March",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1700,
+    "nearestTransit": "Badami Railway Station (5 km); Hubballi Airport (105 km)",
+    "nearestTransitKn": "ಬಾದಾಮಿ ರೈಲು ನಿಲ್ದಾಣ (೫ ಕಿ.ಮೀ); ಹುಬ್ಬಳ್ಳಿ ವಿಮಾನ ನಿಲ್ದಾಣ (೧೦೫ ಕಿ.ಮೀ)",
+    "nearbyDestinations": [
+      "pattadakal",
+      "hampi",
+      "vijayapura"
+    ],
+    "keyHighlights": [
+      "Four Rock-Cut Cave Temples (Nataraja, Vishnu, Varaha, Mahavira)",
+      "Bhutanatha Temples reflecting on emerald Agastya Lake",
+      "Badami Fort & Lower Shivalaya on northern hill",
+      "ASI Archaeological Museum at foot of the gorge",
+      "Excursions to Aihole (the cradle of temple architecture)"
+    ],
+    "keyHighlightsKn": [
+      "ನಾಲ್ಕು ಕೆಂಪು ಮರಳುಗಲ್ಲಿನ ಗುಹಾಂತರ ದೇವಾಲಯಗಳು",
+      "ಅಗಸ್ತ್ಯ ಸರೋವರದ ನೀರಂಚಿನಲ್ಲಿರುವ ಭೂತನಾಥ ದೇವಾಲಯ",
+      "ಬಾದಾಮಿ ಕೋಟೆ ಮತ್ತು ಮೇಣ ಬಸದಿ",
+      "ಪುರಾತತ್ವ ವಸ್ತುಸಂಗ್ರಹಾಲಯ",
+      "ಐಹೊಳೆಯ ಪ್ರಾಚೀನ ದೇಗುಲಗಳ ಸಮೂಹ"
+    ]
+  },
+  {
+    "id": "gokarna",
+    "name": "Gokarna",
+    "nameKn": "ಗೋಕರ್ಣ",
+    "tagline": "Sacred Coastal Abode of Lord Mahabaleshwara & Pristine Beaches",
+    "taglineKn": "ಮಹಾಬಲೇಶ್ವರನ ಪುಣ್ಯಭೂಮಿ ಮತ್ತು ನಿಸರ್ಗದತ್ತ ಕಡಲತೀರಗಳು",
+    "region": "Karavali / Coastal Karnataka (Uttara Kannada District)",
+    "regionKn": "ಕರಾವಳಿ ಕರ್ನಾಟಕ (ಉತ್ತರ ಕನ್ನಡ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Nature",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/gokarna.jpg",
+    "gallery": [
+      "/images/destinations/gokarna.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Where the Western Ghats tumble directly into the Arabian Sea, Gokarna is revered as one of the seven Muktistalas of Karnataka, renowned for the Atmalinga at Mahabaleshwara Temple alongside famous crescent beaches like Om Beach and Kudle Beach.",
+    "descriptionKn": "ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಹಸಿರು ಬೆಟ್ಟಗಳು ಅರಬ್ಬಿ ಸಮುದ್ರವನ್ನು ಚುಂಬಿಸುವ ಪುಣ್ಯ ಕ್ಷೇತ್ರ ಗೋಕರ್ಣ. ಕರ್ನಾಟಕದ ಸಪ್ತ ಮುಕ್ತಿ ಕ್ಷೇತ್ರಗಳಲ್ಲೊಂದಾದ ಇಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಆತ್ಮಲಿಂಗದ ಶ್ರೀ ಮಹಾಬಲೇಶ್ವರ ದೇಗುಲ ಹಾಗೂ 'ಓಂ' ಆಕಾರದ ರಮಣೀಯ ಕಡಲತೀರಗಳಿವೆ.",
+    "significance": "Houses the Pranalinga (Atmalinga) gifted to Ravana by Shiva, resting permanently on the Earth. Revered in ancient Sangam literature and Adi Shankaracharya's writings.",
+    "significanceKn": "ಶಿವನು ರಾವಣನಿಗೆ ನೀಡಿದ ಪವಿತ್ರ ಆತ್ಮಲಿಂಗ ಶಾಶ್ವತವಾಗಿ ಪ್ರತಿಷ್ಠಾಪನೆಗೊಂಡ ಕ್ಷೇತ್ರ. ಆದಿ ಶಂಕರಾಚಾರ್ಯರಿಂದ ಪ್ರಶಂಸಿಸಲ್ಪಟ್ಟ ಧಾರ್ಮಿಕ ಕೇಂದ್ರ.",
+    "heritageStory": "When Ravana sought Shiva's Atmalinga to gain immortality, the gods worried about the cosmos. Lord Ganesha appeared as a young cowherd boy (Bala Vinayaka) and tricked Ravana into placing the lingam down before twilight. When Ravana tried to pull it out, it took the shape of a cow's ear ('Gokarna') and remained rooted.",
+    "heritageStoryKn": "ರಾವಣನು ಕೈಲಾಸದಿಂದ ಆತ್ಮಲಿಂಗವನ್ನು ಲಂಕೆಗೆ ಕೊಂಡೊಯ್ಯುವಾಗ, ಗಣೇಶನು ಬಾಲಕನ ವೇಷದಲ್ಲಿ ಬಂದು ಸಂಧ್ಯಾಕಾಲದ ಪೂಜೆಯ ನೆಪದಲ್ಲಿ ಲಿಂಗವನ್ನು ನೆಲದ ಮೇಲೆ ಇಡುವಂತೆ ಮಾಡಿದನು. ರಾವಣನು ಅದನ್ನು ಎತ್ತಲು ಪ್ರಯತ್ನಿಸಿದಾಗ ಅದು ಗೋವಿನ ಕಿವಿಯ ಆಕಾರಕ್ಕೆ ತಿರುಗಿ ಗೋಕರ್ಣವಾಯಿತು.",
+    "traditionsAndCrafts": "Sanskrit Vedic pathashalas, coastal brass work, sea-shell crafts, and Shivaratri car festival with two giant temple chariots.",
+    "traditionsAndCraftsKn": "ಪ್ರಾಚೀನ ವೇದ ಪಾಠಶಾಲೆಗಳ ಪರಂಪರೆ, ಹಿತ್ತಾಳೆ ಕರಕುಶಲತೆ, ಕಡಲಿನ ಚಿಪ್ಪಿನ ಕಲಾಕೃತಿಗಳು ಮತ್ತು ಶಿವರಾತ್ರಿಯ ಮಹಾರಥೋತ್ಸವ.",
+    "localFood": "Coastal Konkan-Kannada thali with Todadevu (sweet bamboo cane crepe), Neer Dosa, and fresh coastal coconut curries.",
+    "localFoodKn": "ಕರಾವಳಿಯ ಘಮಘಮಿಸುವ ತೆಂಗಿನಕಾಯಿ ಕರ್ರಿ, ನೀರ್ ದೋಸೆ, ತೋದದೇವು (ಸಾಂಪ್ರದಾಯಿಕ ಸಿಹಿ ತಿಂಡಿ) ಮತ್ತು ಮಂಗಳೂರು ಬನ್ಸ್.",
+    "historicalSources": "Skanda Purana (Gokarna Khanda); Karnataka State Gazetteer; Epigraphical records of Kadamba and Vijayanagara dynasties.",
+    "historicalSourcesKn": "ಸ್ಕಂದ ಪುರಾಣ (ಗೋಕರ್ಣ ಖಂಡ); ಕದಂಬ ಮತ್ತು ವಿಜಯನಗರ ಕಾಲದ ಶಾಸನಗಳು.",
+    "bestTimeToVisit": "October to March",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1900,
+    "nearestTransit": "Gokarna Road Railway Station (9 km); Goa Dabolim/Mopa Airport (140 km)",
+    "nearestTransitKn": "ಗೋಕರ್ಣ ರೋಡ್ ರೈಲ್ವೆ ನಿಲ್ದಾಣ (೯ ಕಿ.ಮೀ); ಗೋವಾ ವಿಮಾನ ನಿಲ್ದಾಣ (೧೪೦ ಕಿ.ಮೀ)",
+    "nearbyDestinations": [
+      "udupi",
+      "badami"
+    ],
+    "keyHighlights": [
+      "Sri Mahabaleshwara Temple (touching the sacred Atmalinga)",
+      "Om Beach (naturally shaped like the sacred Hindu symbol 'ॐ')",
+      "Scenic cliff-top trail connecting Kudle, Om, Half-Moon & Paradise beaches",
+      "Maha Ganapathi Temple (honoring child Ganesha)",
+      "Sunset meditation from Kudle Beach cliffs"
+    ],
+    "keyHighlightsKn": [
+      "ಶ್ರೀ ಮಹಾಬಲೇಶ್ವರ ದೇವಸ್ಥಾನ (ಆತ್ಮಲಿಂಗ ಸ್ಪರ್ಶ ದರ್ಶನ)",
+      "ಪ್ರಕೃತಿದತ್ತ 'ಓಂ' ಆಕಾರದ ಕಡಲತೀರ (ಓಂ ಬೀಚ್)",
+      "ಕುಡ್ಲೆ, ಹಾಫ್ ಮೂನ್ ಮತ್ತು ಪ್ಯಾರಡೈಸ್ ಬೀಚ್ ಕರಾವಳಿ ಬೆಟ್ಟದ ಚಾರಣ",
+      "ಶ್ರೀ ಮಹಾಗಣಪತಿ ಸನ್ನಿಧಿ",
+      "ಕಡಲತೀರದ ಸಂಧ್ಯಾ ಸೂರ್ಯಾಸ್ತದ ರಮಣೀಯ ನೋಟ"
+    ]
+  },
+  {
+    "id": "chitradurga",
+    "name": "Chitradurga",
+    "nameKn": "ಚಿತ್ರದುರ್ಗ",
+    "tagline": "The Seven-Tiered Stone Fortress & Legendary Tale of Onake Obavva",
+    "taglineKn": "ಏಳು ಸುತ್ತಿನ ಕಲ್ಲಿನ ಕೋಟೆ ಮತ್ತು ವೀರವನಿತೆ ಒನಕೆ ಓಬವ್ವನ ತವರು",
+    "region": "Central Karnataka (Chitradurga District)",
+    "regionKn": "ಮಧ್ಯ ಕರ್ನಾಟಕ (ಚಿತ್ರದುರ್ಗ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/chitradurga.jpg",
+    "gallery": [
+      "/images/destinations/chitradurga.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Known as 'Kallina Kote' (the stone fortress), Chitradurga is an impenetrable military citadel built across massive granite hills featuring seven concentric defensive walls, 38 hidden gateways, and 35 secret subterranean passageways.",
+    "descriptionKn": "'ಕಲ್ಲಿನ ಕೋಟೆ' ಎಂದೇ ಖ್ಯಾತವಾಗಿರುವ ಚಿತ್ರದುರ್ಗವು ಏಳು ಸುತ್ತಿನ ಭದ್ರ ಕೋಟೆಯನ್ನು ಹೊಂದಿದ್ದು, ೩೮ ಹಿಂಬಾಗಿಲುಗಳು, ೩೫ ರಹಸ್ಯ ದ್ವಾರಗಳು ಮತ್ತು ಪ್ರಾಚೀನ ಮಳೆನೀರು ಕೊಯ್ಲು ವ್ಯವಸ್ಥೆಯನ್ನು ಹೊಂದಿರುವ ಅತ್ಯದ್ಭುತ ರಕ್ಷಣಾ ದುರ್ಗವಾಗಿದೆ.",
+    "significance": "Masterpiece of medieval military architecture, rainwater harvesting (Honnina Honda), and home to the iconic Nayaka chieftains who defended Karnataka.",
+    "significanceKn": "ಮಧ್ಯಕಾಲೀನ ರಕ್ಷಣಾ ತಂತ್ರಜ್ಞಾನ, ಮಳೆನೀರು ಸಂಗ್ರಹದ ಹೊಂಡಗಳು ಮತ್ತು ನಾಡನ್ನು ರಕ್ಷಿಸಿದ ಪಾಳೆಯಗಾರ ನಾಯಕರ ಸಾಹಸಗಾಥೆ.",
+    "heritageStory": "During Hyder Ali's siege in the 18th century, enemy soldiers attempted to infiltrate through a narrow rock crevice ('Kindi'). Onake Obavva, the wife of a fortress guard, noticed the intruders while fetching water. Armed with only a wooden pestle (Onake), she guarded the opening and felled hundreds of soldiers one by one, immortalizing female bravery in Kannada folklore.",
+    "heritageStoryKn": "೧೮ನೇ ಶತಮಾನದಲ್ಲಿ ಹೈದರಾಲಿ ಸೈನಿಕರು ಕೋಟೆಯ ರಹಸ್ಯ ಕಿಂಡಿಯ ಮೂಲಕ ಒಳನುಸುಳಲು ಯತ್ನಿಸಿದಾಗ, ಕಾವಲುಗಾರ ಮುದ್ದಹನುಮಪ್ಪನ ಪತ್ನಿ ಒನಕೆ ಓಬವ್ವ ನೀರು ತರಲು ಹೋಗಿ ಶತ್ರುಗಳನ್ನು ಕಂಡು, ಕೈಲಿದ್ದ ಒನಕೆಯಿಂದಲೇ ನೂರಾರು ಶತ್ರುಗಳನ್ನು ಸದೆಬಡಿದು ಕನ್ನಡದ ಅಪ್ರತಿಮ ವೀರವನಿತೆಯಾಗಿ ಇತಿಹಾಸದಲ್ಲಿ ಚಿರಸ್ಥಾಯಿಯಾದಳು.",
+    "traditionsAndCrafts": "Traditional leather puppets, stone grinding tools, and vibrant folk performances of Dollu Kunitha and Veeragase.",
+    "traditionsAndCraftsKn": "ಸಾಂಪ್ರದಾಯಿಕ ತೊಗಲು ಬೊಂಬೆಯಾಟ, ಕಲ್ಲಿನ ಒರಳು-ರುಬ್ಬುಗುಂಡು ಕರಕುಶಲತೆ ಹಾಗೂ ಡೊಳ್ಳು ಕುಣಿತ, ವೀರಗಾಸೆ ಜಾನಪದ ಕಲೆಗಳು.",
+    "localFood": "Famous Chitradurga Benne Dosa, spicy Mirchi Bajji with Mandakki (puffed rice mixture), and Holige with ghee.",
+    "localFoodKn": "ಚಿತ್ರದುರ್ಗದ ಗರಿಗರಿ ಬೆಣ್ಣೆ ದೋಸೆ, ಮಂಡಕ್ಕಿ-ಮಿರ್ಚಿ ಬಜ್ಜಿ ಹಾಗೂ ತುಪ್ಪದ ಬಿಸಿಬಿಸಿ ಹೋಳಿಗೆ.",
+    "historicalSources": "Dr. S. Rajasekhara, 'Karnataka Architecture'; ASI Mysore Circle Fort Reports; Chitradurga Paleyagar Inscriptions.",
+    "historicalSourcesKn": "ಡಾ. ಎಸ್. ರಾಜಶೇಖರ ಅವರ 'ಕರ್ನಾಟಕ ವಾಸ್ತುಶಿಲ್ಪ'; ಎ.ಎಸ್.ಐ ಮೈಸೂರು ವೃತ್ತ ಕೋಟೆ ವರದಿಗಳು.",
+    "bestTimeToVisit": "October to February (cooler months for fort climbing)",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಫೆಬ್ರವರಿಯವರೆಗೆ",
+    "avgDailyBudgetINR": 1500,
+    "nearestTransit": "Chitradurga Railway Station (in-city); Bengaluru Airport (200 km on NH 48)",
+    "nearestTransitKn": "ಚಿತ್ರದುರ್ಗ ರೈಲ್ವೆ ನಿಲ್ದಾಣ; ಬೆಂಗಳೂರು ಅಂತರರಾಷ್ಟ್ರೀಯ ವಿಮಾನ ನಿಲ್ದಾಣ (೨೦೦ ಕಿ.ಮೀ)",
+    "nearbyDestinations": [
+      "hampi",
+      "belur"
+    ],
+    "keyHighlights": [
+      "Seven-tiered defensive ramparts ('Elu Suttina Kote')",
+      "Historic 'Onake Obavvana Kindi' (the cleft of bravery)",
+      "Ancient Hidimbeshwara rock temple atop the fort",
+      "Sophisticated rain-fed step wells (Akka-Thangi Honda)",
+      "Spectacular panoramic views of wind farms and Deccan plains"
+    ],
+    "keyHighlightsKn": [
+      "ಏಳು ಸುತ್ತಿನ ಭದ್ರ ಕಲ್ಲಿನ ಕೋಟೆಯ ಮಹಾದ್ವಾರಗಳು",
+      "ಇತಿಹಾಸ ಪ್ರಸಿದ್ಧ 'ಒನಕೆ ಓಬವ್ವನ ಕಿಂಡಿ'",
+      "ಬಂಡೆಯ ಮೇಲಿರುವ ಹಿಡಿಂಬೇಶ್ವರ ದೇವಾಲಯ",
+      "ಅಕ್ಕ-ತಂಗಿ ಹೊಂಡ ಮತ್ತು ಮಳೆನೀರು ಸಂಗ್ರಹದ ಕುರುಹುಗಳು",
+      "ಕೋಟೆಯ ಶಿಖರದಿಂದ ಕಾಣುವ ಪವನ ವಿದ್ಯುತ್ ಗೋಪುರಗಳ ದೃಶ್ಯ"
+    ]
+  },
+  {
+    "id": "belur",
+    "name": "Belur",
+    "nameKn": "ಬೇಲೂರು",
+    "tagline": "Poetry in Soapstone — Chennakeshava Temple & Hoysala Mastery",
+    "taglineKn": "ಶಿಲೆಯಲ್ಲರಳಿದ ಕಾವ್ಯ — ಶ್ರೀ ಚೆನ್ನಕೇಶವ ದೇಗುಲ ಮತ್ತು ಹೊಯ್ಸಳ ಕಲಾ ವೈಭವ",
+    "region": "Malenadu (Hassan District)",
+    "regionKn": "ಮಲೆನಾಡು (ಹಾಸನ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/belur.jpg",
+    "gallery": [
+      "/images/destinations/belur.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Nestled on the banks of the Yagachi River, Belur was the early capital of the Hoysala dynasty. Its centerpiece, the Chennakeshava Temple (commissioned in 1117 CE by King Vishnuvardhana), took 103 years to complete and features the finest soapstone filigree carvings in the world.",
+    "descriptionKn": "ಯಾಗಚಿ ನದಿಯ ತೀರದಲ್ಲಿರುವ ಬೇಲೂರು ಹೊಯ್ಸಳರ ಮೊದಲ ರಾಜಧಾನಿ. ಕ್ರಿ.ಶ. ೧೧೧೭ರಲ್ಲಿ ವಿಷ್ಣುವರ್ಧನ ಮಹಾರಾಜನಿಂದ ಆರಂಭವಾಗಿ ೧೦೩ ವರ್ಷಗಳ ಕಾಲ ನಿರ್ಮಾಣಗೊಂಡ ಶ್ರೀ ಚೆನ್ನಕೇಶವ ದೇವಾಲಯವು ವಿಶ್ವದ ಅತ್ಯಂತ ಸೂಕ್ಷ್ಮ ಬಳಪದ ಕಲ್ಲಿನ ಕೆತ್ತನೆಗಳಿಗೆ ಹೆಸರಾಗಿದೆ.",
+    "significance": "UNESCO World Heritage Site (Sacred Ensembles of the Hoysalas, inscribed 2023). Unrivaled milestone of star-shaped stellate temple architecture.",
+    "significanceKn": "೨೦೨೩ ರಲ್ಲಿ ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆ ತಾಣವಾಗಿ ಅಧಿಕೃತ ಘೋಷಣೆ. ನಕ್ಷತ್ರಾಕಾರದ ಜಗತಿ ಮತ್ತು ಸಾಟಿಯಿಲ್ಲದ ಶಿಲ್ಪಕಲಾ ಕೌಶಲ್ಯ.",
+    "heritageStory": "King Vishnuvardhana commissioned the temple to celebrate his military triumph over the Cholas at Talakadu. Master sculptors like Ruvari Mallitamma and Dasoja signed their masterpieces on the temple plinths, including the 42 renowned Madanika (bracket figures) depicting classical dance poses with jewelry so delicate you can pass a silk thread behind it.",
+    "heritageStoryKn": "ತಲಕಾಡಿನಲ್ಲಿ ಚೋಳರ ಮೇಲಿನ ಐತಿಹಾಸಿಕ ವಿಜಯದ ಸ್ಮರಣಾರ್ಥ ವಿಷ್ಣುವರ್ಧನ ರಾಜನು ಈ ದೇಗುಲವನ್ನು ನಿರ್ಮಿಸಿದನು. ಜಕ್ಕಣಾಚಾರಿ, ದಾಸೋಜ ಮತ್ತು ಮಲ್ಲಿತಮ್ಮನಂತಹ ಶಿಲ್ಪಿಗಳು ತಮ್ಮ ಹೆಸರುಗಳನ್ನು ಕೆತ್ತಿದ್ದಾರೆ. ದೇಗುಲದ ೪೨ ಮದನಿಕೆಯರ ಶಿಲ್ಪಗಳು ಎಷ್ಟು ಸೂಕ್ಷ್ಮವೆಂದರೆ, ಒಡವೆಗಳ ನಡುವೆ ರೇಷ್ಮೆ ದಾರವನ್ನು ಸುಲಭವಾಗಿ ಪೋಣಿಸಬಹುದು.",
+    "traditionsAndCrafts": "Soapstone idol carving, classical Bharatanatyam and Hoysala dance recitals, and temple car festivals in Chaitra month.",
+    "traditionsAndCraftsKn": "ಬಳಪದ ಕಲ್ಲಿನ ಮೂರ್ತಿ ಕೆತ್ತನೆ ಕಲೆ, ಸಾಂಪ್ರದಾಯಿಕ ಹೊಯ್ಸಳ ನೃತ್ಯ ಶೈಲಿ ಮತ್ತು ಚೈತ್ರ ಮಾಸದ ಬ್ರಹ್ಮ ರಥೋತ್ಸವ.",
+    "localFood": "Authentic Malenadu style Akki Rotti with Avarekalu Saaru (hyacinth bean curry), Jackfruit chips, and filter coffee.",
+    "localFoodKn": "ಮಲೆನಾಡಿನ ಸಾಂಪ್ರದಾಯಿಕ ಅವರೆಕಾಳು ಸಾರು-ಅಕ್ಕಿ ರೊಟ್ಟಿ, ಹಲಸಿನಕಾಯಿ ಹಪ್ಪಳ-ಚಿಪ್ಸ್ ಮತ್ತು ಘಮಘಮಿಸುವ ಕಾಫಿ.",
+    "historicalSources": "UNESCO World Heritage Nomination Dossier No. 1670 (2023); Epigraphia Carnatica Vol. V; B.L. Rice Belur Inscription Catalog.",
+    "historicalSourcesKn": "ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆ ದಾಖಲೆ ಸಂ. ೧೬೭೦; ಎಪಿಗ್ರಾಫಿಯಾ ಕರ್ನಾಟಿಕಾ ಸಂಪುಟ ೫; ಬಿ.ಎಲ್. ರೈಸ್ ಶಾಸನ ಸಂಗ್ರಹ.",
+    "bestTimeToVisit": "September to March",
+    "bestTimeToVisitKn": "ಸೆಪ್ಟೆಂಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1800,
+    "nearestTransit": "Hassan Junction Railway Station (38 km); Mangaluru Airport (145 km) / Bengaluru Airport (225 km)",
+    "nearestTransitKn": "ಹಾಸನ ರೈಲ್ವೆ ನಿಲ್ದಾಣ (೩೮ ಕಿ.ಮೀ); ಮಂಗಳೂರು / ಬೆಂಗಳೂರು ವಿಮಾನ ನಿಲ್ದಾಣ",
+    "nearbyDestinations": [
+      "halebidu",
+      "chikmagalur",
+      "mysuru"
+    ],
+    "keyHighlights": [
+      "Chennakeshava Temple star-shaped platform & ornate pillars",
+      "42 breathtaking Madanika (celestial dancers) bracket figures",
+      "Gravity-defying stone lamp pillar (Deepa Sthambha)",
+      "Mohini sculpted pillar & Narasimha avatar carvings",
+      "Kappe Chennigaraya shrine within the sacred courtyard"
+    ],
+    "keyHighlightsKn": [
+      "ಚೆನ್ನಕೇಶವ ದೇವಾಲಯದ ನಕ್ಷತ್ರಾಕಾರದ ಜಗತಿ ಮತ್ತು ಕನ್ನಡಿಯಂತೆ ಹೊಳೆಯುವ ಕಂಬಗಳು",
+      "೪೨ ನಯನಮನೋಹರ ಶಿಲಾಬಾಲಿಕೆಯರ (ಮದನಿಕೆ) ಭಂಗಿಗಳು",
+      "ನೆಲಕ್ಕೆ ತಾಗದಂತೆ ನಿಂತಿರುವ ಗುರುತ್ವಾಕರ್ಷಣೆಯ ದೀಪಸ್ತಂಭ",
+      "ಮೋಹಿನಿ ಕಂಬ ಮತ್ತು ನರಸಿಂಹ ಅವತಾರದ ರೋಮಾಂಚಕ ಕೆತ್ತನೆ",
+      "ಕಪ್ಪೆ ಚೆನ್ನಿಗರಾಯ ಸನ್ನಿಧಿ"
+    ]
+  },
+  {
+    "id": "halebidu",
+    "name": "Halebidu (Dwarasamudra)",
+    "nameKn": "ಹಳೇಬೀಡು (ದ್ವಾರಸಮುದ್ರ)",
+    "tagline": "The Crown Jewel of Hoysala Sculptural Brilliance",
+    "taglineKn": "ಹೊಯ್ಸಳ ಶಿಲ್ಪಕಲಾ ವೈಭವದ ಪರಮೋಚ್ಛ ಶಿಖರ",
+    "region": "Malenadu (Hassan District)",
+    "regionKn": "ಮಲೆನಾಡು (ಹಾಸನ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/halebidu.jpg",
+    "gallery": [
+      "/images/destinations/halebidu.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Originally known as Dwarasamudra ('gateway to the ocean'), Halebidu served as the regal capital of the Hoysala Empire for nearly two centuries. The twin Hoysaleswara and Shantaleswara temple is world-renowned for having the most detailed friezes in all of Indian temple architecture.",
+    "descriptionKn": "ಹಿಂದೆ 'ದ್ವಾರಸಮುದ್ರ' ಎಂದೇ ಪ್ರಸಿದ್ಧವಾಗಿದ್ದ ಹಳೇಬೀಡು ಹೊಯ್ಸಳ ಸಾಮ್ರಾಜ್ಯದ ರಾಜಧಾನಿಯಾಗಿತ್ತು. ಇಲ್ಲಿನ ಹೊಯ್ಸಳೇಶ್ವರ ಮತ್ತು ಶಾಂತಲೇಶ್ವರ ಅವಳಿ ದೇಗುಲಗಳ ಹೊರಗೋಡೆಗಳಲ್ಲಿರುವ ಕಲ್ಲಿನ ಕೆತ್ತನೆಗಳು ಭಾರತೀಯ ವಾಸ್ತುಶಿಲ್ಪದಲ್ಲೇ ಅತ್ಯಂತ ವೈಭವೋಪೇತವಾದವು.",
+    "significance": "UNESCO World Heritage Site (Sacred Ensembles of the Hoysalas, inscribed 2023). Features an unbroken 700-foot-long base relief narrative of 1,248 distinct war elephants.",
+    "significanceKn": "೨೦೨೩ ರಲ್ಲಿ ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆ ತಾಣ. ದೇಗುಲದ ತಳಪಾಯದಲ್ಲಿ ಒಂದಕ್ಕಿಂತ ಒಂದು ಭಿನ್ನವಾದ ೧,೨೪೮ ಆನೆಗಳ ಕಲ್ಲಿನ ಸಾಲು ವಿಶ್ವದಲ್ಲೇ ಅನನ್ಯ.",
+    "heritageStory": "Built by Ketamalla, an officer of King Vishnuvardhana, and named in honor of Queen Shantala Devi—a patron of Jainism and classical music who was legendary for her grace. Even after facing Delhi Sultanate invasions in the 14th century, the carvings remain breathtaking testaments to Hoysala artistic endurance.",
+    "heritageStoryKn": "ವಿಷ್ಣುವರ್ಧನ ಮಹಾರಾಜ ಹಾಗೂ ಅವರ ಪಟ್ಟದ ರಾಣಿ ನಾಟ್ಯರಾಣಿ ಶಾಂತಲಾದೇವಿಯ ಗೌರವಾರ್ಥ ಈ ದೇಗುಲವನ್ನು ಕೇತಮಲ್ಲನು ನಿರ್ಮಿಸಿದನು. ೧೪ನೇ ಶತಮಾನದ ಆಕ್ರಮಣಗಳ ನಂತರವೂ, ಈ ದೇಗುಲದ ಪ್ರತಿಯೊಂದು ಶಿಲ್ಪವೂ ಹೊಯ್ಸಳರ ಕಲಾ ಪ್ರೇಮವನ್ನು ಸಾರುತ್ತದೆ.",
+    "traditionsAndCrafts": "Traditional stone sculpting, local handloom, and brass artifact crafting.",
+    "traditionsAndCraftsKn": "ಶಿಲಾ ಕೆತ್ತನೆ ಕಲೆ, ಸ್ಥಳೀಯ ಕೈಮಗ್ಗ ಮತ್ತು ಹಿತ್ತಾಳೆಯ ಪೂಜಾ ಪರಿಕರಗಳ ತಯಾರಿಕೆ.",
+    "localFood": "Hot Ragi Mudde with Bassaru, tender bamboo pickle, and traditional Hassan Obbattu.",
+    "localFoodKn": "ಬಿಸಿಬಿಸಿ ರಾಗಿ ಮುದ್ದೆ-ಬಸ್ಸಾರು, ಕಳಲೆ ಉಪ್ಪಿನಕಾಯಿ ಹಾಗೂ ಹಾಸನದ ಸಾಂಪ್ರದಾಯಿಕ ಬೇಳೆ ಒಬ್ಬಟ್ಟು.",
+    "historicalSources": "UNESCO Nomination Text No. 1670; Archaeological Survey of India (ASI) Southern Circle monographs.",
+    "historicalSourcesKn": "ಯುನೆಸ್ಕೋ ದಾಖಲೆ ಸಂ. ೧೬೭೦; ಭಾರತೀಯ ಪುರಾತತ್ವ ಇಲಾಖೆಯ ಸಂಶೋಧನಾ ವರದಿಗಳು.",
+    "bestTimeToVisit": "September to March",
+    "bestTimeToVisitKn": "ಸೆಪ್ಟೆಂಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1800,
+    "nearestTransit": "Hassan Railway Station (32 km); Belur (16 km away)",
+    "nearestTransitKn": "ಹಾಸನ ರೈಲ್ವೆ ನಿಲ್ದಾಣ (೩೨ ಕಿ.ಮೀ); ಬೇಲೂರಿನಿಂದ ಕೇವಲ ೧೬ ಕಿ.ಮೀ",
+    "nearbyDestinations": [
+      "belur",
+      "chikmagalur",
+      "mysuru"
+    ],
+    "keyHighlights": [
+      "Hoysaleswara Temple twin sanctums",
+      "Outer walls depicting Mahabharata & Ramayana epics in stone",
+      "Two monolithic Nandi statues housed in pillared open mandapas",
+      "Kedareshwara Temple & Jain Basadis with mirror-finish pillars",
+      "ASI Archaeological Museum with ancient Hoysala artifacts"
+    ],
+    "keyHighlightsKn": [
+      "ಹೊಯ್ಸಳೇಶ್ವರ ಮತ್ತು ಶಾಂತಲೇಶ್ವರ ಅವಳಿ ಗರ್ಭಗುಡಿಗಳು",
+      "ಹೊರಗೋಡೆಗಳಲ್ಲಿ ಮಹಾಭಾರತ ಮತ್ತು ರಾಮಾಯಣ ಮಹಾಕಾವ್ಯಗಳ ಕಲ್ಲಿನ ಕಥನ",
+      "ಏಕಶಿಲಾ ಬೃಹತ್ ನಂದಿ ವಿಗ್ರಹಗಳು",
+      "ಕನ್ನಡಿಯಂತೆ ಹೊಳೆಯುವ ಜೈನ ಬಸದಿಗಳ ಕಂಬಗಳು",
+      "ಪುರಾತತ್ವ ಸಂಗ್ರಹಾಲಯ"
+    ]
+  },
+  {
+    "id": "pattadakal",
+    "name": "Pattadakal",
+    "nameKn": "ಪಟ್ಟದಕಲ್ಲು",
+    "tagline": "UNESCO World Heritage — The Royal Coronation Site of Chalukyan Kings",
+    "taglineKn": "ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆ — ಚಾಲುಕ್ಯ ಚಕ್ರವರ್ತಿಗಳ ಪಟ್ಟಾಭಿಷೇಕ ಕ್ಷೇತ್ರ",
+    "region": "Kittur Karnataka (Bagalkote District)",
+    "regionKn": "ಕಿತ್ತೂರು ಕರ್ನಾಟಕ (ಬಾಗಲಕೋಟೆ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/pattadakal.jpg",
+    "gallery": [
+      "/images/destinations/pattadakal.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Situated on the bend of the holy Malaprabha River flowing northwards (Uttara Vahini), Pattadakal represents the high point of an eclectic 7th and 8th-century art which harmoniously combined architectural forms from northern and southern India.",
+    "descriptionKn": "ಉತ್ತರ ವಾಹಿನಿಯಾಗಿ ಹರಿಯುವ ಪವಿತ್ರ ಮಲಪ್ರಭಾ ನದಿಯ ತೀರದಲ್ಲಿರುವ ಪಟ್ಟದಕಲ್ಲು, ಚಾಲುಕ್ಯ ರಾಜರ ಪಟ್ಟಾಭಿಷೇಕದ ಪುಣ್ಯಕ್ಷೇತ್ರ. ಉತ್ತರ ಭಾರತದ ನಾಗರ ಮತ್ತು ದಕ್ಷಿಣ ಭಾರತದ ದ್ರಾವಿಡ ವಾಸ್ತು ಶೈಲಿಗಳ ಅಪೂರ್ವ ಸಂಗಮ ಇಲ್ಲಿದೆ.",
+    "significance": "UNESCO World Heritage Site since 1987. A sacred ceremonial complex of 10 major temples showcasing the confluence of Indo-Aryan and Dravidian engineering.",
+    "significanceKn": "೧೯೮೭ ರಿಂದ ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆಯ ತಾಣ. ಉತ್ತರ ಮತ್ತು ದಕ್ಷಿಣ ಭಾರತೀಯ ಶೈಲಿಗಳು ಒಟ್ಟಿಗೆ ಸಮ್ಮಿಳಿತವಾಗಿರುವ ೧೦ ಪ್ರಮುಖ ದೇಗುಲಗಳ ಸಂಕೀರ್ಣ.",
+    "heritageStory": "Queen Lokamahadevi built the majestic Virupaksha Temple in 740 CE to commemorate King Vikramaditya II's victory over the Pallavas of Kanchi. Sculptor Gundan Anivaritachari was conferred the royal title 'Tribhuvanacharya' (Master of the Three Worlds) for this architectural wonder.",
+    "heritageStoryKn": "ಕ್ರಿ.ಶ. ೭೪೦ರಲ್ಲಿ ಎರಡನೇ ವಿಕ್ರಮಾದಿತ್ಯನು ಕಂಚಿಯ ಪಲ್ಲವರನ್ನು ಸೋಲಿಸಿದ ವಿಜಯದ ಸಂಕೇತವಾಗಿ ಪಟ್ಟದ ರಾಣಿ ಲೋಕಮಹಾದೇವಿಯು ವಿರೂಪಾಕ್ಷ ದೇವಾಲಯವನ್ನು ನಿರ್ಮಿಸಿದಳು. ಇದನ್ನು ನಿರ್ಮಿಸಿದ ಶಿಲ್ಪಿ ಗುಂಡನ್ ಅನಿವಾರಿತಾಚಾರಿಗೆ 'ತ್ರಿಭುವನಾಚಾರ್ಯ' ಎಂಬ ಬಿರುದು ನೀಡಿ ಗೌರವಿಸಲಾಯಿತು.",
+    "traditionsAndCrafts": "Annual Pattadakal Dance Festival (Nritya Utsava), traditional stone masonry, and local folk music.",
+    "traditionsAndCraftsKn": "ವಾರ್ಷಿಕ ಪಟ್ಟದಕಲ್ಲು ನೃತ್ಯ ಉತ್ಸವ, ಸಾಂಪ್ರದಾಯಿಕ ಶಿಲ್ಪಕಲೆ ಮತ್ತು ಬಯಲಾಟ ಜಾನಪದ ಪರಂಪರೆ.",
+    "localFood": "Girmit with Mirchi Bajji, Jowar Kadubu, and cool North Karnataka buttermilk seasoned with curry leaves and ginger.",
+    "localFoodKn": "ಉತ್ತರ ಕರ್ನಾಟಕದ ಗಿರ್ಮಿಟ್-ಮಿರ್ಚಿ, ಜೋಳದ ಕಡುಬು ಹಾಗೂ ಶುಂಠಿ-ಕರಿಬೇವು ಹಾಕಿದ ತಾಜಾ ಮಜ್ಜಿಗೆ.",
+    "historicalSources": "UNESCO World Heritage Listing No. 239; ASI Architectural Survey Reports; Epigraphia Indica Vol. III.",
+    "historicalSourcesKn": "ಯುನೆಸ್ಕೋ ವಿಶ್ವ ಪರಂಪರೆ ಪಟ್ಟಿ ಸಂ. ೨೩೯; ಭಾರತೀಯ ಪುರಾತತ್ವ ಸರ್ವೇಕ್ಷಣಾ ವರದಿಗಳು.",
+    "bestTimeToVisit": "October to March",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1600,
+    "nearestTransit": "Badami Railway Station (22 km); Hubballi Airport (130 km)",
+    "nearestTransitKn": "ಬಾದಾಮಿ ರೈಲು ನಿಲ್ದಾಣ (೨೨ ಕಿ.ಮೀ); ಹುಬ್ಬಳ್ಳಿ ವಿಮಾನ ನಿಲ್ದಾಣ (೧೩೦ ಕಿ.ಮೀ)",
+    "nearbyDestinations": [
+      "badami",
+      "hampi",
+      "vijayapura"
+    ],
+    "keyHighlights": [
+      "Virupaksha Temple (modeled on Kailasanathar Temple, Kanchi)",
+      "Mallikarjuna Temple with intricate floral and mythological friezes",
+      "Papanatha Temple exhibiting northern Nagara tower design",
+      "Galaganatha & Sangameshwara early Dravidian temples",
+      "Annual Pattadakal Dance Festival against lit sandstone monuments"
+    ],
+    "keyHighlightsKn": [
+      "ವಿರೂಪಾಕ್ಷ ದೇವಾಲಯ (ಕಾಂಚಿಯ ಕೈಲಾಸನಾಥರ್ ದೇಗುಲದ ಮಾದರಿ)",
+      "ಮಲ್ಲಿಕಾರ್ಜುನ ದೇವಾಲಯದ ನಯವಾದ ಕೆತ್ತನೆಗಳು",
+      "ಉತ್ತರ ಭಾರತೀಯ ನಾಗರ ಶೈಲಿಯ ಪಾಪನಾಥ ದೇಗುಲ",
+      "ಗಲಗನಾಥ ಮತ್ತು ಸಂಗಮೇಶ್ವರ ದೇಗುಲಗಳು",
+      "ಸ್ಮಾರಕಗಳ ಎದುರು ನಡೆಯುವ ಪಟ್ಟದಕಲ್ಲು ರಾಷ್ಟ್ರೀಯ ನೃತ್ಯ ಉತ್ಸವ"
+    ]
+  },
+  {
+    "id": "vijayapura",
+    "name": "Vijayapura (Bijapur)",
+    "nameKn": "ವಿಜಯಪುರ (ಬಿಜಾಪುರ)",
+    "tagline": "The Whispering Gallery of Gol Gumbaz & Adil Shahi Grandeur",
+    "taglineKn": "ಗೋಲ್ ಗುಂಬಜ್‌ನ ಪಿಸುಗುಟ್ಟುವ ಗ್ಯಾಲರಿ ಮತ್ತು ಅದಿಲ್ ಶಾಹಿ ವೈಭವ",
+    "region": "Kalyana / North Karnataka (Vijayapura District)",
+    "regionKn": "ಉತ್ತರ ಕರ್ನಾಟಕ (ವಿಜಯಪುರ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Heritage",
+      "Culture",
+      "Food"
+    ],
+    "heroImage": "/images/destinations/vijayapura.jpg",
+    "gallery": [
+      "/images/destinations/vijayapura.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Historical seat of the Adil Shahi Sultanate (1489-1686 CE), Vijayapura is dotted with majestic domes, minarets, and palaces, most famous for Gol Gumbaz—the world's second-largest unsupported masonry dome with its acoustic whispering gallery.",
+    "descriptionKn": "ಕ್ರಿ.ಶ. ೧೪೮೯ ರಿಂದ ೧೬೮೬ ರವರೆಗೆ ಅದಿಲ್ ಶಾಹಿ ಸುಲ್ತಾನರ ರಾಜಧಾನಿಯಾಗಿದ್ದ ವಿಜಯಪುರವು ಗೋಲ್ ಗುಂಬಜ್‌ಗೆ ಜಗತ್ಪ್ರಸಿದ್ಧ. ಯಾವುದೇ ಕಂಬಗಳ ಆಸರೆಯಿಲ್ಲದೆ ನಿಂತಿರುವ ವಿಶ್ವದ ಎರಡನೇ ಅತಿ ದೊಡ್ಡ ಗುಮ್ಮಟ ಮತ್ತು ಅದ್ಭುತ ಧ್ವನಿ ಪ್ರತಿಧ್ವನಿಸುವ ಪಿಸುಗುಟ್ಟುವ ಗ್ಯಾಲರಿ ಇಲ್ಲಿದೆ.",
+    "significance": "Acoustic and structural triumph of Indo-Islamic Deccan architecture; Ibrahim Rauza served as design inspiration for the Taj Mahal.",
+    "significanceKn": "ದಖ್ಖನಿ ವಾಸ್ತುಶಿಲ್ಪದ ಪರಮೋಚ್ಛ ಶಿಖರ; ಇಬ್ರಾಹಿಂ ರೌಜಾ ಸಂಕೀರ್ಣವು ತಾಜ್ ಮಹಲ್ ನಿರ್ಮಾಣಕ್ಕೆ ಸ್ಫೂರ್ತಿಯಾಗಿತ್ತು.",
+    "heritageStory": "Sultan Mohammed Adil Shah sought to construct a mausoleum grander than any in the world. Architect Yaqut of Dabul engineered a mammoth dome 44 meters in outer diameter that rests on interlocking pendentives without central columns. Even a faint whisper can be heard 37 meters away across the gallery and echoes back 11 distinct times.",
+    "heritageStoryKn": "ಮೊಹಮ್ಮದ್ ಅದಿಲ್ ಷಾ ತನ್ನ ಸಮಾಧಿ ಭವ್ಯವಾಗಿರಬೇಕೆಂದು ಯಾಕೂತ್ ಆಫ್ ದಾಬುಲ್ ಎಂಬ ವಾಸ್ತುಶಿಲ್ಪಿಯಿಂದ ಇದನ್ನು ನಿರ್ಮಿಸಿದನು. ೪೪ ಮೀಟರ್ ವ್ಯಾಸದ ಈ ಗುಮ್ಮಟದಲ್ಲಿ ಸಣ್ಣ ಪಿಸುಮಾತು ಕೂಡ ೩೭ ಮೀಟರ್ ದೂರದಲ್ಲಿ ಸ್ಪಷ್ಟವಾಗಿ ಕೇಳಿಸುತ್ತದೆ ಮತ್ತು ೧೧ ಬಾರಿ ಪ್ರತಿಧ್ವನಿಸುತ್ತದೆ.",
+    "traditionsAndCrafts": "Lambani tribal embroidery, bidriware metal craft, and traditional dry-fruit sweet making.",
+    "traditionsAndCraftsKn": "ಲಂಬಾಣಿ ಕಸೂತಿ ಕಲೆ, ಬಿದ್ರಿ ಕರಕುಶಲ ವಸ್ತುಗಳು ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಡ್ರೈಫ್ರೂಟ್ ಸಿಹಿತಿಂಡಿಗಳು.",
+    "localFood": "Famous Vijayapura Lemon Rice, Jowar Kadubu with spicy Shengada Chutney, Badami Halwa, and local grape juice.",
+    "localFoodKn": "ವಿಜಯಪುರದ ಜೋಳದ ಕಡುಬು-ಶೇಂಗಾ ಚಟ್ನಿ, ಬಿಸಿಬಿಸಿ ಚಿತ್ರಾನ್ನ, ಬಾದಾಮಿ ಹಲ್ವಾ ಮತ್ತು ತಾಜಾ ದ್ರಾಕ್ಷಿ ರಸ.",
+    "historicalSources": "ASI Bijapur Monograph; Henry Cousens, 'Bijapur and Its Architectural Remains' (1916).",
+    "historicalSourcesKn": "ಭಾರತೀಯ ಪುರಾತತ್ವ ಇಲಾಖೆ (ASI); ಹೆನ್ರಿ ಕೌಸೆನ್ಸ್ ಅವರ 'ಬಿಜಾಪುರ ವಾಸ್ತುಶಿಲ್ಪ' (೧೯೧೬).",
+    "bestTimeToVisit": "October to March",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1600,
+    "nearestTransit": "Vijayapura Railway Station (in-city); Belagavi Airport (205 km) / Hubballi Airport (200 km)",
+    "nearestTransitKn": "ವಿಜಯಪುರ ರೈಲ್ವೆ ನಿಲ್ದಾಣ; ಬೆಳಗಾವಿ / ಹುಬ್ಬಳ್ಳಿ ವಿಮಾನ ನಿಲ್ದಾಣ",
+    "nearbyDestinations": [
+      "badami",
+      "pattadakal"
+    ],
+    "keyHighlights": [
+      "Gol Gumbaz acoustic dome & 11-echo whispering gallery",
+      "Ibrahim Rauza ('The Black Taj' / 'Taj Mahal of the South')",
+      "Malik-e-Maidan (monarch of the plains - 55-ton bronze cannon)",
+      "Bara Kaman (the poetic unfinished 12-arched mausoleum)",
+      "Gagan Mahal & Citadel palaces"
+    ],
+    "keyHighlightsKn": [
+      "ಗೋಲ್ ಗುಂಬಜ್ ಮತ್ತು ೧೧ ಬಾರಿ ಪ್ರತಿಧ್ವನಿಸುವ ಪಿಸುಮಾತಿನ ಗ್ಯಾಲರಿ",
+      "ಇಬ್ರಾಹಿಂ ರೌಜಾ (ದಕ್ಷಿಣದ ಕಪ್ಪು ತಾಜ್ ಮಹಲ್)",
+      "ಮಲಿಕ್-ಎ-ಮೈದಾನ್ (೫೫ ಟನ್ ತೂಕದ ಬೃಹತ್ ಕಂಚಿನ ಫಿರಂಗಿ)",
+      "ಬಾರಾ ಕಮಾನ್ (೧೨ ಕಮಾನುಗಳ ಅಪೂರ್ಣ ಸೌಧ)",
+      "ಗಗನ್ ಮಹಲ್ ಮತ್ತು ಕೋಟೆಯ ಅರಮನೆಗಳು"
+    ]
+  },
+  {
+    "id": "udupi",
+    "name": "Udupi",
+    "nameKn": "ಉಡುಪಿ",
+    "tagline": "Cradle of Madhwa Philosophy, Coastal Temple Cuisine & Yakshagana",
+    "taglineKn": "ದ್ವೈತ ಸಿದ್ಧಾಂತದ ತೊಟ್ಟಿಲು, ಕರಾವಳಿ ಸಾತ್ವಿಕ ಪಾಕಪದ್ಧತಿ ಮತ್ತು ಯಕ್ಷಗಾನದ ತವರು",
+    "region": "Karavali / Coastal Karnataka (Udupi District)",
+    "regionKn": "ಕರಾವಳಿ ಕರ್ನಾಟಕ (ಉಡುಪಿ ಜಿಲ್ಲೆ)",
+    "category": [
+      "Culture",
+      "Food",
+      "Heritage"
+    ],
+    "heroImage": "/images/destinations/udupi.jpg",
+    "gallery": [
+      "/images/destinations/udupi.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Renowned across the world for vegetarian culinary tradition, Udupi centers around the 13th-century Sri Krishna Matha founded by Saint Madhvacharya, pristine beaches like Malpe and Kaup, and the breathtaking coastal folk-theater Yakshagana.",
+    "descriptionKn": "ವಿಶ್ವವಿಖ್ಯಾತ ಸಾತ್ವಿಕ ಪಾಕಪದ್ಧತಿಯ ತವರು ಉಡುಪಿ. ೧೩ನೇ ಶತಮಾನದಲ್ಲಿ ಶ್ರೀ ಮಧ್ವಾಚಾರ್ಯರಿಂದ ಸ್ಥಾಪಿತವಾದ ಶ್ರೀಕೃಷ್ಣ ಮಠ, ಮಲ್ಪೆ-ಕಾಪು ಕಡಲತೀರಗಳು ಮತ್ತು ಗಂಡುಕಲೆ ಎಂದೇ ಹೆಸರಾದ ಯಕ್ಷಗಾನದ ಕೇಂದ್ರಸ್ಥಳ.",
+    "significance": "Center of Dvaita Vedanta philosophy; origin of the global 'Udupi Cuisine' brand known for pure vegetarian mastery; home to Saint Kanakadasa's Kanakana Kindi.",
+    "significanceKn": "ದ್ವೈತ ಸಿದ್ಧಾಂತದ ಪ್ರಧಾನ ಕೇಂದ್ರ; ವಿಶ್ವದಾದ್ಯಂತ ಪ್ರಸಿದ್ಧವಾಗಿರುವ 'ಉಡುಪಿ ಹೋಟೆಲ್' ಶೈಲಿಯ ಉಗಮಸ್ಥಾನ; ಕನಕನ ಕಿಂಡಿಯ ಐತಿಹಾಸಿಕ ತಾಣ.",
+    "heritageStory": "When the great poet-saint Kanakadasa was denied entry into the temple due to caste discrimination, he stood behind the western wall praying with utmost devotion. Lord Krishna, moved by pure bhakti, turned his idol around 180 degrees and cracked the wall so Kanakadasa could behold him through the 'Kanakana Kindi'.",
+    "heritageStoryKn": "ಭಕ್ತ ಶ್ರೇಷ್ಠ ಕನಕದಾಸರಿಗೆ ದೇವಾಲಯ ಪ್ರವೇಶ ನಿರಾಕರಿಸಲ್ಪಟ್ಟಾಗ, ಅವರು ಪಶ್ಚಿಮದ ಗೋಡೆಯ ಹಿಂದೆ ನಿಂತು ಕೃಷ್ಣನನ್ನು ಅನನ್ಯ ಭಕ್ತಿಯಿಂದ ಪ್ರಾರ್ಥಿಸಿದರು. ಭಕ್ತನ ಪ್ರೇಮಕ್ಕೆ ಒಲಿದ ಶ್ರೀಕೃಷ್ಣನು ಹಿಮ್ಮುಖವಾಗಿ ತಿರುಗಿ ಗೋಡೆಯನ್ನು ಸೀಳಿ ದರ್ಶನ ನೀಡಿದ ಪವಿತ್ರ ಕಿಂಡಿಯೇ 'ಕನಕನ ಕಿಂಡಿ'.",
+    "traditionsAndCrafts": "Yakshagana traditional headgear (Kirita) and face makeup craft, hand-beaten bronze vessels, and the Paryaya festival held once every two years.",
+    "traditionsAndCraftsKn": "ಯಕ್ಷಗಾನದ ಕಿರೀಟ-ಬಣ್ಣಗಾರಿಕೆ, ಹಿತ್ತಾಳೆ-ಕಂಚಿನ ಪಾತ್ರೆಗಳ ತಯಾರಿಕೆ ಮತ್ತು ಎರಡು ವರ್ಷಕ್ಕೊಮ್ಮೆ ನಡೆಯುವ ಪರ್ಯಾಯ ಮಹೋತ್ಸವ.",
+    "localFood": "Famous Udupi Masala Dosa, Mangalore Buns, Goli Baje, Pineapple Menaskai, and authentic temple Anna-Santharpana prasada.",
+    "localFoodKn": "ಉಡುಪಿ ಗರಿಗರಿ ಮಸಾಲೆ ದೋಸೆ, ಮಂಗಳೂರು ಬನ್ಸ್, ಬಿಸಿಬಿಸಿ ಗೋಳಿಬಜೆ, ಅನಾನಸ್ ಮೆಣಸ್ಕಾಯಿ ಮತ್ತು ಮಠದ ಪ್ರಸಾದ ಭೋಜನ.",
+    "historicalSources": "Sri Madhvacharya biographies; Karnataka Temple Census; District Gazeteer of South Canara.",
+    "historicalSourcesKn": "ಶ್ರೀ ಮಧ್ವಾಚಾರ್ಯರ ಚರಿತ್ರೆ; ದಕ್ಷಿಣ ಕನ್ನಡ ಗೆಜೆಟಿಯರ್; ಕರ್ನಾಟಕ ದೇವಸ್ಥಾನಗಳ ಆಕರ ಗ್ರಂಥಗಳು.",
+    "bestTimeToVisit": "October to March",
+    "bestTimeToVisitKn": "ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್‌ವರೆಗೆ",
+    "avgDailyBudgetINR": 1800,
+    "nearestTransit": "Udupi Railway Station (4 km); Mangaluru International Airport (55 km)",
+    "nearestTransitKn": "ಉಡುಪಿ ರೈಲ್ವೆ ನಿಲ್ದಾಣ (೪ ಕಿ.ಮೀ); ಮಂಗಳೂರು ಅಂತರರಾಷ್ಟ್ರೀಯ ವಿಮಾನ ನಿಲ್ದಾಣ (೫೫ ಕಿ.ಮೀ)",
+    "nearbyDestinations": [
+      "gokarna",
+      "coorg",
+      "chikmagalur"
+    ],
+    "keyHighlights": [
+      "Sri Krishna Temple & Kanakana Kindi darshan",
+      "Malpe Beach & boat ride to St. Mary's Basaltic Hexagonal Islands",
+      "Kaup Lighthouse climb with panoramic Arabian Sea sunset",
+      "Authentic Mitra Samaj heritage breakfast",
+      "All-night Yakshagana performance in nearby coastal villages"
+    ],
+    "keyHighlightsKn": [
+      "ಶ್ರೀಕೃಷ್ಣ ಮಠ ಮತ್ತು ಕನಕನ ಕಿಂಡಿ ದರ್ಶನ",
+      "ಮಲ್ಪೆ ಬೀಚ್ ಮತ್ತು ಸೇಂಟ್ ಮೇರಿಸ್ ಷಡ್ಭುಜಾಕೃತಿಯ ಕಲ್ಲಿನ ದ್ವೀಪ",
+      "ಕಾಪು ಲೈಟ್‌ಹೌಸ್ ಮತ್ತು ಅರಬ್ಬಿ ಸಮುದ್ರದ ಸೂರ್ಯಾಸ್ತ",
+      "ಮಿತ್ರ ಸಮಾಜದಲ್ಲಿ ಸಾಂಪ್ರದಾಯಿಕ ಉಪಹಾರ",
+      "ಕರಾವಳಿಯ ಯಕ್ಷಗಾನ ಬಯಲಾಟ ಪ್ರದರ್ಶನ"
+    ]
+  },
+  {
+    "id": "chikmagalur",
+    "name": "Chikmagalur",
+    "nameKn": "ಚಿಕ್ಕಮಗಳೂರು",
+    "tagline": "The Birthplace of Indian Coffee & Highest Peak of Karnataka",
+    "taglineKn": "ಭಾರತದ ಕಾಫಿಯ ತವರು ಮತ್ತು ಕರ್ನಾಟಕದ ಅತಿ ಎತ್ತರದ ಗಿರಿಶಿಖರ",
+    "region": "Malenadu (Chikkamagaluru District)",
+    "regionKn": "ಮಲೆನಾಡು (ಚಿಕ್ಕಮಗಳೂರು ಜಿಲ್ಲೆ)",
+    "category": [
+      "Nature",
+      "Food",
+      "Culture"
+    ],
+    "heroImage": "/images/destinations/chikmagalur.jpg",
+    "gallery": [
+      "/images/destinations/chikmagalur.jpg",
+      "/images/destinations/fallback.jpg"
+    ],
+    "description": "Perched in the Baba Budan Giri mountain range, Chikmagalur is a verdant hill retreat where coffee was first cultivated in India, crowned by Mullayanagiri (1,930 m)—the highest peak in Karnataka.",
+    "descriptionKn": "ಬಾಬಾ ಬುಡನ್‌ಗಿರಿ ಶ್ರೇಣಿಯ ತಪ್ಪಲಿನಲ್ಲಿರುವ ಚಿಕ್ಕಮಗಳೂರು ಭಾರತದಲ್ಲಿ ಪ್ರಪ್ರಥಮವಾಗಿ ಕಾಫಿ ಬೆಳೆದ ಪುಣ್ಯಭೂಮಿ. ಕರ್ನಾಟಕದ ಅತಿ ಎತ್ತರದ ಶಿಖರ ಮುಳ್ಳಯ್ಯನಗಿರಿ (೧,೯೩೦ ಮೀ) ಇಲ್ಲಿದೆ.",
+    "significance": "Historical birthplace of Indian coffee; home to rare Kurinji flowers that bloom once every 12 years; origin of Tunga and Bhadra rivers.",
+    "significanceKn": "ಭಾರತೀಯ ಕಾಫಿಯ ಜನ್ಮಸ್ಥಳ; ೧೨ ವರ್ಷಕ್ಕೊಮ್ಮೆ ಅರಳುವ ಕುರಿಂಜಿ ಹೂವುಗಳ ತಾಣ; ತುಂಗಾ ಮತ್ತು ಭದ್ರಾ ನದಿಗಳ ಜನ್ಮಭೂಮಿ.",
+    "heritageStory": "In 1670 CE, the revered Sufi saint Baba Budan smuggled seven raw coffee beans hidden in his garments from the port of Mocha in Yemen. He planted them on the slopes of the Chandra Drona hills (now Baba Budangiri), giving birth to the entire coffee heritage of the Indian subcontinent.",
+    "heritageStoryKn": "ಕ್ರಿ.ಶ. ೧೬೭೦ರಲ್ಲಿ ಸೂಫಿ ಸಂತ ಬಾಬಾ ಬುಡನ್ ಯೆಮನ್‌ನಿಂದ ಏಳು ಕಾಫಿ ಬೀಜಗಳನ್ನು ತಮ್ಮ ವಸ್ತ್ರದಲ್ಲಿ ರಹಸ್ಯವಾಗಿ ತಂದು ಚಂದ್ರದ್ರೋಣ ಪರ್ವತದ ಇಳಿಜಾರಿನಲ್ಲಿ ನೆಟ್ಟರು. ಇದುವೇ ಇಡೀ ಭಾರತ ಉಪಖಂಡದ ಕಾಫಿ ಕೃಷಿಯ ಉಗಮವಾಯಿತು.",
+    "traditionsAndCrafts": "Coffee roasting and estate blending, Malenadu wild honey gathering, and herbal Ayurveda remedies.",
+    "traditionsAndCraftsKn": "ಕಾಫಿ ಸಂಸ್ಕರಣೆ ಮತ್ತು ಬ್ಲೆಂಡಿಂಗ್ ಕಲೆ, ಮಲೆನಾಡಿನ ಶುದ್ಧ ಜೇನುತುಪ್ಪ ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಆಯುರ್ವೇದ ಚಿಕಿತ್ಸೆ.",
+    "localFood": "Akki Rotti with Kaalu Huli, tender Halasina Hannu (jackfruit) dishes, Keer Kapi, and Malenadu bamboo shoots.",
+    "localFoodKn": "ಅಕ್ಕಿ ರೊಟ್ಟಿ-ಕಾಳು ಹುಳಿ, ಮಲೆನಾಡಿನ ಕಳಲೆ ಪಲ್ಯ, ಹಲಸಿನ ಹಣ್ಣಿನ ಗಿಣ್ಣು ಹಾಗೂ ಶುದ್ಧ ಕಾಫಿ.",
+    "historicalSources": "Coffee Board of India Archives; Mysore State Forest Records; Imperial Gazetteer of India.",
+    "historicalSourcesKn": "ಭಾರತೀಯ ಕಾಫಿ ಮಂಡಳಿಯ ದಾಖಲೆಗಳು; ಮೈಸೂರು ರಾಜ್ಯ ಅರಣ್ಯ ಗೆಜೆಟಿಯರ್.",
+    "bestTimeToVisit": "September to May",
+    "bestTimeToVisitKn": "ಸೆಪ್ಟೆಂಬರ್‌ನಿಂದ ಮೇ ವರೆಗೆ",
+    "avgDailyBudgetINR": 2200,
+    "nearestTransit": "Chikkamagaluru Railway Station; Mangaluru Airport (150 km) / Bengaluru Airport (250 km)",
+    "nearestTransitKn": "ಚಿಕ್ಕಮಗಳೂರು ರೈಲ್ವೆ ನಿಲ್ದಾಣ; ಮಂಗಳೂರು / ಬೆಂಗಳೂರು ವಿಮಾನ ನಿಲ್ದಾಣ",
+    "nearbyDestinations": [
+      "belur",
+      "halebidu",
+      "coorg"
+    ],
+    "keyHighlights": [
+      "Mullayanagiri trek to Karnataka's highest summit",
+      "Baba Budangiri & Dattatreya Peetha sacred cave",
+      "Hirekolale Lake scenic reflection at dusk",
+      "Jhari (Buttermilk) & Hebbe cascading waterfalls",
+      "Coffee Museum & tasting tour"
+    ],
+    "keyHighlightsKn": [
+      "ಕರ್ನಾಟಕದ ಅತ್ಯುನ್ನತ ಶಿಖರ ಮುಳ್ಳಯ್ಯನಗಿರಿ ಚಾರಣ",
+      "ಬಾಬಾ ಬುಡನ್‌ಗಿರಿ ದತ್ತಪೀಠ ಸನ್ನಿಧಿ",
+      "ಹಿರೇಕೊಳಲೆ ಕೆರೆಯ ರಮಣೀಯ ಸಂಜೆ ನೋಟ",
+      "ಝರಿ ಮತ್ತು ಹೆಬ್ಬೆ ಜಲಪಾತಗಳು",
+      "ಕಾಫಿ ಮ್ಯೂಸಿಯಂ ಮತ್ತು ಟೇಸ್ಟಿಂಗ್ ಪ್ರವಾಸ"
+    ]
+  }
+]
