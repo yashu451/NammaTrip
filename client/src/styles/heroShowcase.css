@@ -1,0 +1,192 @@
+/* NammaTrip AI - Cinematic Karnataka Hero & Translucent Destination Showcase */
+
+.hero-section-cinematic {
+  position: relative;
+  background-color: var(--primary-900, #0C241B);
+  color: #FAF7F2;
+  overflow: hidden;
+  padding: 72px 0 88px;
+  border-bottom: 4px solid var(--accent-gold, #D97706);
+  background-image: 
+    linear-gradient(90deg, rgba(12, 36, 27, 0.92) 0%, rgba(12, 36, 27, 0.82) 36%, rgba(12, 36, 27, 0.45) 68%, rgba(12, 36, 27, 0.18) 100%),
+    linear-gradient(180deg, rgba(12, 36, 27, 0.45) 0%, transparent 22%, transparent 75%, rgba(12, 36, 27, 0.92) 100%),
+    url('/images/karnataka-hero-landscape.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .hero-section-cinematic {
+    background-image: 
+      linear-gradient(180deg, rgba(12, 36, 27, 0.92) 0%, rgba(12, 36, 27, 0.82) 40%, rgba(12, 36, 27, 0.92) 100%),
+      url('/images/karnataka-hero-landscape.jpg');
+    padding: 48px 0 64px;
+    min-height: auto;
+  }
+}
+
+/* Translucent Blue-Green Destination Showcase Bar */
+.hero-showcase-bar {
+  background: linear-gradient(135deg, rgba(16, 52, 45, 0.78) 0%, rgba(22, 78, 68, 0.65) 50%, rgba(12, 42, 36, 0.85) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(116, 198, 157, 0.35);
+  border-radius: 20px;
+  padding: 16px 20px;
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.45), 0 0 20px rgba(45, 106, 79, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.hero-showcase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-showcase-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FDE68A;
+}
+
+[lang="kn"] .hero-showcase-title {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+  letter-spacing: normal;
+  text-transform: none;
+  font-size: 0.9rem;
+}
+
+.hero-showcase-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-showcase-nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-showcase-nav-btn:hover {
+  background-color: var(--accent-gold, #D97706);
+  border-color: #FDE68A;
+  color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+.hero-showcase-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 119, 6, 0.4) transparent;
+  padding: 4px 2px 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hero-showcase-track::-webkit-scrollbar {
+  height: 4px;
+}
+.hero-showcase-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hero-showcase-track::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.4);
+  border-radius: 4px;
+}
+
+.hero-destination-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 7px;
+  text-decoration: none;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  width: 86px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.hero-destination-item:hover {
+  transform: translateY(-3px);
+}
+
+.hero-destination-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #FDE68A;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hero-destination-item:hover .hero-destination-avatar {
+  border-color: var(--accent-gold, #D97706);
+  box-shadow: 0 0 16px rgba(217, 119, 6, 0.6);
+  transform: scale(1.08);
+}
+
+.hero-destination-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-destination-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  word-break: normal;
+  overflow-wrap: break-word;
+  max-width: 86px;
+}
+
+[lang="kn"] .hero-destination-label {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.hero-destination-tagline {
+  font-size: 0.68rem;
+  color: #B7E4C7;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 86px;
+}

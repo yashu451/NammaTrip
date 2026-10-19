@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import '../styles/heroShowcase.css';
 import {
   Compass,
   Sparkles,
@@ -12,17 +13,109 @@ import {
   ArrowRight,
   Award,
   ChevronRight,
+  ChevronLeft,
   Heart
 } from 'lucide-react';
 import { GandaberundaEmblem, StoneChariotIcon, HeritageDivider } from '../components/HeritageMotifs.jsx';
 import DestinationCard from '../components/DestinationCard.jsx';
 import DestinationModal from '../components/DestinationModal.jsx';
 
+const HERO_SHOWCASE_DESTINATIONS = [
+  {
+    id: 'hampi',
+    name: 'Hampi',
+    nameKn: 'ಹಂಪಿ',
+    tagline: 'UNESCO Heritage',
+    taglineKn: 'ವಿಶ್ವ ಪರಂಪರೆ',
+    image: '/images/destinations/hampi.jpg'
+  },
+  {
+    id: 'mysuru',
+    name: 'Mysuru',
+    nameKn: 'ಮೈಸೂರು',
+    tagline: 'City of Palaces',
+    taglineKn: 'ಅರಮನೆಗಳ ನಗರಿ',
+    image: '/images/destinations/mysuru.jpg'
+  },
+  {
+    id: 'coorg',
+    name: 'Coorg',
+    nameKn: 'ಕೊಡಗು',
+    tagline: 'Misty Coffee Hills',
+    taglineKn: 'ಮಂಜಿನ ನಗರಿ',
+    image: '/images/destinations/coorg.jpg'
+  },
+  {
+    id: 'gokarna',
+    name: 'Gokarna',
+    nameKn: 'ಗೋಕರ್ಣ',
+    tagline: 'Sacred Coast',
+    taglineKn: 'ಪವಿತ್ರ ಕಡಲತೀರ',
+    image: '/images/destinations/gokarna.jpg'
+  },
+  {
+    id: 'badami',
+    name: 'Badami',
+    nameKn: 'ಬಾದಾಮಿ',
+    tagline: 'Cave Temples',
+    taglineKn: 'ಗುಹಾ ದೇವಾಲಯ',
+    image: '/images/destinations/badami.jpg'
+  },
+  {
+    id: 'belur',
+    name: 'Belur & Halebidu',
+    nameKn: 'ಬೇಲೂರು & ಹಳೇಬೀಡು',
+    tagline: 'Hoysala Wonders',
+    taglineKn: 'ಹೊಯ್ಸಳ ಶಿಲ್ಪಕಲೆ',
+    image: '/images/destinations/belur.jpg'
+  },
+  {
+    id: 'udupi',
+    name: 'Udupi',
+    nameKn: 'ಉಡುಪಿ',
+    tagline: 'Temples & Shores',
+    taglineKn: 'ಕೃಷ್ಣ ಮಠ & ಕಡಲು',
+    image: '/images/destinations/udupi.jpg'
+  },
+  {
+    id: 'chitradurga',
+    name: 'Chitradurga',
+    nameKn: 'ಚಿತ್ರದುರ್ಗ',
+    tagline: 'Stone Fortress',
+    taglineKn: 'ಏಳು ಸುತ್ತಿನ ಕೋಟೆ',
+    image: '/images/destinations/chitradurga.jpg'
+  },
+  {
+    id: 'pattadakal',
+    name: 'Pattadakal',
+    nameKn: 'ಪಟ್ಟದಕಲ್ಲು',
+    tagline: 'Temple Architecture',
+    taglineKn: 'ದೇಗುಲ ಶಿಲ್ಪಕಲೆ',
+    image: '/images/destinations/pattadakal.jpg'
+  },
+  {
+    id: 'vijayapura',
+    name: 'Vijayapura',
+    nameKn: 'ವಿಜಯಪುರ',
+    tagline: 'Gol Gumbaz',
+    taglineKn: 'ಗೋಲ್ ಗುಂಬಜ್',
+    image: '/images/destinations/vijayapura.jpg'
+  }
+];
+
 export default function LandingPage() {
   const { language, t } = useLanguage();
   const navigate = useNavigate();
+  const carouselRef = useRef(null);
   const [featuredDestinations, setFeaturedDestinations] = useState([]);
   const [selectedDestination, setSelectedDestination] = useState(null);
+
+  const scrollCarousel = (direction) => {
+    if (carouselRef.current) {
+      const scrollOffset = direction === 'left' ? -220 : 220;
+      carouselRef.current.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     fetch('/api/destinations')
@@ -37,44 +130,30 @@ export default function LandingPage() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '64px', paddingBottom: '64px' }}>
-      {/* Hero Section */}
-      <section style={{
-        position: 'relative',
-        backgroundColor: 'var(--primary-900)',
-        color: '#FAF7F2',
-        overflow: 'hidden',
-        padding: '80px 0 96px',
-        borderBottom: '4px solid var(--accent-gold)'
-      }}>
-        {/* Subtle Background Pattern */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(217, 119, 6, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(45, 106, 79, 0.25) 0%, transparent 50%)',
-          pointerEvents: 'none'
-        }} />
-
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+      {/* Hero Section with Cinematic Karnataka Landscape & Destination Showcase */}
+      <section className="hero-section-cinematic">
+        <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             alignItems: 'center',
-            gap: '48px'
+            gap: '40px'
           }}>
             {/* Left Column: Headline & CTAs */}
-            <div>
+            <div style={{ maxWidth: '620px' }}>
               <div style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '24px',
-                backgroundColor: 'rgba(217, 119, 6, 0.2)',
-                border: '1px solid rgba(217, 119, 6, 0.4)',
+                backgroundColor: 'rgba(217, 119, 6, 0.25)',
+                border: '1px solid rgba(217, 119, 6, 0.45)',
                 color: '#FDE68A',
                 fontSize: '0.85rem',
                 fontWeight: 700,
-                marginBottom: '20px'
+                marginBottom: '20px',
+                backdropFilter: 'blur(6px)'
               }}>
                 <Sparkles size={16} color="#FDE68A" />
                 <span>{t('heroBadge')}</span>
@@ -88,7 +167,8 @@ export default function LandingPage() {
                 color: '#FFFFFF',
                 marginBottom: '20px',
                 wordBreak: 'normal',
-                overflowWrap: 'break-word'
+                overflowWrap: 'break-word',
+                textShadow: '0 2px 10px rgba(0, 0, 0, 0.6)'
               }}>
                 {t('heroTitle')}
               </h1>
@@ -98,7 +178,8 @@ export default function LandingPage() {
                 color: '#D8F3DC',
                 lineHeight: 1.65,
                 marginBottom: '32px',
-                maxWidth: '560px'
+                maxWidth: '560px',
+                textShadow: '0 1px 4px rgba(0, 0, 0, 0.6)'
               }}>
                 {t('heroDescription')}
               </p>
@@ -109,7 +190,7 @@ export default function LandingPage() {
                   <Sparkles size={18} />
                   <span>{t('heroStartPlanning')}</span>
                 </Link>
-                <Link to="/explore" className="btn btn-secondary btn-lg" style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.25)' }}>
+                <Link to="/explore" className="btn btn-secondary btn-lg" style={{ backgroundColor: 'rgba(255,255,255,0.14)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)', backdropFilter: 'blur(6px)' }}>
                   <Compass size={18} />
                   <span>{t('heroExploreHeritage')}</span>
                 </Link>
@@ -123,9 +204,10 @@ export default function LandingPage() {
                 gap: '20px',
                 marginTop: '40px',
                 paddingTop: '24px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.16)',
                 fontSize: '0.82rem',
-                color: '#B7E4C7'
+                color: '#B7E4C7',
+                textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <ShieldCheck size={16} color="#D97706" />
@@ -142,68 +224,74 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right Column: Visual Heritage Showcase Card */}
+            {/* Right Column: Open Vista with Translucent Blue-Green Destination Showcase in Lower-Right */}
             <div style={{
-              position: 'relative',
-              borderRadius: 'var(--radius-lg)',
-              overflow: 'hidden',
-              boxShadow: 'var(--shadow-xl)',
-              border: '2px solid rgba(253, 230, 138, 0.3)'
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-end',
+              minHeight: '440px',
+              width: '100%'
             }}>
-              <img
-                src="/images/destinations/hampi.jpg"
-                alt="Hampi Stone Chariot Karnataka"
-                style={{ width: '100%', height: '440px', objectFit: 'cover' }}
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = '/images/destinations/fallback.jpg';
-                }}
-              />
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(180deg, transparent 40%, rgba(12, 36, 27, 0.95) 100%)'
-              }} />
+              {/* Natural open space letting the landscape temples, chariot & palace shine */}
+              <div style={{ flex: 1, minHeight: '120px' }} />
 
-              {/* Floating Pill on image */}
-              <div style={{
-                position: 'absolute',
-                bottom: '24px',
-                left: '24px',
-                right: '24px',
-                backgroundColor: 'rgba(15, 46, 35, 0.9)',
-                backdropFilter: 'blur(8px)',
-                borderRadius: '14px',
-                padding: '16px 20px',
-                border: '1px solid rgba(217, 119, 6, 0.4)'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
-                  <div>
-                    <span className="badge badge-unesco" style={{ marginBottom: '6px' }}>
-                      UNESCO World Heritage
-                    </span>
-                    <h3 style={{ fontSize: '1.25rem', color: '#FFFFFF', margin: 0, fontFamily: 'var(--font-serif)' }}>
-                      Vijaya Vittala Chariot, Hampi
-                    </h3>
-                    <p style={{ fontSize: '0.8rem', color: '#FDE68A', margin: '2px 0 0', fontFamily: 'var(--font-kannada)' }}>
-                      ವಿಜಯ ವಿಠ್ಠಲ ದೇಗುಲದ ಕಲ್ಲಿನ ರಥ • ೧೬ನೇ ಶತಮಾನ
-                    </p>
+              {/* Translucent Blue-Green Destination Showcase Bar */}
+              <div className="hero-showcase-bar">
+                <div className="hero-showcase-header">
+                  <div className="hero-showcase-title">
+                    <Compass size={16} color="#FDE68A" />
+                    <span>{language === 'kn' ? 'ಪ್ರಮುಖ ಕರ್ನಾಟಕ ಪ್ರವಾಸ ತಾಣಗಳು' : 'Featured Karnataka Destinations'}</span>
                   </div>
-                  <Link
-                    to="/explore"
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '50%',
-                      backgroundColor: 'var(--accent-gold)',
-                      color: '#FFFFFF',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
-                  >
-                    <ArrowRight size={18} />
-                  </Link>
+                  <div className="hero-showcase-nav-group">
+                    <button
+                      type="button"
+                      onClick={() => scrollCarousel('left')}
+                      className="hero-showcase-nav-btn"
+                      aria-label="Previous Destinations"
+                      title="Previous"
+                    >
+                      <ChevronLeft size={16} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => scrollCarousel('right')}
+                      className="hero-showcase-nav-btn"
+                      aria-label="Next Destinations"
+                      title="Next"
+                    >
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Horizontal Carousel Track */}
+                <div ref={carouselRef} className="hero-showcase-track">
+                  {HERO_SHOWCASE_DESTINATIONS.map((dest) => (
+                    <Link
+                      key={dest.id}
+                      to={`/explore?search=${encodeURIComponent(dest.name)}`}
+                      className="hero-destination-item"
+                      title={language === 'kn' ? `${dest.nameKn} (${dest.name})` : dest.name}
+                    >
+                      <div className="hero-destination-avatar">
+                        <img
+                          src={dest.image}
+                          alt={dest.name}
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = '/images/destinations/fallback.jpg';
+                          }}
+                        />
+                      </div>
+                      <div className="hero-destination-label">
+                        {language === 'kn' ? dest.nameKn : dest.name}
+                      </div>
+                      <div className="hero-destination-tagline">
+                        {language === 'kn' ? dest.taglineKn : dest.tagline}
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
