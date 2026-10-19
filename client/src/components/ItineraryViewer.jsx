@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import TripMap from './TripMap.jsx';
 import {
   Sun,
   Utensils,
@@ -14,9 +15,10 @@ import {
   Info
 } from 'lucide-react';
 
-export default function ItineraryViewer({ itinerary, engineName }) {
+export default function ItineraryViewer({ itinerary, engineName, destinationId, startingCity }) {
   const { language, t } = useLanguage();
   const [expandedDay, setExpandedDay] = useState(1);
+  const [activePlaceId, setActivePlaceId] = useState(null);
 
   if (!itinerary || !Array.isArray(itinerary) || itinerary.length === 0) {
     return (
@@ -81,6 +83,28 @@ export default function ItineraryViewer({ itinerary, engineName }) {
         </button>
       </div>
 
+      {/* Interactive Trip Map Section */}
+      <TripMap
+        itinerary={itinerary}
+        destinationId={destinationId}
+        startingCity={startingCity}
+        activePlaceId={activePlaceId}
+        onSelectPlace={(placeId, dayNum) => {
+          setExpandedDay(dayNum);
+          setActivePlaceId(placeId);
+          setTimeout(() => {
+            const el = document.getElementById(placeId);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          }, 150);
+        }}
+        onSelectDay={(dayNum) => {
+          setExpandedDay(dayNum);
+        }}
+        controlledDay={expandedDay}
+      />
+
       {/* Days List */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {itinerary.map((dayPlan, idx) => {
@@ -101,7 +125,13 @@ export default function ItineraryViewer({ itinerary, engineName }) {
             >
               {/* Day Header Accordion Toggle */}
               <div
-                onClick={() => setExpandedDay(isExpanded ? null : dayNumber)}
+                onClick={() => {
+                  const next = isExpanded ? null : dayNumber;
+                  setExpandedDay(next);
+                  if (next) {
+                    setActivePlaceId(`d${next}-morning`);
+                  }
+                }}
                 style={{
                   padding: '16px 20px',
                   backgroundColor: isExpanded ? 'var(--bg-surface-warm)' : '#FFFFFF',
@@ -160,128 +190,280 @@ export default function ItineraryViewer({ itinerary, engineName }) {
               {isExpanded && (
                 <div style={{ padding: '22px 20px', display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   {/* Morning Block */}
-                  {dayPlan.morning && (
-                    <div style={{
-                      display: 'flex',
-                      gap: '14px',
-                      padding: '14px',
-                      borderRadius: '10px',
-                      backgroundColor: 'rgba(217, 119, 6, 0.05)',
-                      borderLeft: '4px solid #D97706'
-                    }}>
-                      <div style={{ color: '#D97706', marginTop: '2px' }}>
-                        <Sun size={20} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-                          <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#B45309', textTransform: 'uppercase' }}>
-                            {t('morningLabel')} • {dayPlan.morning.time}
-                          </span>
-                          {dayPlan.morning.estimatedFee !== undefined && (
-                            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center' }}>
-                              Entry: ₹{dayPlan.morning.estimatedFee}
-                            </span>
-                          )}
+                  {dayPlan.morning && (() => {
+                    const placeId = `d${dayNumber}-morning`;
+                    const isActive = activePlaceId === placeId;
+                    return (
+                      <div
+                        id={placeId}
+                        onClick={() => setActivePlaceId(placeId)}
+                        style={{
+                          display: 'flex',
+                          gap: '14px',
+                          padding: '14px',
+                          borderRadius: '10px',
+                          backgroundColor: isActive ? 'rgba(217, 119, 6, 0.12)' : 'rgba(217, 119, 6, 0.05)',
+                          borderLeft: '4px solid #D97706',
+                          border: isActive ? '2px solid var(--accent-gold)' : undefined,
+                          boxShadow: isActive ? '0 0 12px rgba(217, 119, 6, 0.25)' : undefined,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <div style={{ color: '#D97706', marginTop: '2px' }}>
+                          <Sun size={20} />
                         </div>
-                        <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 6px' }}>
-                          {language === 'kn' ? (dayPlan.morning.titleKn || dayPlan.morning.title) : dayPlan.morning.title}
-                        </h5>
-                        <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
-                          {language === 'kn' ? (dayPlan.morning.descriptionKn || dayPlan.morning.description) : dayPlan.morning.description}
-                        </p>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#B45309', textTransform: 'uppercase' }}>
+                              {t('morningLabel')} • {dayPlan.morning.time}
+                            </span>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                              {dayPlan.morning.estimatedFee !== undefined && (
+                                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                                  Entry: ₹{dayPlan.morning.estimatedFee}
+                                </span>
+                              )}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActivePlaceId(placeId);
+                                  document.getElementById('trip-map-section')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                                }}
+                                style={{
+                                  background: 'none',
+                                  border: 'none',
+                                  padding: '2px 6px',
+                                  borderRadius: '4px',
+                                  color: isActive ? '#B45309' : 'var(--text-muted)',
+                                  fontSize: '0.75rem',
+                                  cursor: 'pointer',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px'
+                                }}
+                                title={t('showOnMap')}
+                              >
+                                <MapPin size={13} color={isActive ? '#D97706' : 'currentColor'} />
+                                <span>{t('showOnMap')}</span>
+                              </button>
+                            </div>
+                          </div>
+                          <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 6px' }}>
+                            {language === 'kn' ? (dayPlan.morning.titleKn || dayPlan.morning.title) : dayPlan.morning.title}
+                          </h5>
+                          <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
+                            {language === 'kn' ? (dayPlan.morning.descriptionKn || dayPlan.morning.description) : dayPlan.morning.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
 
                   {/* Lunch Block */}
-                  {dayPlan.lunch && (
-                    <div style={{
-                      display: 'flex',
-                      gap: '14px',
-                      padding: '14px',
-                      borderRadius: '10px',
-                      backgroundColor: 'rgba(45, 106, 79, 0.05)',
-                      borderLeft: '4px solid #2D6A4F'
-                    }}>
-                      <div style={{ color: '#2D6A4F', marginTop: '2px' }}>
-                        <Utensils size={20} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary-800)', textTransform: 'uppercase' }}>
-                          {t('lunchLabel')}
+                  {dayPlan.lunch && (() => {
+                    const placeId = `d${dayNumber}-lunch`;
+                    const isActive = activePlaceId === placeId;
+                    return (
+                      <div
+                        id={placeId}
+                        onClick={() => setActivePlaceId(placeId)}
+                        style={{
+                          display: 'flex',
+                          gap: '14px',
+                          padding: '14px',
+                          borderRadius: '10px',
+                          backgroundColor: isActive ? 'rgba(45, 106, 79, 0.12)' : 'rgba(45, 106, 79, 0.05)',
+                          borderLeft: '4px solid #2D6A4F',
+                          border: isActive ? '2px solid var(--primary-700)' : undefined,
+                          boxShadow: isActive ? '0 0 12px rgba(45, 106, 79, 0.25)' : undefined,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <div style={{ color: '#2D6A4F', marginTop: '2px' }}>
+                          <Utensils size={20} />
                         </div>
-                        <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 4px' }}>
-                          {language === 'kn' ? (dayPlan.lunch.spotKn || dayPlan.lunch.spot) : dayPlan.lunch.spot}
-                        </h5>
-                        <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
-                          <strong>Must Try: </strong>
-                          {language === 'kn' ? (dayPlan.lunch.dishKn || dayPlan.lunch.dish) : dayPlan.lunch.dish}
-                          {dayPlan.lunch.estCost && ` (~₹${dayPlan.lunch.estCost})`}
-                        </p>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary-800)', textTransform: 'uppercase' }}>
+                              {t('lunchLabel')}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActivePlaceId(placeId);
+                                document.getElementById('trip-map-section')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                              }}
+                              style={{
+                                background: 'none',
+                                border: 'none',
+                                padding: '2px 6px',
+                                borderRadius: '4px',
+                                color: isActive ? 'var(--primary-800)' : 'var(--text-muted)',
+                                fontSize: '0.75rem',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '4px'
+                              }}
+                              title={t('showOnMap')}
+                            >
+                              <MapPin size={13} color={isActive ? '#2D6A4F' : 'currentColor'} />
+                              <span>{t('showOnMap')}</span>
+                            </button>
+                          </div>
+                          <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 4px' }}>
+                            {language === 'kn' ? (dayPlan.lunch.spotKn || dayPlan.lunch.spot) : dayPlan.lunch.spot}
+                          </h5>
+                          <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
+                            <strong>Must Try: </strong>
+                            {language === 'kn' ? (dayPlan.lunch.dishKn || dayPlan.lunch.dish) : dayPlan.lunch.dish}
+                            {dayPlan.lunch.estCost && ` (~₹${dayPlan.lunch.estCost})`}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
 
                   {/* Afternoon Block */}
-                  {dayPlan.afternoon && (
-                    <div style={{
-                      display: 'flex',
-                      gap: '14px',
-                      padding: '14px',
-                      borderRadius: '10px',
-                      backgroundColor: 'rgba(217, 119, 6, 0.05)',
-                      borderLeft: '4px solid #D97706'
-                    }}>
-                      <div style={{ color: '#D97706', marginTop: '2px' }}>
-                        <Clock size={20} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-                          <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#B45309', textTransform: 'uppercase' }}>
-                            {t('afternoonLabel')} • {dayPlan.afternoon.time}
-                          </span>
-                          {dayPlan.afternoon.estimatedFee !== undefined && (
-                            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                              Entry: ₹{dayPlan.afternoon.estimatedFee}
-                            </span>
-                          )}
+                  {dayPlan.afternoon && (() => {
+                    const placeId = `d${dayNumber}-afternoon`;
+                    const isActive = activePlaceId === placeId;
+                    return (
+                      <div
+                        id={placeId}
+                        onClick={() => setActivePlaceId(placeId)}
+                        style={{
+                          display: 'flex',
+                          gap: '14px',
+                          padding: '14px',
+                          borderRadius: '10px',
+                          backgroundColor: isActive ? 'rgba(217, 119, 6, 0.12)' : 'rgba(217, 119, 6, 0.05)',
+                          borderLeft: '4px solid #D97706',
+                          border: isActive ? '2px solid var(--accent-gold)' : undefined,
+                          boxShadow: isActive ? '0 0 12px rgba(217, 119, 6, 0.25)' : undefined,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <div style={{ color: '#D97706', marginTop: '2px' }}>
+                          <Clock size={20} />
                         </div>
-                        <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 6px' }}>
-                          {language === 'kn' ? (dayPlan.afternoon.titleKn || dayPlan.afternoon.title) : dayPlan.afternoon.title}
-                        </h5>
-                        <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
-                          {language === 'kn' ? (dayPlan.afternoon.descriptionKn || dayPlan.afternoon.description) : dayPlan.afternoon.description}
-                        </p>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#B45309', textTransform: 'uppercase' }}>
+                              {t('afternoonLabel')} • {dayPlan.afternoon.time}
+                            </span>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                              {dayPlan.afternoon.estimatedFee !== undefined && (
+                                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                                  Entry: ₹{dayPlan.afternoon.estimatedFee}
+                                </span>
+                              )}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActivePlaceId(placeId);
+                                  document.getElementById('trip-map-section')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                                }}
+                                style={{
+                                  background: 'none',
+                                  border: 'none',
+                                  padding: '2px 6px',
+                                  borderRadius: '4px',
+                                  color: isActive ? '#B45309' : 'var(--text-muted)',
+                                  fontSize: '0.75rem',
+                                  cursor: 'pointer',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px'
+                                }}
+                                title={t('showOnMap')}
+                              >
+                                <MapPin size={13} color={isActive ? '#D97706' : 'currentColor'} />
+                                <span>{t('showOnMap')}</span>
+                              </button>
+                            </div>
+                          </div>
+                          <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 6px' }}>
+                            {language === 'kn' ? (dayPlan.afternoon.titleKn || dayPlan.afternoon.title) : dayPlan.afternoon.title}
+                          </h5>
+                          <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
+                            {language === 'kn' ? (dayPlan.afternoon.descriptionKn || dayPlan.afternoon.description) : dayPlan.afternoon.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
 
                   {/* Evening Block */}
-                  {dayPlan.evening && (
-                    <div style={{
-                      display: 'flex',
-                      gap: '14px',
-                      padding: '14px',
-                      borderRadius: '10px',
-                      backgroundColor: 'rgba(15, 46, 35, 0.05)',
-                      borderLeft: '4px solid #1B4332'
-                    }}>
-                      <div style={{ color: '#1B4332', marginTop: '2px' }}>
-                        <Moon size={20} />
+                  {dayPlan.evening && (() => {
+                    const placeId = `d${dayNumber}-evening`;
+                    const isActive = activePlaceId === placeId;
+                    return (
+                      <div
+                        id={placeId}
+                        onClick={() => setActivePlaceId(placeId)}
+                        style={{
+                          display: 'flex',
+                          gap: '14px',
+                          padding: '14px',
+                          borderRadius: '10px',
+                          backgroundColor: isActive ? 'rgba(15, 46, 35, 0.12)' : 'rgba(15, 46, 35, 0.05)',
+                          borderLeft: '4px solid #1B4332',
+                          border: isActive ? '2px solid var(--primary-800)' : undefined,
+                          boxShadow: isActive ? '0 0 12px rgba(27, 67, 50, 0.25)' : undefined,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <div style={{ color: '#1B4332', marginTop: '2px' }}>
+                          <Moon size={20} />
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary-900)', textTransform: 'uppercase' }}>
+                              {t('eveningLabel')} • {dayPlan.evening.time}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActivePlaceId(placeId);
+                                document.getElementById('trip-map-section')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                              }}
+                              style={{
+                                background: 'none',
+                                border: 'none',
+                                padding: '2px 6px',
+                                borderRadius: '4px',
+                                color: isActive ? 'var(--primary-800)' : 'var(--text-muted)',
+                                fontSize: '0.75rem',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '4px'
+                              }}
+                              title={t('showOnMap')}
+                            >
+                              <MapPin size={13} color={isActive ? '#1B4332' : 'currentColor'} />
+                              <span>{t('showOnMap')}</span>
+                            </button>
+                          </div>
+                          <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 6px' }}>
+                            {language === 'kn' ? (dayPlan.evening.titleKn || dayPlan.evening.title) : dayPlan.evening.title}
+                          </h5>
+                          <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
+                            {language === 'kn' ? (dayPlan.evening.descriptionKn || dayPlan.evening.description) : dayPlan.evening.description}
+                          </p>
+                        </div>
                       </div>
-                      <div style={{ flex: 1 }}>
-                        <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary-900)', textTransform: 'uppercase' }}>
-                          {t('eveningLabel')} • {dayPlan.evening.time}
-                        </span>
-                        <h5 style={{ fontSize: '0.98rem', color: 'var(--primary-900)', margin: '4px 0 6px' }}>
-                          {language === 'kn' ? (dayPlan.evening.titleKn || dayPlan.evening.title) : dayPlan.evening.title}
-                        </h5>
-                        <p style={{ fontSize: '0.88rem', color: 'var(--text-body)', lineHeight: 1.5, margin: 0 }}>
-                          {language === 'kn' ? (dayPlan.evening.descriptionKn || dayPlan.evening.description) : dayPlan.evening.description}
-                        </p>
-                      </div>
-                    </div>
-                  )}
+                    );
+                  })()}
 
                   {/* Cultural Tip Badge */}
                   {dayPlan.culturalTip && (

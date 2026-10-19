@@ -15,6 +15,7 @@ import tripsRoutes from './routes/trips.js';
 import favoritesRoutes from './routes/favorites.js';
 import destinationsRoutes from './routes/destinations.js';
 import plannerRoutes from './routes/planner.js';
+import mapRoutes from './routes/map.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -49,6 +50,7 @@ app.use('/api/trips', tripsRoutes);
 app.use('/api/favorites', favoritesRoutes);
 app.use('/api/destinations', destinationsRoutes);
 app.use('/api/planner', plannerRoutes);
+app.use('/api/map', mapRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

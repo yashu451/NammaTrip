@@ -385,6 +385,91 @@ async function runTests() {
     assert.strictEqual(removeData.action, 'removed');
   });
 
+  // 19. Interactive Map Generation with Verified Coordinates & Route
+  await test('POST /api/map/trip-map returns structured stops with verified coordinates and route data', async () => {
+    const res = await fetch(`${BASE_URL}/api/map/trip-map`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        itinerary: generatedPlanData.itinerary,
+        destinationId: 'hampi',
+        startingCity: 'Bengaluru'
+      })
+    });
+    const data = await res.json();
+    assert.strictEqual(res.status, 200);
+    assert.strictEqual(data.success, true);
+    assert(Array.isArray(data.stops), 'Stops must be an array');
+    assert(data.stops.length > 0, 'Stops must contain itinerary activities');
+    
+    // Check first stop has valid coordinates and numbered marker
+    const firstStop = data.stops[0];
+    assert.strictEqual(firstStop.stopNumber, 1);
+    assert.strictEqual(firstStop.hasCoordinates, true);
+    assert(firstStop.lat > 11 && firstStop.lat < 19, 'Latitude must be within Karnataka region');
+    assert(firstStop.lng > 74 && firstStop.lng < 79, 'Longitude must be within Karnataka region');
+    assert(firstStop.title, 'Stop title must be present');
+    assert(firstStop.titleKn, 'Stop Kannada title must be present');
+
+    // Verify center & bounds
+    assert(Array.isArray(data.center) && data.center.length === 2);
+    assert(Array.isArray(data.bounds) && data.bounds.length === 2);
+
+    // Verify day routes structure
+    assert(Array.isArray(data.routes), 'Routes must be an array');
+    assert.strictEqual(data.routes.length, generatedPlanData.itinerary.length);
+  });
+
+  // 20. Dynamic Multi-Destination Support without Hardcoding
+  await test('POST /api/map/trip-map works dynamically for Mysuru itinerary with distinct coordinates', async () => {
+    // Generate a 2-day Mysuru itinerary
+    const planRes = await fetch(`${BASE_URL}/api/planner/generate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        startingCity: 'Bengaluru',
+        destinationId: 'mysuru',
+        durationDays: 2,
+        travelers: 2,
+        budgetPerPerson: 4500,
+        transportMode: 'train',
+        stayTier: 'moderate',
+        interests: ['Heritage', 'Culture']
+      })
+    });
+    const planData = await planRes.json();
+    assert.strictEqual(planRes.status, 200);
+
+    const mapRes = await fetch(`${BASE_URL}/api/map/trip-map`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        itinerary: planData.itinerary,
+        destinationId: 'mysuru'
+      })
+    });
+    const mapData = await mapRes.json();
+    assert.strictEqual(mapRes.status, 200);
+    assert(mapData.stops.length >= 6, 'Must generate multiple stops for Mysuru 2-day trip');
+    
+    // Check Mysuru Palace / Chamundi coordinates are around latitude 12.3 (Southern Karnataka)
+    const validMysuruStop = mapData.stops.find(s => s.hasCoordinates);
+    assert(validMysuruStop, 'Must have at least one verified Mysuru stop');
+    assert(validMysuruStop.lat >= 12.0 && validMysuruStop.lat <= 12.6, 'Mysuru latitude should be around 12.3°N');
+  });
+
+  // 21. Map Error Handling & Validation
+  await test('POST /api/map/trip-map rejects invalid payload with 400', async () => {
+    const res = await fetch(`${BASE_URL}/api/map/trip-map`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ itinerary: 'not-an-array' })
+    });
+    assert.strictEqual(res.status, 400);
+    const data = await res.json();
+    assert.strictEqual(data.success, false);
+  });
+
   console.log(`\n========================================`);
   console.log(`Test Results: ${testsPassed} Passed, ${testsFailed} Failed`);
   console.log(`========================================\n`);

@@ -558,10 +558,12 @@ export default function PlannerPage() {
             </div>
           </div>
 
-          {/* Detailed Day-by-Day Itinerary */}
+          {/* Detailed Day-by-Day Itinerary with Interactive Trip Map */}
           <ItineraryViewer
             itinerary={generatedPlan.itinerary}
             engineName={generatedPlan.engineName}
+            destinationId={destinationId}
+            startingCity={startingCity}
           />
         </div>
       )}

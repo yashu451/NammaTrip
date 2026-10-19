@@ -1,0 +1,378 @@
+/* NammaTrip AI - Interactive Trip Map Styling */
+
+.trip-map-wrapper {
+  background-color: var(--bg-surface, #FFFFFF);
+  border-radius: var(--radius-md, 16px);
+  border: 1px solid var(--border-light, rgba(45, 106, 79, 0.12));
+  box-shadow: var(--shadow-sm, 0 2px 6px -1px rgba(27, 67, 50, 0.05));
+  overflow: hidden;
+  margin-bottom: 24px;
+  transition: box-shadow var(--transition-normal, 0.25s ease);
+}
+
+.trip-map-wrapper:hover {
+  box-shadow: var(--shadow-md, 0 8px 20px -3px rgba(27, 67, 50, 0.08));
+}
+
+/* Map Header Bar */
+.trip-map-header {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(244, 239, 230, 0.9) 0%, rgba(250, 247, 242, 0.95) 100%);
+  border-bottom: 1px solid var(--border-light, rgba(45, 106, 79, 0.12));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.trip-map-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.trip-map-title {
+  margin: 0;
+  font-family: var(--font-serif, 'Cinzel', Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-900, #0C241B);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[lang="kn"] .trip-map-title {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+.trip-map-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted, #78716C);
+  line-height: 1.4;
+}
+
+[lang="kn"] .trip-map-subtitle {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+}
+
+/* Day Filter Buttons */
+.trip-map-filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.trip-map-filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--border-light, rgba(45, 106, 79, 0.2));
+  background-color: #FFFFFF;
+  color: var(--primary-800, #1B4332);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+[lang="kn"] .trip-map-filter-btn {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+  font-size: 0.82rem;
+}
+
+.trip-map-filter-btn:hover {
+  background-color: var(--primary-50, #F0F9F4);
+  border-color: var(--primary-600, #40916C);
+}
+
+.trip-map-filter-btn.active {
+  background-color: var(--primary-800, #1B4332);
+  color: #FFFFFF;
+  border-color: var(--accent-gold, #D97706);
+  box-shadow: 0 2px 8px rgba(27, 67, 50, 0.2);
+}
+
+/* Map Canvas Container */
+.trip-map-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  background-color: #EDE8DE;
+}
+
+@media (max-width: 768px) {
+  .trip-map-canvas-container {
+    height: 330px;
+  }
+}
+
+.trip-map-leaflet-instance {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Loading Overlay */
+.trip-map-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 10;
+  padding: 20px;
+  text-align: center;
+}
+
+.trip-map-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(45, 106, 79, 0.2);
+  border-top-color: var(--primary-700, #2D6A4F);
+  border-radius: 50%;
+  animation: tripMapSpin 0.9s linear infinite;
+}
+
+@keyframes tripMapSpin {
+  to { transform: rotate(360deg); }
+}
+
+.trip-map-loading-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-900, #0C241B);
+}
+
+[lang="kn"] .trip-map-loading-text {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+}
+
+/* Map Status / Notice Bar */
+.trip-map-status-bar {
+  padding: 10px 18px;
+  background-color: var(--bg-surface-warm, #F4EFE6);
+  border-top: 1px solid var(--border-light, rgba(45, 106, 79, 0.12));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-body, #44403C);
+}
+
+.trip-map-route-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--primary-800, #1B4332);
+}
+
+.trip-map-missing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #B45309;
+  font-size: 0.78rem;
+  background: #FEF3C7;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+/* Custom Marker Pin */
+.nt-marker-pin {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  position: relative;
+}
+
+.nt-marker-pin:hover {
+  transform: scale(1.18);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  z-index: 500;
+}
+
+.nt-marker-pin.active-highlight {
+  transform: scale(1.3);
+  border-color: #FDE68A;
+  box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.4), 0 8px 18px rgba(0, 0, 0, 0.4);
+  animation: ntMarkerPulse 1.6s ease-in-out infinite;
+  z-index: 1000 !important;
+}
+
+@keyframes ntMarkerPulse {
+  0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.6), 0 4px 10px rgba(0, 0, 0, 0.3); }
+  70% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0), 0 8px 18px rgba(0, 0, 0, 0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0), 0 4px 10px rgba(0, 0, 0, 0.3); }
+}
+
+/* Day Color Themes for Markers */
+.nt-marker-day-1 { background-color: #1B4332; }
+.nt-marker-day-2 { background-color: #2D6A4F; }
+.nt-marker-day-3 { background-color: #B45309; }
+.nt-marker-day-4 { background-color: #40916C; }
+.nt-marker-day-5 { background-color: #9B2226; }
+.nt-marker-day-default { background-color: #1B4332; }
+
+/* Custom Leaflet Popup */
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-sm, 10px) !important;
+  box-shadow: var(--shadow-lg, 0 16px 36px -6px rgba(27, 67, 50, 0.16)) !important;
+  border: 1px solid var(--border-light, rgba(45, 106, 79, 0.15)) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  min-width: 240px;
+  max-width: 320px;
+}
+
+.nt-popup-box {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #FFFFFF;
+}
+
+.nt-popup-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.nt-popup-day-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: var(--primary-50, #F0F9F4);
+  color: var(--primary-800, #1B4332);
+}
+
+.nt-popup-fee {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-gold-hover, #B45309);
+}
+
+.nt-popup-title {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--primary-900, #0C241B);
+  line-height: 1.35;
+}
+
+[lang="kn"] .nt-popup-title {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+}
+
+.nt-popup-title-alt {
+  font-size: 0.8rem;
+  color: var(--text-muted, #78716C);
+  margin-top: -2px;
+}
+
+.nt-popup-time {
+  font-size: 0.78rem;
+  color: var(--primary-700, #2D6A4F);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nt-popup-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-body, #44403C);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+[lang="kn"] .nt-popup-desc {
+  font-family: var(--font-kannada, 'Noto Sans Kannada', sans-serif);
+}
+
+.nt-popup-action-btn {
+  margin-top: 4px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: var(--primary-800, #1B4332);
+  color: #FFFFFF;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.nt-popup-action-btn:hover {
+  background-color: var(--primary-700, #2D6A4F);
+}
+
+/* Map Error State */
+.trip-map-error-card {
+  padding: 32px 20px;
+  text-align: center;
+  background-color: #FEF2F2;
+  border-radius: var(--radius-md, 16px);
+  border: 1px solid #FCA5A5;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.trip-map-error-title {
+  color: #991B1B;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.trip-map-error-desc {
+  color: #B91C1C;
+  font-size: 0.85rem;
+  max-width: 480px;
+  margin: 0;
+}

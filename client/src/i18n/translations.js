@@ -106,6 +106,24 @@ export const translations = {
     culturalTipLabel: "Namma Cultural Tip",
     estCost: "Est. Expense",
 
+    // Trip Map
+    tripMapTitle: "Your Trip Map",
+    tripMapSubtitle: "Interactive heritage route & verified stops across Karnataka",
+    filterAllDays: "All Days",
+    dayFilter: "Day",
+    mapLoading: "Loading your interactive Karnataka trip map...",
+    mapError: "Could not load map data. Please check connection and retry.",
+    mapRetry: "Retry Map",
+    mapNoCoordinates: "Location coordinates unavailable for this itinerary. Detailed day-by-day plan remains available below.",
+    mapMissingNotice: "location(s) could not be pinpointed on the map. Showing all verified stops.",
+    mapRouteUnavailable: "Actual road driving route geometry unavailable for this day (displaying verified stop markers only).",
+    mapRouteDetails: "Road route calculated",
+    mapStopsCount: "stops",
+    viewInItinerary: "View in Itinerary",
+    showOnMap: "Show on Map",
+    entryFee: "Entry Fee",
+    timeLabel: "Time",
+
     // Budget Engine Summary
     budgetSummaryTitle: "Programmatic Budget Feasibility",
     budgetTotalAllocated: "Total Group Budget",
@@ -314,6 +332,24 @@ export const translations = {
     eveningLabel: "ಸಂಜೆ ಮತ್ತು ಸೂರ್ಯಾಸ್ತ",
     culturalTipLabel: "ನಮ್ಮ ಸಾಂಸ್ಕೃತಿಕ ಸಲಹೆ",
     estCost: "ಅಂದಾಜು ವೆಚ್ಚ",
+
+    // Trip Map
+    tripMapTitle: "ನಿಮ್ಮ ಪ್ರವಾಸದ ನಕ್ಷೆ",
+    tripMapSubtitle: "ಕರ್ನಾಟಕದ ಪಾರಂಪರಿಕ ಪ್ರವಾಸ ಮಾರ್ಗ ಮತ್ತು ತಾಣಗಳ ಸಂವಾದಾತ್ಮಕ ನಕ್ಷೆ",
+    filterAllDays: "ಎಲ್ಲಾ ದಿನಗಳು",
+    dayFilter: "ದಿನ",
+    mapLoading: "ಕರ್ನಾಟಕ ಪ್ರವಾಸದ ಸಂವಾದಾತ್ಮಕ ನಕ್ಷೆಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+    mapError: "ನಕ್ಷೆಯ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ದಯವಿಟ್ಟು ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ಮರುಪ್ರಯತ್ನಿಸಿ.",
+    mapRetry: "ಮರುಪ್ರಯತ್ನಿಸಿ",
+    mapNoCoordinates: "ಈ ಪ್ರವಾಸದ ತಾಣಗಳಿಗೆ ನಕ್ಷೆಯ ನಿರ್ದೇಶಾಂಕಗಳು ಲಭ್ಯವಿಲ್ಲ. ದಿನಚರಿ ವಿವರಗಳು ಕೆಳಗೆ ಲಭ್ಯವಿದೆ.",
+    mapMissingNotice: "ಸ್ಥಳವನ್ನು ನಕ್ಷೆಯಲ್ಲಿ ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ. ಉಳಿದ ನಿಖರ ತಾಣಗಳನ್ನು ನಕ್ಷೆಯಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.",
+    mapRouteUnavailable: "ಈ ದಿನದ ವಾಹನ ರಸ್ತೆ ಮಾರ್ಗದ ವಿವರ ಲಭ್ಯವಿಲ್ಲ (ತಾಣಗಳ ನಿಖರ ಸ್ಥಾನಗಳನ್ನು ಮಾತ್ರ ತೋರಿಸಲಾಗಿದೆ).",
+    mapRouteDetails: "ರಸ್ತೆ ಮಾರ್ಗದ ಅಂದಾಜು",
+    mapStopsCount: "ತಾಣಗಳು",
+    viewInItinerary: "ದಿನಚರಿಯಲ್ಲಿ ನೋಡಿ",
+    showOnMap: "ನಕ್ಷೆಯಲ್ಲಿ ನೋಡಿ",
+    entryFee: "ಪ್ರವೇಶ ಶುಲ್ಕ",
+    timeLabel: "ಸಮಯ",
 
     // Budget Engine Summary
     budgetSummaryTitle: "ಬಜೆಟ್ ಕಾರ್ಯಸಾಧ್ಯತೆಯ ಲೆಕ್ಕಾಚಾರ",

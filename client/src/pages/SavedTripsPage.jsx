@@ -285,8 +285,12 @@ export default function SavedTripsPage() {
               }} />
             </div>
 
-            {/* Day wise Itinerary */}
-            <ItineraryViewer itinerary={selectedTrip.itinerary} />
+            {/* Day wise Itinerary with Interactive Trip Map */}
+            <ItineraryViewer
+              itinerary={selectedTrip.itinerary}
+              destinationId={selectedTrip.destination}
+              startingCity={selectedTrip.startingCity}
+            />
           </div>
         </div>
       )}
