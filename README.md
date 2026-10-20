@@ -123,15 +123,6 @@ npm test
 
 ---
 
-## 🔑 Demo Account for Quick Review
-
-A pre-seeded demo user is available in the database for instant testing:
-- **Email**: `demo@nammatrip.ai`
-- **Password**: `NammaTrip2026!`
-- *Or click the **"Quick Demo Login (Kavitha Hegde)"** button on the `/login` page.*
-
----
-
 ## 🗺️ Curated Karnataka Destinations
 
 | Destination | Region | Historical / Cultural Highlights | UNESCO Status |

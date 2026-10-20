@@ -185,7 +185,6 @@ export const translations = {
     forgotPasswordLink: "Forgot your password?",
     noAccountText: "Don't have an account?",
     registerLink: "Create an account",
-    demoLoginBtn: "Quick Demo Login (Kavitha Hegde)",
 
     // Auth - Register
     registerTitle: "Join NammaTrip AI",
@@ -412,7 +411,6 @@ export const translations = {
     forgotPasswordLink: "ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ?",
     noAccountText: "ಇನ್ನೂ ಖಾತೆ ಹೊಂದಿಲ್ಲವೇ?",
     registerLink: "ಹೊಸ ಖಾತೆ ತೆರೆಯಿರಿ",
-    demoLoginBtn: "ಡೆಮೊ ಲಾಗಿನ್ (ಕವಿತಾ ಹೆಗಡೆ)",
 
     // Auth - Register
     registerTitle: "ನಮ್ಮಟ್ರಿಪ್‌ಗೆ ಸೇರಿಕೊಳ್ಳಿ",

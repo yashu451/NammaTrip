@@ -2,7 +2,6 @@ import { DatabaseSync } from 'node:sqlite';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import bcrypt from 'bcryptjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -82,38 +81,5 @@ db.exec(`
   );
 `);
 
-// Seed default demo user if not exists
-try {
-  const checkUser = db.prepare('SELECT id FROM users WHERE email = ?').get('demo@nammatrip.ai');
-  if (!checkUser) {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync('NammaTrip2026!', salt);
-    const insertUser = db.prepare(`
-      INSERT INTO users (name, email, password_hash, language_pref)
-      VALUES (?, ?, ?, ?)
-    `);
-    const result = insertUser.run('Kavitha Hegde', 'demo@nammatrip.ai', hash, 'en');
-    const userId = Number(result.lastInsertRowid);
-
-    db.prepare(`
-      INSERT INTO user_profiles (user_id, home_city, travel_style, dietary_pref, interests)
-      VALUES (?, ?, ?, ?, ?)
-    `).run(userId, 'Bengaluru', 'heritage', 'vegetarian', JSON.stringify(['Heritage', 'Culture', 'Food']));
-
-    // Add initial favorite
-    db.prepare(`
-      INSERT OR IGNORE INTO favorites (user_id, destination_id)
-      VALUES (?, ?)
-    `).run(userId, 'hampi');
-    db.prepare(`
-      INSERT OR IGNORE INTO favorites (user_id, destination_id)
-      VALUES (?, ?)
-    `).run(userId, 'badami');
-
-    console.log('✅ Default demo user seeded (demo@nammatrip.ai / NammaTrip2026!)');
-  }
-} catch (err) {
-  console.warn('Note on seeding:', err.message);
-}
 
 export default db;

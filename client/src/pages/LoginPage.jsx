@@ -8,8 +8,7 @@ import {
   AlertCircle,
   Sparkles,
   ArrowRight,
-  ShieldCheck,
-  UserCheck
+  ShieldCheck
 } from 'lucide-react';
 import { GandaberundaEmblem } from '../components/HeritageMotifs.jsx';
 
@@ -41,21 +40,6 @@ export default function LoginPage() {
     }
   };
 
-  const handleDemoLogin = async () => {
-    setEmail('demo@nammatrip.ai');
-    setPassword('NammaTrip2026!');
-    setError(null);
-    setLoading(true);
-
-    try {
-      await login('demo@nammatrip.ai', 'NammaTrip2026!');
-      navigate(from, { replace: true });
-    } catch (err) {
-      setError(err.message || 'Demo login failed.');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="container-narrow" style={{ padding: '60px 20px 80px' }}>
@@ -165,29 +149,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Demo Login Quick CTA */}
-        <div style={{
-          marginTop: '20px',
-          padding: '14px',
-          borderRadius: '10px',
-          backgroundColor: 'var(--bg-surface-warm)',
-          border: '1px dashed var(--border-warm)',
-          textAlign: 'center'
-        }}>
-          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
-            Instant Reviewer Access:
-          </div>
-          <button
-            type="button"
-            onClick={handleDemoLogin}
-            disabled={loading}
-            className="btn btn-gold btn-sm"
-            style={{ width: '100%' }}
-          >
-            <UserCheck size={16} />
-            <span>{t('demoLoginBtn')}</span>
-          </button>
-        </div>
 
         {/* Footer Link */}
         <div style={{ textAlign: 'center', marginTop: '24px', fontSize: '0.9rem', color: 'var(--text-body)' }}>
