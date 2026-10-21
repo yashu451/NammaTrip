@@ -4,11 +4,14 @@
   "type": "module",
   "description": "NammaTrip AI — Karnataka Heritage & Affordable AI Travel Planner",
   "main": "server/server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
   "scripts": {
     "dev:server": "node server/server.js",
     "dev:client": "vite client",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "build:client": "cd client && vite build",
+    "build:client": "vite build client",
     "build": "npm run build:client",
     "test": "node tests/test_nammatrip.js",
     "start": "node server/server.js"

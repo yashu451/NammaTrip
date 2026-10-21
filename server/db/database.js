@@ -2,16 +2,52 @@ import { DatabaseSync } from 'node:sqlite';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import dotenv from 'dotenv';
+
+// Ensure environment variables are loaded in standalone execution or ESM hoist
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const dataDir = path.resolve(__dirname, '../../data');
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+/**
+ * Resolves the SQLite database file path.
+ * Supports configurable DATABASE_PATH (e.g. /var/data or /var/data/nammatrip.db for Render persistent disks).
+ * Defaults to ./data/nammatrip.db relative to the project root.
+ */
+export function resolveDatabasePath() {
+  const configured = process.env.DATABASE_PATH;
+  if (!configured || configured.trim() === '') {
+    return path.resolve(__dirname, '../../data/nammatrip.db');
+  }
+
+  const trimmed = configured.trim();
+  const resolved = path.resolve(trimmed);
+
+  // If path already exists and is a directory
+  try {
+    if (fs.existsSync(resolved) && fs.statSync(resolved).isDirectory()) {
+      return path.join(resolved, 'nammatrip.db');
+    }
+  } catch (err) {
+    // Ignore stat error and proceed
+  }
+
+  // If the path ends with a separator or does not have an extension, treat as directory
+  if (trimmed.endsWith('/') || trimmed.endsWith('\\') || !path.extname(resolved)) {
+    return path.join(resolved, 'nammatrip.db');
+  }
+
+  return resolved;
 }
 
-const dbPath = path.join(dataDir, 'nammatrip.db');
+const dbPath = resolveDatabasePath();
+const dbDir = path.dirname(dbPath);
+
+if (!fs.existsSync(dbDir)) {
+  fs.mkdirSync(dbDir, { recursive: true });
+}
+
 const db = new DatabaseSync(dbPath);
 
 // Enable WAL mode and foreign keys

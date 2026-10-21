@@ -22,6 +22,10 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || '0.0.0.0';
+
+// Enable trust proxy for Render reverse proxy (TLS termination, IP forwarding)
+app.set('trust proxy', 1);
 
 // Security & Parsing Middleware
 app.use(cors({
@@ -101,8 +105,9 @@ app.use((req, res, next) => {
   }
   
   // If not API and client build exists, serve index.html for SPA routing
-  if (fs.existsSync(clientDistPath) && req.method === 'GET') {
-    return res.sendFile(path.join(clientDistPath, 'index.html'));
+  const clientIndexPath = path.join(clientDistPath, 'index.html');
+  if (fs.existsSync(clientIndexPath) && (req.method === 'GET' || req.method === 'HEAD')) {
+    return res.sendFile(clientIndexPath);
   }
   
   next();
@@ -118,13 +123,15 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start listening
-app.listen(PORT, () => {
+// Start listening on HOST to accept external connections (Render / Cloud requirement)
+app.listen(PORT, HOST, () => {
+  const displayHost = HOST === '0.0.0.0' ? 'localhost' : HOST;
   console.log(`
 ╔══════════════════════════════════════════════════════════╗
 ║                🐘 NammaTrip AI Server 🛕                ║
-║  Backend running at: http://localhost:${PORT}             ║
-║  API Health:         http://localhost:${PORT}/api/health     ║
+║  Backend running at: http://${displayHost}:${PORT}             ║
+║  API Health:         http://${displayHost}:${PORT}/api/health     ║
+║  Listening Host:     ${HOST}:${PORT} (external ready)      ║
 ║  Environment:        ${process.env.NODE_ENV || 'development'}                     ║
 ╚══════════════════════════════════════════════════════════╝
   `);

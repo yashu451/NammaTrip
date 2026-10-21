@@ -38,90 +38,71 @@ export default function LandingPage() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '64px', paddingBottom: '64px' }}>
-      {/* Hero Section with Cinematic Karnataka Landscape */}
-      <section className="hero-section-cinematic">
-        <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
-          <div style={{ maxWidth: '640px' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 14px',
-              borderRadius: '24px',
-              backgroundColor: 'rgba(217, 119, 6, 0.25)',
-              border: '1px solid rgba(217, 119, 6, 0.45)',
-              color: '#FDE68A',
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              marginBottom: '20px',
-              backdropFilter: 'blur(6px)'
-            }}>
-              <Sparkles size={16} color="#FDE68A" />
-              <span>{t('heroBadge')}</span>
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="container">
+          <div className="hero-grid">
+            {/* Left Column: Headline, Description & CTAs */}
+            <div className="hero-content">
+              <div className="hero-badge">
+                <Sparkles size={16} color="#FDE68A" />
+                <span>{t('heroBadge')}</span>
+              </div>
+
+              <h1
+                className="hero-title"
+                style={{
+                  fontFamily: language === 'kn' ? 'var(--font-kannada)' : 'var(--font-serif)',
+                  lineHeight: language === 'kn' ? 1.35 : 1.15
+                }}
+              >
+                {t('heroTitle')}
+              </h1>
+
+              <p className="hero-description">
+                {t('heroDescription')}
+              </p>
+
+              {/* CTAs */}
+              <div className="hero-actions">
+                <Link to="/planner" className="btn btn-gold btn-lg">
+                  <Sparkles size={18} />
+                  <span>{t('heroStartPlanning')}</span>
+                </Link>
+                <Link to="/explore" className="btn btn-secondary btn-lg hero-btn-secondary">
+                  <Compass size={18} />
+                  <span>{t('heroExploreHeritage')}</span>
+                </Link>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="hero-trust-bar">
+                <div className="hero-trust-item">
+                  <ShieldCheck size={16} color="#D97706" />
+                  <span>{t('heroFeatureBudget')}</span>
+                </div>
+                <div className="hero-trust-item">
+                  <Award size={16} color="#D97706" />
+                  <span>{t('heroFeatureHeritage')}</span>
+                </div>
+                <div className="hero-trust-item">
+                  <Heart size={16} color="#D97706" />
+                  <span>{t('heroFeatureBilingual')}</span>
+                </div>
+              </div>
             </div>
 
-            <h1 style={{
-              fontSize: 'clamp(2rem, 4vw, 3.2rem)',
-              fontFamily: language === 'kn' ? 'var(--font-kannada)' : 'var(--font-serif)',
-              fontWeight: 800,
-              lineHeight: language === 'kn' ? 1.35 : 1.15,
-              color: '#FFFFFF',
-              marginBottom: '20px',
-              wordBreak: 'normal',
-              overflowWrap: 'break-word',
-              textShadow: '0 2px 10px rgba(0, 0, 0, 0.6)'
-            }}>
-              {t('heroTitle')}
-            </h1>
-
-            <p style={{
-              fontSize: '1.1rem',
-              color: '#D8F3DC',
-              lineHeight: 1.65,
-              marginBottom: '32px',
-              maxWidth: '560px',
-              textShadow: '0 1px 4px rgba(0, 0, 0, 0.6)'
-            }}>
-              {t('heroDescription')}
-            </p>
-
-            {/* CTAs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
-              <Link to="/planner" className="btn btn-gold btn-lg">
-                <Sparkles size={18} />
-                <span>{t('heroStartPlanning')}</span>
-              </Link>
-              <Link to="/explore" className="btn btn-secondary btn-lg" style={{ backgroundColor: 'rgba(255,255,255,0.14)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)', backdropFilter: 'blur(6px)' }}>
-                <Compass size={18} />
-                <span>{t('heroExploreHeritage')}</span>
-              </Link>
-            </div>
-
-            {/* Trust Badges */}
-            <div style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              gap: '20px',
-              marginTop: '40px',
-              paddingTop: '24px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.16)',
-              fontSize: '0.82rem',
-              color: '#B7E4C7',
-              textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <ShieldCheck size={16} color="#D97706" />
-                <span>{t('heroFeatureBudget')}</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Award size={16} color="#D97706" />
-                <span>{t('heroFeatureHeritage')}</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Heart size={16} color="#D97706" />
-                <span>{t('heroFeatureBilingual')}</span>
-              </div>
+            {/* Right Column: Single High-Quality Photograph of Hampi Stone Chariot */}
+            <div className="hero-image-wrapper">
+              <img
+                src="/images/destinations/hampi.jpg"
+                alt="Vijaya Vittala Temple Stone Chariot, Hampi"
+                className="hero-image"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = '/images/destinations/fallback.jpg';
+                }}
+              />
             </div>
           </div>
         </div>

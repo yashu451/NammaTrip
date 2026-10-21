@@ -1,7 +1,9 @@
 // Automated comprehensive test suite for NammaTrip AI
 import assert from 'node:assert';
+import path from 'node:path';
+import { resolveDatabasePath } from '../server/db/database.js';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = process.env.TEST_BASE_URL || `http://localhost:${process.env.PORT || 5000}`;
 
 async function runTests() {
   console.log('🚀 Starting NammaTrip AI End-to-End Test Suite...\n');
@@ -468,6 +470,73 @@ async function runTests() {
     assert.strictEqual(res.status, 400);
     const data = await res.json();
     assert.strictEqual(data.success, false);
+  });
+
+  // 22. Production Static Frontend Serving (client/dist)
+  await test('GET / serves React frontend build with index.html', async () => {
+    const res = await fetch(`${BASE_URL}/`);
+    assert.strictEqual(res.status, 200);
+    const contentType = res.headers.get('content-type') || '';
+    assert(contentType.includes('text/html'), 'Expected text/html content type');
+    const text = await res.text();
+    assert(text.includes('NammaTrip AI') || text.includes('root'), 'Expected HTML to contain app title or root div');
+  });
+
+  // 23. Production SPA Client-Side Routing Fallback
+  await test('GET /planner serves index.html for client-side routing', async () => {
+    const res = await fetch(`${BASE_URL}/planner`);
+    assert.strictEqual(res.status, 200);
+    const contentType = res.headers.get('content-type') || '';
+    assert(contentType.includes('text/html'), 'Expected text/html content type');
+    const text = await res.text();
+    assert(text.includes('NammaTrip AI') || text.includes('root'), 'Expected HTML to contain app title or root div');
+  });
+
+  // 24. Unmatched API Route Returns JSON 404
+  await test('GET /api/nonexistent-route returns 404 JSON instead of HTML', async () => {
+    const res = await fetch(`${BASE_URL}/api/nonexistent-route`);
+    assert.strictEqual(res.status, 404);
+    const data = await res.json();
+    assert.strictEqual(data.success, false);
+    assert.strictEqual(data.message, 'API route not found.');
+  });
+
+  // 25. SQLite DATABASE_PATH Resolution Unit Tests
+  await test('resolveDatabasePath correctly handles file paths, directory mounts, and default fallback', async () => {
+    const origEnv = process.env.DATABASE_PATH;
+    try {
+      // Default fallback
+      delete process.env.DATABASE_PATH;
+      const defaultPath = resolveDatabasePath();
+      assert(defaultPath.endsWith('nammatrip.db'), 'Default path should end with nammatrip.db');
+
+      // Directory mount (e.g. Render persistent disk /var/data)
+      process.env.DATABASE_PATH = '/var/data';
+      const dirPath = resolveDatabasePath();
+      assert(dirPath.endsWith('nammatrip.db'), 'Directory path should append nammatrip.db');
+      assert(dirPath.includes('var') && dirPath.includes('data'), 'Should resolve within /var/data');
+
+      // Explicit file path
+      process.env.DATABASE_PATH = '/var/data/custom_nammatrip.db';
+      const explicitPath = resolveDatabasePath();
+      assert(explicitPath.endsWith('custom_nammatrip.db'), 'Explicit file path should be respected');
+    } finally {
+      if (origEnv !== undefined) {
+        process.env.DATABASE_PATH = origEnv;
+      } else {
+        delete process.env.DATABASE_PATH;
+      }
+    }
+  });
+
+  // 26. Health Check Confirms Engine and SQLite WAL Connectivity
+  await test('Health check reports healthy database and optional AI Engine mode', async () => {
+    const res = await fetch(`${BASE_URL}/api/health`);
+    assert.strictEqual(res.status, 200);
+    const data = await res.json();
+    assert.strictEqual(data.status, 'healthy');
+    assert.strictEqual(data.database, 'connected (SQLite WAL)');
+    assert(data.aiEngine.length > 0, 'AI engine string must be defined');
   });
 
   console.log(`\n========================================`);
