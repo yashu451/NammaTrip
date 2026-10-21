@@ -1,3 +1,5 @@
+import { findStartingLocation, estimateKarnatakaRoadDistanceKm } from '../../shared/karnatakaLocations.js';
+
 // Approximate one-way road distances in km from Karnataka hubs
 const DISTANCES_KM = {
   bengaluru: {
@@ -58,6 +60,21 @@ const DISTANCES_KM = {
   }
 };
 
+const DESTINATION_COORDS = {
+  hampi: { lat: 15.3350, lng: 76.4600 },
+  mysuru: { lat: 12.3052, lng: 76.6552 },
+  coorg: { lat: 12.4244, lng: 75.7382 },
+  badami: { lat: 15.9189, lng: 75.6796 },
+  gokarna: { lat: 14.5479, lng: 74.3188 },
+  chitradurga: { lat: 14.2251, lng: 76.3980 },
+  belur: { lat: 13.1623, lng: 75.8601 },
+  halebidu: { lat: 13.2144, lng: 75.9922 },
+  pattadakal: { lat: 15.9490, lng: 75.8160 },
+  vijayapura: { lat: 16.8302, lng: 75.7100 },
+  udupi: { lat: 13.3409, lng: 74.7421 },
+  chikmagalur: { lat: 13.3161, lng: 75.7720 }
+};
+
 const DEFAULT_DISTANCE = 300;
 
 export function calculateBudget({
@@ -77,10 +94,28 @@ export function calculateBudget({
   const nights = Math.max(1, numDays - 1);
   const roomsNeeded = Math.ceil(numTravelers / 2);
 
-  // Distance lookup
-  const originDistances = DISTANCES_KM[normCity] || DISTANCES_KM.bengaluru;
-  const distanceKm = originDistances[normDest] || DEFAULT_DISTANCE;
-  const roundTripKm = distanceKm * 2;
+  // Distance lookup without substituting unrelated cities
+  let distanceKm = DEFAULT_DISTANCE;
+
+  if (DISTANCES_KM[normCity] && DISTANCES_KM[normCity][normDest] !== undefined) {
+    distanceKm = DISTANCES_KM[normCity][normDest];
+  } else {
+    // Resolve origin from verified Karnataka starting locations
+    const originLoc = findStartingLocation(startingCity);
+    const destCoords = DESTINATION_COORDS[normDest];
+
+    if (originLoc && destCoords) {
+      if (originLoc.id === normDest || (originLoc.aliases && originLoc.aliases.includes(normDest))) {
+        distanceKm = 0; // Same city origin and destination
+      } else {
+        distanceKm = estimateKarnatakaRoadDistanceKm(originLoc, destCoords);
+      }
+    } else if (DISTANCES_KM[normCity]) {
+      distanceKm = DISTANCES_KM[normCity][normDest] || DEFAULT_DISTANCE;
+    }
+  }
+
+  const roundTripKm = distanceKm === 0 ? 30 : distanceKm * 2; // 30 km intra-city if local
 
   // 1. Transport Calculation
   let transportTotal = 0;

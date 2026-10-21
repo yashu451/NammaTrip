@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { findStartingLocation } from '../../shared/karnatakaLocations.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -634,11 +635,27 @@ export async function fetchDrivingRoute(waypoints) {
  * Generates comprehensive trip map data from an itinerary
  */
 export async function generateTripMapData({ itinerary, destinationId = 'hampi', startingCity = 'Bengaluru' }) {
+  const startLoc = findStartingLocation(startingCity);
+  const startLocation = startLoc ? {
+    id: `start-${startLoc.id}`,
+    name: startLoc.name,
+    nameKn: startLoc.nameKn,
+    district: startLoc.district,
+    districtKn: startLoc.districtKn,
+    region: startLoc.region,
+    regionKn: startLoc.regionKn,
+    lat: startLoc.lat,
+    lng: startLoc.lng,
+    hasCoordinates: true,
+    isStartLocation: true
+  } : null;
+
   if (!itinerary || !Array.isArray(itinerary) || itinerary.length === 0) {
     return {
       success: true,
       center: [15.3173, 75.7139], // Karnataka center
       bounds: null,
+      startLocation,
       stops: [],
       routes: [],
       missingLocations: []
@@ -773,6 +790,7 @@ export async function generateTripMapData({ itinerary, destinationId = 'hampi', 
     success: true,
     center,
     bounds,
+    startLocation,
     stops: allStops,
     routes,
     missingLocations

@@ -15,6 +15,7 @@ import {
   Compass
 } from 'lucide-react';
 import { GandaberundaEmblem } from '../components/HeritageMotifs.jsx';
+import { KARNATAKA_STARTING_LOCATIONS } from '../../../shared/karnatakaLocations.js';
 
 export default function ProfilePage() {
   const { user, profile, updateProfile, logout } = useAuth();
@@ -215,11 +216,11 @@ export default function ProfilePage() {
                 value={homeCity}
                 onChange={(e) => setHomeCity(e.target.value)}
               >
-                <option value="Bengaluru">Bengaluru</option>
-                <option value="Mysuru">Mysuru</option>
-                <option value="Hubballi">Hubballi-Dharwad</option>
-                <option value="Mangaluru">Mangaluru</option>
-                <option value="Belagavi">Belagavi</option>
+                {KARNATAKA_STARTING_LOCATIONS.map(loc => (
+                  <option key={loc.id} value={loc.id === 'hubballi' ? 'Hubballi' : loc.name}>
+                    {loc.name} ({loc.nameKn})
+                  </option>
+                ))}
               </select>
             </div>
 

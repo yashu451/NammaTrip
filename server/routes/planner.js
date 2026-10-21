@@ -3,8 +3,19 @@ import { calculateBudget } from '../services/budgetEngine.js';
 import { generateItineraryPlan } from '../services/itineraryGenerator.js';
 import { fixMyTrip } from '../services/fixMyTripEngine.js';
 import { optionalAuth } from '../middleware/auth.js';
+import { KARNATAKA_STARTING_LOCATIONS, getStartingLocationsByRegion } from '../../shared/karnatakaLocations.js';
 
 const router = express.Router();
+
+// GET /api/planner/starting-locations - List all verified starting locations across Karnataka
+router.get('/starting-locations', (req, res) => {
+  return res.json({
+    success: true,
+    total: KARNATAKA_STARTING_LOCATIONS.length,
+    locations: KARNATAKA_STARTING_LOCATIONS,
+    regions: getStartingLocationsByRegion()
+  });
+});
 
 // POST /api/planner/calculate-budget - Quick live calculation
 router.post('/calculate-budget', (req, res) => {

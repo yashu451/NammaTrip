@@ -23,6 +23,7 @@ import BudgetSummary from '../components/BudgetSummary.jsx';
 import FixMyTripModal from '../components/FixMyTripModal.jsx';
 import ItineraryViewer from '../components/ItineraryViewer.jsx';
 import { HeritageDivider } from '../components/HeritageMotifs.jsx';
+import { KARNATAKA_STARTING_LOCATIONS } from '../../../shared/karnatakaLocations.js';
 
 export default function PlannerPage() {
   const { language, t } = useLanguage();
@@ -285,12 +286,41 @@ export default function PlannerPage() {
               value={startingCity}
               onChange={(e) => setStartingCity(e.target.value)}
             >
-              <option value="Bengaluru">Bengaluru (ಬೆಂಗಳೂರು)</option>
-              <option value="Mysuru">Mysuru (ಮೈಸೂರು)</option>
-              <option value="Hubballi">Hubballi-Dharwad (ಹುಬ್ಬಳ್ಳಿ-ಧಾರವಾಡ)</option>
-              <option value="Mangaluru">Mangaluru (ಮಂಗಳೂರು)</option>
-              <option value="Belagavi">Belagavi (ಬೆಳಗಾವಿ)</option>
-              <option value="Kalaburagi">Kalaburagi (ಕಲಬುರಗಿ)</option>
+              <optgroup label={language === 'kn' ? 'ಪ್ರಮುಖ ಕೇಂದ್ರಗಳು (Major Hubs)' : 'Major Travel Hubs'}>
+                {KARNATAKA_STARTING_LOCATIONS.filter(l => l.isExisting).map(loc => (
+                  <option key={loc.id} value={loc.id === 'hubballi' ? 'Hubballi' : loc.name}>
+                    {loc.name} ({loc.nameKn})
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={language === 'kn' ? 'ದಕ್ಷಿಣ ಕರ್ನಾಟಕ (Southern Karnataka)' : 'Southern Karnataka'}>
+                {KARNATAKA_STARTING_LOCATIONS.filter(l => !l.isExisting && l.region === 'Southern').map(loc => (
+                  <option key={loc.id} value={loc.name}>
+                    {loc.name} ({loc.nameKn}){loc.isDistrictHQ ? ' • HQ' : ''}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={language === 'kn' ? 'ಕರಾವಳಿ & ಮಲೆನಾಡು (Coastal & Malenadu)' : 'Coastal & Malenadu'}>
+                {KARNATAKA_STARTING_LOCATIONS.filter(l => !l.isExisting && (l.region === 'Coastal' || l.regionKn.includes('ಮಲೆನಾಡು'))).map(loc => (
+                  <option key={loc.id} value={loc.name}>
+                    {loc.name} ({loc.nameKn}){loc.isDistrictHQ ? ' • HQ' : ''}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={language === 'kn' ? 'ಮಧ್ಯ ಕರ್ನಾಟಕ (Central Karnataka)' : 'Central Karnataka'}>
+                {KARNATAKA_STARTING_LOCATIONS.filter(l => !l.isExisting && l.region === 'Central').map(loc => (
+                  <option key={loc.id} value={loc.name}>
+                    {loc.name} ({loc.nameKn}){loc.isDistrictHQ ? ' • HQ' : ''}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={language === 'kn' ? 'ಉತ್ತರ & ಕಲ್ಯಾಣ ಕರ್ನಾಟಕ (Northern & Kalyana Karnataka)' : 'Northern & Kalyana Karnataka'}>
+                {KARNATAKA_STARTING_LOCATIONS.filter(l => !l.isExisting && l.region === 'Northern' && !l.regionKn.includes('ಮಲೆನಾಡು')).map(loc => (
+                  <option key={loc.id} value={loc.name}>
+                    {loc.name} ({loc.nameKn}){loc.isDistrictHQ ? ' • HQ' : ''}
+                  </option>
+                ))}
+              </optgroup>
             </select>
           </div>
 

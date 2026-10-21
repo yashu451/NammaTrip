@@ -2,6 +2,8 @@
 import assert from 'node:assert';
 import path from 'node:path';
 import { resolveDatabasePath } from '../server/db/database.js';
+import { KARNATAKA_STARTING_LOCATIONS, findStartingLocation } from '../shared/karnatakaLocations.js';
+import { calculateBudget } from '../server/services/budgetEngine.js';
 
 const BASE_URL = process.env.TEST_BASE_URL || `http://localhost:${process.env.PORT || 5000}`;
 
@@ -537,6 +539,140 @@ async function runTests() {
     assert.strictEqual(data.status, 'healthy');
     assert.strictEqual(data.database, 'connected (SQLite WAL)');
     assert(data.aiEngine.length > 0, 'AI engine string must be defined');
+  });
+
+  // 27. Shared Karnataka Locations Catalog Verification
+  await test('Shared Karnataka Locations contains all 31 district HQs with verified GPS coordinates and no duplicates', async () => {
+    assert(KARNATAKA_STARTING_LOCATIONS.length >= 50, 'Catalog should contain 50+ locations across Karnataka');
+    
+    // Check all 31 district HQs are accounted for
+    const districtHQs = KARNATAKA_STARTING_LOCATIONS.filter(l => l.isDistrictHQ);
+    assert.strictEqual(districtHQs.length, 31, 'Must include exactly 31 Karnataka district headquarters');
+
+    // Check no duplicate IDs or names
+    const ids = new Set();
+    const names = new Set();
+    for (const loc of KARNATAKA_STARTING_LOCATIONS) {
+      assert(!ids.has(loc.id), `Duplicate location ID found: ${loc.id}`);
+      assert(!names.has(loc.name.toLowerCase()), `Duplicate location name found: ${loc.name}`);
+      ids.add(loc.id);
+      names.add(loc.name.toLowerCase());
+
+      // Coordinates within Karnataka bounds
+      assert(loc.lat >= 11.5 && loc.lat <= 18.6, `Latitude for ${loc.name} must be within Karnataka (11.5-18.6)`);
+      assert(loc.lng >= 74.0 && loc.lng <= 78.6, `Longitude for ${loc.name} must be within Karnataka (74.0-78.6)`);
+      assert(loc.nameKn, `Kannada name for ${loc.name} must be defined`);
+    }
+
+    // Verify existing 6 cities are preserved
+    const existingIds = ['bengaluru', 'mysuru', 'hubballi', 'mangaluru', 'belagavi', 'kalaburagi'];
+    for (const id of existingIds) {
+      const loc = findStartingLocation(id);
+      assert(loc, `Existing starting city '${id}' must be preserved`);
+      assert.strictEqual(loc.isExisting, true);
+    }
+  });
+
+  // 28. API Route: GET /api/planner/starting-locations
+  await test('GET /api/planner/starting-locations returns complete list and regional groupings', async () => {
+    const res = await fetch(`${BASE_URL}/api/planner/starting-locations`);
+    assert.strictEqual(res.status, 200);
+    const data = await res.json();
+    assert.strictEqual(data.success, true);
+    assert.strictEqual(data.total, KARNATAKA_STARTING_LOCATIONS.length);
+    assert(data.regions.Southern && data.regions.Coastal && data.regions.Central && data.regions.Northern);
+  });
+
+  // 29. Southern Karnataka Representative: Chamarajanagara -> Mysuru
+  await test('Southern Karnataka: Chamarajanagara distance calculation uses actual coordinates and never substitutes Bengaluru', async () => {
+    const budgetChamara = calculateBudget({
+      startingCity: 'Chamarajanagara',
+      destinationId: 'mysuru',
+      durationDays: 2,
+      travelers: 2,
+      transportMode: 'car'
+    });
+    // Chamarajanagara to Mysuru is ~60 km. Bengaluru to Mysuru is 145 km.
+    // Round trip from Chamarajanagara is ~120-140 km vs Bengaluru ~290 km.
+    assert(budgetChamara.roundTripKm < 200, `Expected Chamarajanagara-Mysuru roundtrip < 200 km, got ${budgetChamara.roundTripKm}`);
+    assert(budgetChamara.distanceKm < 100, `Expected one-way distance < 100 km, got ${budgetChamara.distanceKm}`);
+  });
+
+  // 30. Coastal Karnataka Representative: Karwar -> Gokarna
+  await test('Coastal Karnataka: Karwar distance calculation uses actual coordinates and never substitutes Bengaluru', async () => {
+    const budgetKarwar = calculateBudget({
+      startingCity: 'Karwar',
+      destinationId: 'gokarna',
+      durationDays: 2,
+      travelers: 2,
+      transportMode: 'ksrtc'
+    });
+    // Karwar to Gokarna is ~60 km. Bengaluru to Gokarna is 490 km!
+    assert(budgetKarwar.distanceKm < 100, `Expected Karwar-Gokarna distance < 100 km, got ${budgetKarwar.distanceKm}`);
+    assert(budgetKarwar.roundTripKm < 200, `Expected roundtrip < 200 km, got ${budgetKarwar.roundTripKm}`);
+  });
+
+  // 31. Central Karnataka Representative: Davanagere -> Chitradurga
+  await test('Central Karnataka: Davanagere distance calculation uses actual coordinates and never substitutes Bengaluru', async () => {
+    const budgetDvg = calculateBudget({
+      startingCity: 'Davanagere',
+      destinationId: 'chitradurga',
+      durationDays: 2,
+      travelers: 2,
+      transportMode: 'ksrtc'
+    });
+    // Davanagere to Chitradurga is ~65 km. Bengaluru to Chitradurga is 200 km!
+    assert(budgetDvg.distanceKm < 100, `Expected Davanagere-Chitradurga distance < 100 km, got ${budgetDvg.distanceKm}`);
+    assert(budgetDvg.roundTripKm < 200, `Expected roundtrip < 200 km, got ${budgetDvg.roundTripKm}`);
+  });
+
+  // 32. Northern Karnataka Representative: Ballari -> Hampi
+  await test('Northern Karnataka: Ballari distance calculation uses actual coordinates and never substitutes Bengaluru', async () => {
+    const budgetBallari = calculateBudget({
+      startingCity: 'Ballari',
+      destinationId: 'hampi',
+      durationDays: 2,
+      travelers: 2,
+      transportMode: 'ksrtc'
+    });
+    // Ballari to Hampi is ~60 km. Bengaluru to Hampi is 345 km!
+    assert(budgetBallari.distanceKm < 100, `Expected Ballari-Hampi distance < 100 km, got ${budgetBallari.distanceKm}`);
+    assert(budgetBallari.roundTripKm < 200, `Expected roundtrip < 200 km, got ${budgetBallari.roundTripKm}`);
+  });
+
+  // 33. Map Route Data includes verified startLocation for Northern Karnataka (Bidar)
+  await test('POST /api/map/trip-map includes verified startLocation metadata for Bidar', async () => {
+    const res = await fetch(`${BASE_URL}/api/map/trip-map`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        itinerary: generatedPlanData.itinerary,
+        destinationId: 'hampi',
+        startingCity: 'Bidar'
+      })
+    });
+    const data = await res.json();
+    assert.strictEqual(res.status, 200);
+    assert(data.startLocation, 'startLocation must be provided');
+    assert.strictEqual(data.startLocation.name, 'Bidar');
+    assert.strictEqual(data.startLocation.nameKn, 'ಬೀದರ್');
+    assert(data.startLocation.lat > 17.5 && data.startLocation.lat < 18.2, 'Bidar latitude around 17.9°N');
+  });
+
+  // 34. Graceful handling of unknown location in map and budget
+  await test('Graceful handling: unknown starting location returns null startLocation without substituting unrelated city', async () => {
+    const res = await fetch(`${BASE_URL}/api/map/trip-map`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        itinerary: generatedPlanData.itinerary,
+        destinationId: 'hampi',
+        startingCity: 'AtlantisNonExistent'
+      })
+    });
+    const data = await res.json();
+    assert.strictEqual(res.status, 200);
+    assert.strictEqual(data.startLocation, null, 'startLocation should be null for unknown location');
   });
 
   console.log(`\n========================================`);

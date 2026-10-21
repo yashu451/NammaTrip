@@ -92,7 +92,7 @@ export default function TripMap({
 
   useEffect(() => {
     fetchMapData();
-  }, [itinerary, destinationId]);
+  }, [itinerary, destinationId, startingCity]);
 
   // Initialize Leaflet Map
   useEffect(() => {
@@ -158,6 +158,44 @@ export default function TripMap({
       if (selectedDayFilter === 'all') return true;
       return stop.day === Number(selectedDayFilter);
     });
+
+    // 0. Add Origin / Starting Location Marker if present
+    if (mapData.startLocation && mapData.startLocation.hasCoordinates && (selectedDayFilter === 'all' || selectedDayFilter === 1)) {
+      const start = mapData.startLocation;
+      const startIcon = L.divIcon({
+        className: 'nt-custom-marker-wrapper',
+        html: `
+          <div class="nt-marker-pin nt-marker-origin" id="marker-${start.id}" title="${start.name}">
+            <span>🚩</span>
+          </div>
+        `,
+        iconSize: [34, 34],
+        iconAnchor: [17, 17],
+        popupAnchor: [0, -18]
+      });
+
+      const startMarker = L.marker([start.lat, start.lng], {
+        icon: startIcon,
+        zIndexOffset: 600
+      });
+
+      const startTitleDisplay = language === 'kn' ? (start.nameKn || start.name) : start.name;
+      const startRegionDisplay = language === 'kn' ? (start.regionKn || start.districtKn) : `${start.district}, Karnataka`;
+
+      const startPopupHtml = `
+        <div class="nt-popup-box">
+          <div class="nt-popup-slot" style="background-color: #B45309; color: #FFFFFF; font-weight: 700;">
+            🚩 ${language === 'kn' ? 'ಪ್ರಾರಂಭಿಸುವ ತಾಣ' : 'Trip Starting Point'}
+          </div>
+          <div class="nt-popup-title">${startTitleDisplay}</div>
+          <div class="nt-popup-time" style="margin-top: 6px;">📍 ${startRegionDisplay}</div>
+        </div>
+      `;
+
+      startMarker.bindPopup(startPopupHtml);
+      startMarker.addTo(map);
+      markersRef.current[start.id] = startMarker;
+    }
 
     // 1. Add Numbered Markers for visible stops
     visibleStops.forEach(stop => {

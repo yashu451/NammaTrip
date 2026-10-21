@@ -329,6 +329,7 @@ export async function generateItineraryPlan({
 
   // Check if GEMINI_API_KEY is configured
   const apiKey = process.env.GEMINI_API_KEY;
+  const budgetTier = stayTier;
 
   if (apiKey && apiKey.trim() !== '') {
     try {
@@ -340,6 +341,7 @@ You are the master travel planner for 'NammaTrip AI', the premier Karnataka heri
 Generate a structured, authentic ${durationDays}-day day-wise travel itinerary from ${startingCity} to ${destInfo.name} (${destInfo.nameKn}), Karnataka.
 
 Key Constraints:
+- Starting location: ${startingCity}, Karnataka
 - Number of travelers: ${travelers}
 - Budget per person: ₹${budgetPerPerson} (${budgetTier} tier)
 - Transport mode: ${transportMode}
