@@ -61,17 +61,23 @@ export default function DestinationCard({
           right: '12px',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          gap: '8px'
         }}>
-          {isUnesco ? (
-            <span className="badge badge-unesco">
-              ★ UNESCO Site
-            </span>
-          ) : (
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
+            {isUnesco ? (
+              <span className="badge badge-unesco">
+                ★ UNESCO Site
+              </span>
+            ) : destination.popular ? (
+              <span className="badge badge-gold" style={{ backgroundColor: '#D97706', color: '#FFFFFF', fontWeight: 600 }}>
+                ★ Popular
+              </span>
+            ) : null}
             <span className="badge badge-green">
               {destination.category?.[0] || 'Heritage'}
             </span>
-          )}
+          </div>
 
           {/* Favorite Toggle Button */}
           {onToggleFavorite && (
@@ -114,14 +120,24 @@ export default function DestinationCard({
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '4px',
+            gap: '6px',
             fontSize: '0.78rem',
             color: '#FDE68A',
             fontWeight: 600,
-            marginBottom: '2px'
+            marginBottom: '3px',
+            flexWrap: 'wrap'
           }}>
-            <MapPin size={13} />
-            <span>{language === 'kn' ? destination.regionKn : destination.region}</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
+              <MapPin size={13} />
+              {language === 'kn'
+                ? (destination.districtKn ? `${destination.districtKn} ಜಿಲ್ಲೆ` : destination.regionKn)
+                : (destination.district ? `${destination.district} Dist.` : destination.region)}
+            </span>
+            {destination.nearestCity && (
+              <span style={{ opacity: 0.9, fontSize: '0.74rem' }}>
+                • {language === 'kn' ? destination.nearestCityKn : destination.nearestCity}
+              </span>
+            )}
           </div>
           <div style={{
             display: 'flex',

@@ -1,4 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { findStartingLocation, estimateKarnatakaRoadDistanceKm } from '../../shared/karnatakaLocations.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Approximate one-way road distances in km from Karnataka hubs
 const DISTANCES_KM = {
@@ -74,6 +80,21 @@ const DESTINATION_COORDS = {
   udupi: { lat: 13.3409, lng: 74.7421 },
   chikmagalur: { lat: 13.3161, lng: 75.7720 }
 };
+
+// Dynamically augment with coordinates from all destinations in registry
+try {
+  const destPath = path.resolve(__dirname, '../data/destinations.json');
+  if (fs.existsSync(destPath)) {
+    const allDests = JSON.parse(fs.readFileSync(destPath, 'utf8'));
+    for (const d of allDests) {
+      if (d.id && d.coordinates && d.coordinates.lat && d.coordinates.lng) {
+        DESTINATION_COORDS[d.id] = { lat: d.coordinates.lat, lng: d.coordinates.lng };
+      }
+    }
+  }
+} catch (e) {
+  console.warn('Could not load destinations.json in budgetEngine:', e.message);
+}
 
 const DEFAULT_DISTANCE = 300;
 

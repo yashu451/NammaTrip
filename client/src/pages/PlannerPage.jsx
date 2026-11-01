@@ -58,21 +58,41 @@ export default function PlannerPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccessMessage, setSaveSuccessMessage] = useState(null);
 
+  // Loaded Destinations List
+  const [destinationList, setDestinationList] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/destinations')
+      .then(res => res.json())
+      .then(data => {
+        if (data.destinations && Array.isArray(data.destinations)) {
+          setDestinationList(data.destinations);
+        }
+      })
+      .catch(err => console.error('Failed to load planner destinations:', err));
+  }, []);
+
   // Available Karnataka Destinations
-  const destinationOptions = [
-    { id: 'hampi', name: 'Hampi (ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯ)', unesco: true },
-    { id: 'mysuru', name: 'Mysuru (ಅರಮನೆಗಳ ನಗರಿ)' },
-    { id: 'coorg', name: 'Coorg / Kodagu (ಕಾಫಿ ತೋಟಗಳು & ಮಂಜಿನ ನಗರಿ)' },
-    { id: 'badami', name: 'Badami (ಕೆಂಪು ಮರಳುಗಲ್ಲಿನ ಗುಹಾಂತರ ದೇಗುಲಗಳು)' },
-    { id: 'gokarna', name: 'Gokarna (ಆತ್ಮಲಿಂಗ & ಓಂ ಬೀಚ್)' },
-    { id: 'chitradurga', name: 'Chitradurga (ಏಳು ಸುತ್ತಿನ ಕಲ್ಲಿನ ಕೋಟೆ)' },
-    { id: 'belur', name: 'Belur (ಚೆನ್ನಕೇಶವ ದೇಗುಲ & ಹೊಯ್ಸಳ ಕಲೆ)', unesco: true },
-    { id: 'halebidu', name: 'Halebidu (ಹೊಯ್ಸಳೇಶ್ವರ ದೇವಾಲಯ)', unesco: true },
-    { id: 'pattadakal', name: 'Pattadakal (ಚಾಲುಕ್ಯ ಪಟ್ಟಾಭಿಷೇಕ ಕ್ಷೇತ್ರ)', unesco: true },
-    { id: 'vijayapura', name: 'Vijayapura / Bijapur (ಗೋಲ್ ಗುಂಬಜ್)' },
-    { id: 'udupi', name: 'Udupi (ಶ್ರೀಕೃಷ್ಣ ಮಠ & ಕರಾವಳಿ ತಿನಿಸುಗಳು)' },
-    { id: 'chikmagalur', name: 'Chikmagalur (ಮುಳ್ಳಯ್ಯನಗಿರಿ & ಭಾರತದ ಕಾಫಿ)' }
-  ];
+  const destinationOptions = destinationList.length > 0
+    ? destinationList.map(d => ({
+        id: d.id,
+        name: `${d.name} (${d.nameKn || ''})${d.district ? ` — ${d.district}` : ''}`,
+        unesco: d.unesco || d.id === 'hampi' || d.id === 'pattadakal' || d.id === 'belur' || d.id === 'halebidu' || d.id === 'somnathapura'
+      }))
+    : [
+        { id: 'hampi', name: 'Hampi (ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯ)', unesco: true },
+        { id: 'mysuru', name: 'Mysuru (ಅರಮನೆಗಳ ನಗರಿ)' },
+        { id: 'coorg', name: 'Coorg / Kodagu (ಕಾಫಿ ತೋಟಗಳು & ಮಂಜಿನ ನಗರಿ)' },
+        { id: 'badami', name: 'Badami (ಕೆಂಪು ಮರಳುಗಲ್ಲಿನ ಗುಹಾಂತರ ದೇಗುಲಗಳು)' },
+        { id: 'gokarna', name: 'Gokarna (ಆತ್ಮಲಿಂಗ & ಓಂ ಬೀಚ್)' },
+        { id: 'chitradurga', name: 'Chitradurga (ಏಳು ಸುತ್ತಿನ ಕಲ್ಲಿನ ಕೋಟೆ)' },
+        { id: 'belur', name: 'Belur (ಚೆನ್ನಕೇಶವ ದೇಗುಲ & ಹೊಯ್ಸಳ ಕಲೆ)', unesco: true },
+        { id: 'halebidu', name: 'Halebidu (ಹೊಯ್ಸಳೇಶ್ವರ ದೇವಾಲಯ)', unesco: true },
+        { id: 'pattadakal', name: 'Pattadakal (ಚಾಲುಕ್ಯ ಪಟ್ಟಾಭಿಷೇಕ ಕ್ಷೇತ್ರ)', unesco: true },
+        { id: 'vijayapura', name: 'Vijayapura / Bijapur (ಗೋಲ್ ಗುಂಬಜ್)' },
+        { id: 'udupi', name: 'Udupi (ಶ್ರೀಕೃಷ್ಣ ಮಠ & ಕರಾವಳಿ ತಿನಿಸುಗಳು)' },
+        { id: 'chikmagalur', name: 'Chikmagalur (ಮುಳ್ಳಯ್ಯನಗಿರಿ & ಭಾರತದ ಕಾಫಿ)' }
+      ];
 
   const availableInterests = [
     { key: 'Heritage', label: 'Heritage & UNESCO (ಇತಿಹಾಸ)' },

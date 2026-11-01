@@ -11,7 +11,9 @@ import {
   Award,
   Utensils,
   Palette,
-  ExternalLink
+  ExternalLink,
+  Info,
+  Compass
 } from 'lucide-react';
 import { HeritageDivider } from './HeritageMotifs.jsx';
 
@@ -83,15 +85,30 @@ export default function DestinationModal({ destination, onClose }) {
             left: '24px',
             right: '24px'
           }}>
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
               {isUnesco && (
                 <span className="badge badge-unesco">
                   ★ UNESCO World Heritage Site
                 </span>
               )}
+              {destination.popular && (
+                <span className="badge badge-gold" style={{ backgroundColor: '#D97706', color: '#FFF' }}>
+                  ★ Popular
+                </span>
+              )}
+              {destination.district && (
+                <span className="badge badge-green">
+                  {language === 'kn' ? `${destination.districtKn || destination.district} ಜಿಲ್ಲೆ` : `${destination.district} District`}
+                </span>
+              )}
               <span className="badge badge-gold">
                 {language === 'kn' ? destination.regionKn : destination.region}
               </span>
+              {destination.nearestCity && (
+                <span style={{ fontSize: '0.78rem', color: '#FEF3C7', backgroundColor: 'rgba(0,0,0,0.3)', padding: '3px 8px', borderRadius: '12px' }}>
+                  📍 {language === 'kn' ? `ಸಮೀಪ: ${destination.nearestCityKn || destination.nearestCity}` : `Near: ${destination.nearestCity}`}
+                </span>
+              )}
             </div>
 
             <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '10px' }}>
@@ -168,7 +185,42 @@ export default function DestinationModal({ destination, onClose }) {
                 </div>
               </div>
             </div>
+
+            {destination.coordinates && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <Compass size={20} color="#2D6A4F" />
+                <div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('coordinatesLabel')}</div>
+                  <div style={{ fontWeight: 600, color: 'var(--primary-900)', fontSize: '0.85rem' }}>
+                    {destination.coordinates.lat?.toFixed(4)}° N, {destination.coordinates.lng?.toFixed(4)}° E
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* Important Visitor Information */}
+          {(destination.visitorInfo || destination.visitorInfoKn) && (
+            <div style={{
+              padding: '14px 18px',
+              borderRadius: '10px',
+              backgroundColor: '#FEF3C7',
+              border: '1px solid #FCD34D',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '12px'
+            }}>
+              <Info size={20} color="#B45309" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <div>
+                <h4 style={{ margin: '0 0 4px', fontSize: '0.92rem', color: '#92400E', fontWeight: 700 }}>
+                  {t('visitorInfoTitle')}
+                </h4>
+                <p style={{ margin: 0, fontSize: '0.88rem', color: '#78350F', lineHeight: 1.55 }}>
+                  {language === 'kn' ? (destination.visitorInfoKn || destination.visitorInfo) : destination.visitorInfo}
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Heritage Story Section */}
           <div>

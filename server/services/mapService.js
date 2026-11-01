@@ -23,6 +23,29 @@ export const VERIFIED_DESTINATION_COORDINATES = {
   bengaluru: { lat: 12.9716, lng: 77.5946, name: 'Bengaluru', nameKn: 'ಬೆಂಗಳೂರು' }
 };
 
+// Dynamically augment with verified coordinates from all destinations in registry
+try {
+  const destPath = path.resolve(__dirname, '../data/destinations.json');
+  if (fs.existsSync(destPath)) {
+    const allDests = JSON.parse(fs.readFileSync(destPath, 'utf8'));
+    for (const d of allDests) {
+      if (d.id && d.coordinates && d.coordinates.lat && d.coordinates.lng) {
+        const coordObj = {
+          lat: d.coordinates.lat,
+          lng: d.coordinates.lng,
+          name: d.name,
+          nameKn: d.nameKn
+        };
+        VERIFIED_DESTINATION_COORDINATES[d.id] = coordObj;
+        VERIFIED_DESTINATION_COORDINATES[cleanQuery(d.id)] = coordObj;
+        if (d.name) VERIFIED_DESTINATION_COORDINATES[cleanQuery(d.name)] = coordObj;
+      }
+    }
+  }
+} catch (e) {
+  console.warn('Could not load destinations.json in mapService:', e.message);
+}
+
 // Comprehensive verified coordinates catalog for attractions, heritage sites & local spots
 export const VERIFIED_ATTRACTIONS = [
   // Hampi
@@ -482,10 +505,23 @@ export async function resolvePlaceCoordinates({ title, location, spot, destinati
 
   // 2. Check destination default coordinates if query directly matches destination
   const destKey = cleanQuery(destinationId || '');
-  if (destKey && VERIFIED_DESTINATION_COORDINATES[destKey]) {
-    // If the title or location specifically names the main destination town
-    if (primaryQuery.includes(destKey) || primaryQuery.includes('heritage circuit') || primaryQuery.includes('local bazaar')) {
-      const dest = VERIFIED_DESTINATION_COORDINATES[destKey];
+  const dest = (destinationId && (
+    VERIFIED_DESTINATION_COORDINATES[destinationId] ||
+    VERIFIED_DESTINATION_COORDINATES[destKey] ||
+    VERIFIED_DESTINATION_COORDINATES[(destinationId || '').replace(/-/g, '_')] ||
+    VERIFIED_DESTINATION_COORDINATES[(destinationId || '').replace(/_/g, '-')]
+  ));
+
+  if (dest) {
+    const destNameClean = cleanQuery(dest.name);
+    // If the title or location specifically names the main destination town or landmarks
+    if (primaryQuery.includes(destKey) ||
+        (destNameClean && primaryQuery.includes(destNameClean)) ||
+        primaryQuery.includes('heritage circuit') ||
+        primaryQuery.includes('local bazaar') ||
+        primaryQuery.includes('viewpoint') ||
+        primaryQuery.includes('falls') ||
+        primaryQuery.includes('sanctuary')) {
       return {
         lat: dest.lat,
         lng: dest.lng,
@@ -544,8 +580,7 @@ export async function resolvePlaceCoordinates({ title, location, spot, destinati
   }
 
   // If still not resolved, check if destination alone can serve as fallback with flag
-  if (destKey && VERIFIED_DESTINATION_COORDINATES[destKey]) {
-    const dest = VERIFIED_DESTINATION_COORDINATES[destKey];
+  if (dest) {
     const fallbackResult = {
       lat: dest.lat,
       lng: dest.lng,

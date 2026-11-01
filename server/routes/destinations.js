@@ -18,7 +18,7 @@ try {
 
 // GET /api/destinations
 router.get('/', (req, res) => {
-  const { category, region, q } = req.query;
+  const { category, region, district, popular, featured, q } = req.query;
   let results = [...destinations];
 
   if (category && category !== 'All') {
@@ -28,10 +28,28 @@ router.get('/', (req, res) => {
   }
 
   if (region && region !== 'All') {
+    const regLower = region.toLowerCase();
     results = results.filter(d =>
-      d.region.toLowerCase().includes(region.toLowerCase()) ||
-      (d.regionKn && d.regionKn.toLowerCase().includes(region.toLowerCase()))
+      d.region.toLowerCase().includes(regLower) ||
+      (d.regionKn && d.regionKn.toLowerCase().includes(regLower))
     );
+  }
+
+  if (district && district !== 'All') {
+    const distLower = district.toLowerCase();
+    results = results.filter(d =>
+      (d.district && d.district.toLowerCase() === distLower) ||
+      (d.districtKn && d.districtKn.toLowerCase() === distLower) ||
+      d.region.toLowerCase().includes(distLower)
+    );
+  }
+
+  if (popular === 'true') {
+    results = results.filter(d => d.popular === true);
+  }
+
+  if (featured === 'true') {
+    results = results.filter(d => d.featured === true || d.unesco === true);
   }
 
   if (q && q.trim()) {
@@ -39,10 +57,14 @@ router.get('/', (req, res) => {
     results = results.filter(d =>
       d.name.toLowerCase().includes(query) ||
       d.nameKn.toLowerCase().includes(query) ||
+      (d.district && d.district.toLowerCase().includes(query)) ||
+      (d.districtKn && d.districtKn.toLowerCase().includes(query)) ||
+      (d.nearestCity && d.nearestCity.toLowerCase().includes(query)) ||
       d.description.toLowerCase().includes(query) ||
       d.descriptionKn.toLowerCase().includes(query) ||
       d.tagline.toLowerCase().includes(query) ||
-      d.significance.toLowerCase().includes(query)
+      d.significance.toLowerCase().includes(query) ||
+      d.category.some(c => c.toLowerCase().includes(query))
     );
   }
 
