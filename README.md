@@ -146,15 +146,23 @@ npm test
 
 NammaTrip AI is structured for single-command production deployment on modern cloud platforms (Render, Railway, Fly.io, or VPS).
 
-### Deploying to Render / Railway
-1. **Repository**: Connect your GitHub repository.
-2. **Build Command**: `npm install && npm run build`
-3. **Start Command**: `npm start`
-4. **Environment Variables**:
+### Deploying to Render Free
+
+1. **Repository**: Connect your GitHub repository on [Render](https://render.com).
+2. **Service Type**: Web Service (Free tier).
+3. **Build Command**: `npm install && npm run build`
+4. **Start Command**: `npm start`
+5. **Environment Variables**:
+   - `NODE_VERSION`: `22` (Required for built-in `node:sqlite`; auto-detected via `.node-version`).
    - `NODE_ENV`: `production`
-   - `JWT_SECRET`: (Set a cryptographically secure 64-char string)
-   - `PORT`: `5000` (or provided dynamically by host)
-   - `GEMINI_API_KEY`: (Optional)
+   - `JWT_SECRET`: (Set a cryptographically secure 64-character secret)
+   - `DATABASE_PATH`: Leave empty to use `./data/nammatrip.db`, or set to `/tmp/nammatrip.db`.
+   - `GEMINI_API_KEY`: (Optional) If omitted, built-in Curated Karnataka Heritage Engine runs automatically.
+
+> [!NOTE] **SQLite on Render Free Tier (Ephemeral Storage)**
+> On Render's Free tier, the web service spins down after 15 minutes of inactivity and the filesystem is ephemeral. The SQLite database file and all tables (`users`, `user_profiles`, `password_resets`, `trips`, `favorites`) are automatically created on container startup. Because disk storage resets on free container restarts, user accounts and saved trips will not persist across service restarts. All 76 curated Karnataka destinations, itineraries, maps, and exploration features remain 100% available at all times.
+>
+> For permanent persistent data storage on Render, upgrade to a paid instance (Starter plan) with a **Render Persistent Disk** mounted at `/var/data` and configure `DATABASE_PATH=/var/data/nammatrip.db`.
 
 ---
 
