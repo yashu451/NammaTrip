@@ -171,8 +171,14 @@ export function createDatabaseConnection(customPath) {
     database = new DatabaseSync(dbPath);
   } catch (err) {
     console.warn(`[SQLite] Failed to open database at "${dbPath}": ${err.message}. Retrying at system temp directory.`);
-    dbPath = path.join(os.tmpdir(), 'nammatrip.db');
-    database = new DatabaseSync(dbPath);
+    try {
+      dbPath = path.join(os.tmpdir(), 'nammatrip.db');
+      database = new DatabaseSync(dbPath);
+    } catch (tmpErr) {
+      console.warn(`[SQLite] System temp directory also failed: ${tmpErr.message}. Falling back to in-memory database.`);
+      dbPath = ':memory:';
+      database = new DatabaseSync(dbPath);
+    }
   }
 
   initializeSchema(database);

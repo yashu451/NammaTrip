@@ -242,6 +242,105 @@ async function runRenderSqliteTests() {
     assert(hampi && hampi.coordinates && hampi.coordinates.lat && hampi.coordinates.lng);
   });
 
+  // 7. Full CRUD Operations on Users, Profiles, Trips, and Favorites
+  await test('Full CRUD operations on users, profiles, trips, and favorites work reliably', async () => {
+    const tempDbPath = path.join(os.tmpdir(), `nammatrip_crud_test_${Date.now()}.db`);
+    const { db } = createDatabaseConnection(tempDbPath);
+
+    try {
+      // 1. User & Profile Creation
+      const insertUser = db.prepare('INSERT INTO users (name, email, password_hash, language_pref) VALUES (?, ?, ?, ?)');
+      const userRes = insertUser.run('Ananya Rao', 'ananya@nammatrip.test', 'hashed_pass_123', 'kn');
+      const userId = Number(userRes.lastInsertRowid);
+
+      db.prepare(`
+        INSERT INTO user_profiles (user_id, phone, home_city, travel_style, dietary_pref, interests)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `).run(userId, '+91 9876543210', 'Mysuru', 'luxury', 'veg', JSON.stringify(['Heritage', 'Temples']));
+
+      // 2. Profile Update
+      db.prepare(`
+        UPDATE user_profiles
+        SET phone = ?, travel_style = ?, dietary_pref = ?
+        WHERE user_id = ?
+      `).run('+91 9123456789', 'moderate', 'all', userId);
+
+      const profile = db.prepare('SELECT * FROM user_profiles WHERE user_id = ?').get(userId);
+      assert.strictEqual(profile.phone, '+91 9123456789');
+      assert.strictEqual(profile.travel_style, 'moderate');
+      assert.strictEqual(profile.dietary_pref, 'all');
+
+      // 3. Trip Creation & Retrieval
+      const tripInsert = db.prepare(`
+        INSERT INTO trips (user_id, title, destination, starting_city, duration_days, travelers_count, budget_per_person, total_budget, estimated_total_cost, feasibility_status, preferences_json, transport_mode, itinerary_json, budget_breakdown_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `).run(
+        userId,
+        'Badami & Pattadakal Heritage Tour',
+        'badami',
+        'Hubballi',
+        3,
+        2,
+        6000,
+        12000,
+        10500,
+        'Comfortably Feasible',
+        JSON.stringify({ stay: 'moderate' }),
+        'car',
+        JSON.stringify([{ day: 1, stop: 'Badami Cave 1' }]),
+        JSON.stringify({ transport: 4000, stay: 4500, food: 2000 })
+      );
+      const tripId = Number(tripInsert.lastInsertRowid);
+
+      const trip = db.prepare('SELECT * FROM trips WHERE id = ?').get(tripId);
+      assert.strictEqual(trip.title, 'Badami & Pattadakal Heritage Tour');
+      assert.strictEqual(trip.starting_city, 'Hubballi');
+      assert.strictEqual(trip.travelers_count, 2);
+      const parsedItinerary = JSON.parse(trip.itinerary_json);
+      assert.strictEqual(parsedItinerary[0].stop, 'Badami Cave 1');
+
+      // 4. Favorites Toggle
+      db.prepare('INSERT INTO favorites (user_id, destination_id) VALUES (?, ?)').run(userId, 'gokarna');
+      db.prepare('INSERT INTO favorites (user_id, destination_id) VALUES (?, ?)').run(userId, 'belur');
+      
+      const favList = db.prepare('SELECT destination_id FROM favorites WHERE user_id = ? ORDER BY destination_id ASC').all(userId);
+      assert.strictEqual(favList.length, 2);
+      assert.strictEqual(favList[0].destination_id, 'belur');
+      assert.strictEqual(favList[1].destination_id, 'gokarna');
+
+      // Delete one favorite
+      db.prepare('DELETE FROM favorites WHERE user_id = ? AND destination_id = ?').run(userId, 'gokarna');
+      const favListAfter = db.prepare('SELECT destination_id FROM favorites WHERE user_id = ?').all(userId);
+      assert.strictEqual(favListAfter.length, 1);
+      assert.strictEqual(favListAfter[0].destination_id, 'belur');
+
+      // 5. Password Reset Token Flow
+      const token = 'test_token_' + Date.now();
+      const expiresAt = Date.now() + 3600000;
+      db.prepare('INSERT INTO password_resets (user_id, token, expires_at) VALUES (?, ?, ?)').run(userId, token, expiresAt);
+
+      const resetRecord = db.prepare('SELECT * FROM password_resets WHERE token = ? AND used = 0 AND expires_at > ?').get(token, Date.now());
+      assert(resetRecord, 'Reset record must be valid and unused');
+      assert.strictEqual(resetRecord.user_id, userId);
+
+      db.prepare('UPDATE password_resets SET used = 1 WHERE id = ?').run(resetRecord.id);
+      const usedRecord = db.prepare('SELECT * FROM password_resets WHERE token = ? AND used = 0').get(token);
+      assert.strictEqual(usedRecord, undefined, 'Used reset token must not be active');
+
+      // 6. Delete user and verify cascade
+      db.prepare('DELETE FROM users WHERE id = ?').run(userId);
+      assert.strictEqual(db.prepare('SELECT COUNT(*) as count FROM user_profiles WHERE user_id = ?').get(userId).count, 0, 'Cascade delete user_profiles');
+      assert.strictEqual(db.prepare('SELECT COUNT(*) as count FROM trips WHERE user_id = ?').get(userId).count, 0, 'Cascade delete trips');
+      assert.strictEqual(db.prepare('SELECT COUNT(*) as count FROM favorites WHERE user_id = ?').get(userId).count, 0, 'Cascade delete favorites');
+      assert.strictEqual(db.prepare('SELECT COUNT(*) as count FROM password_resets WHERE user_id = ?').get(userId).count, 0, 'Cascade delete password_resets');
+    } finally {
+      db.close();
+      try { fs.unlinkSync(tempDbPath); } catch {}
+      try { fs.unlinkSync(`${tempDbPath}-wal`); } catch {}
+      try { fs.unlinkSync(`${tempDbPath}-shm`); } catch {}
+    }
+  });
+
   console.log('\n========================================');
   console.log(`Render Free SQLite Test Results: ${passed} Passed, ${failed} Failed`);
   console.log('========================================\n');
